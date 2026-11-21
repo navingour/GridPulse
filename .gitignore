@@ -1,0 +1,23 @@
+# Local agent & planning files (pre-11am)
+.agents/
+GEMINI.md
+SPRINT_STATE.md
+
+# Secrets & environment files
+.env
+.env.*
+*.pem
+*.key
+*AccountKey.json
+
+# Dependencies & build artifacts
+node_modules/
+.next/
+out/
+dist/
+build/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
