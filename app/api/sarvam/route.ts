@@ -21,6 +21,12 @@ export async function POST(req: Request) {
 *Authorized By:* GridPulse AI Supply Copilot (Sarvam-105b)`;
       }
 
+      if (context?.type === "recommendations_batch") {
+        return `**Sarvam-105b Six Sigma Action Directives (Kanpur Division)**:
+- **Corridor Rebalance**: Prioritize short-haul transfer from Kanpur Nagar to Kanpur Dehat (45 km, ₹3,360 freight) to unfreeze stranded sets within 1.2 hours.
+- **Lead-Time Savings**: Bypasses 90–150 day factory vendor queues for G.I. Bolts and PCC Poles.
+- **Economic Value**: Net road freight ₹48/km represents < 2% of emergency purchase expediting costs.`;
+      }
       if (context?.type === "six_sigma") {
         return `**Sarvam AI Six Sigma (DMAIC & SPC) Assessment**:
 - **DPMO Shift**: Historical district operations exhibited ~34,564 DPMO (~3.3σ) driven primarily by Idle Yard Waste (>2x lead-time demand) and stranded parent sets. GridPulse Six Sigma causal planning cuts defects to ~22,333 DPMO (~3.5σ) while slashing aggregate inventory by 87%.

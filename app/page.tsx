@@ -36,7 +36,13 @@ import {
   Search,
   ShoppingCart,
   PlusCircle,
-  Trash2
+  Trash2,
+  ArrowRight,
+  ChevronLeft,
+  RotateCw,
+  Edit3,
+  XCircle,
+  CheckCircle
 } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -48,6 +54,13 @@ import {
   ReferenceLine
 } from "recharts";
 import { formatNumber } from "@/lib/utils";
+import {
+  computeKanpurRoute,
+  generateInterGodownTransfers,
+  InterGodownRecommendation,
+  KANPUR_DISTANCES_KM,
+  FREIGHT_LABEL
+} from "@/lib/kanpurLogistics";
 
 // Static JSON imports
 import summaryData from "@/public/data/summary.json";
@@ -98,7 +111,7 @@ interface CustomSite {
 export default function GridPulseDashboard() {
   // Department Views
   const [activeDept, setActiveDept] = useState<
-    "wallboard" | "procurement" | "godowns" | "contractors"
+    "wallboard" | "procurement" | "godowns" | "contractors" | "workbench"
   >("wallboard");
 
   // Selected month (default June 2024 peak bottleneck)
@@ -333,6 +346,296 @@ export default function GridPulseDashboard() {
   const currentLedger = useMemo(() => {
     return ledgerMonthlyData.find((l) => l.month === selectedMonth) || ledgerMonthlyData[0];
   }, [selectedMonth]);
+
+  // -------------------------------------------------------------
+  // AI ACTION WORKBENCH & 6-HOUR CACHED CYCLE STATE
+  // -------------------------------------------------------------
+  const [aiRecs, setAiRecs] = useState<InterGodownRecommendation[]>([]);
+  const [aiRecsLastRun, setAiRecsLastRun] = useState<number>(Date.now());
+  const [isRefreshingAi, setIsRefreshingAi] = useState<boolean>(false);
+  const [activeRecIndex, setActiveRecIndex] = useState<number>(0);
+  const [autoScrollPaused, setAutoScrollPaused] = useState<boolean>(false);
+  const [modifyingRecId, setModifyingRecId] = useState<string | null>(null);
+  const [modifyQty, setModifyQty] = useState<number>(1);
+  const [modifyDonor, setModifyDonor] = useState<string>("KANPUR NAGAR");
+  const [modifyNote, setModifyNote] = useState<string>("");
+  const [rejectingRecId, setRejectingRecId] = useState<string | null>(null);
+  const [rejectionReason, setRejectionReason] = useState<string>("Road blocked / Vehicle unavailable");
+  const [workbenchFilter, setWorkbenchFilter] = useState<"ALL" | "PENDING" | "ACCEPTED" | "REJECTED">("ALL");
+
+  // Format 6-hour remaining time string
+  const formatTimeRemaining = (lastRun: number) => {
+    const ttl = 21600000;
+    const elapsed = Date.now() - lastRun;
+    const remaining = Math.max(0, ttl - elapsed);
+    const h = Math.floor(remaining / 3600000);
+    const m = Math.floor((remaining % 3600000) / 60000);
+    return `${h}h ${m}m`;
+  };
+
+  // Cache helper
+  const updateAiRecsCache = (recs: InterGodownRecommendation[], timestamp?: number) => {
+    const ts = timestamp || aiRecsLastRun;
+    try {
+      const cacheObj = {
+        timestamp: ts,
+        month: selectedMonth,
+        recommendations: recs,
+      };
+      localStorage.setItem(`gridpulse_ai_recs_cache_${selectedMonth}`, JSON.stringify(cacheObj));
+    } catch (e) {
+      console.warn("Failed caching AI recs", e);
+    }
+  };
+
+  // Hydrate AI recommendations from 6-hour cache or generate fresh
+  useEffect(() => {
+    try {
+      const cacheKey = `gridpulse_ai_recs_cache_${selectedMonth}`;
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        const ttl = 21600000;
+        if (Date.now() - parsed.timestamp < ttl && parsed.recommendations?.length > 0) {
+          setAiRecs(parsed.recommendations);
+          setAiRecsLastRun(parsed.timestamp);
+          setActiveRecIndex(0);
+          return;
+        }
+      }
+    } catch (e) {
+      console.warn("Failed reading AI recs cache", e);
+    }
+
+    const freshRecs = generateInterGodownTransfers(
+      currentLedger,
+      currentSetData,
+      summaryData.items,
+      selectedMonth
+    );
+    setAiRecs(freshRecs);
+    const now = Date.now();
+    setAiRecsLastRun(now);
+    setActiveRecIndex(0);
+    updateAiRecsCache(freshRecs, now);
+  }, [selectedMonth, currentLedger, currentSetData]);
+
+  // Auto-cycle top recommendation banner every 5s unless hovered
+  useEffect(() => {
+    if (aiRecs.length <= 1 || autoScrollPaused) return;
+    const interval = setInterval(() => {
+      setActiveRecIndex((prev) => (prev + 1) % aiRecs.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [aiRecs.length, autoScrollPaused]);
+
+  // Manual 1-click refresh ("↻ Run AI Now")
+  const handleRefreshAiNow = async () => {
+    setIsRefreshingAi(true);
+    try {
+      const res = await fetch("/api/sarvam", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          prompt: "Analyze current Kanpur division road logistics and recommend inter-godown rebalancing",
+          context: {
+            type: "recommendations_batch",
+            month: selectedMonth,
+          },
+        }),
+      });
+      const data = await res.json();
+      const freshRecs = generateInterGodownTransfers(
+        currentLedger,
+        currentSetData,
+        summaryData.items,
+        selectedMonth
+      ).map((r, i) => (i === 0 && data?.response ? { ...r, sarvam_reasoning: data.response } : r));
+
+      setAiRecs(freshRecs);
+      const now = Date.now();
+      setAiRecsLastRun(now);
+      setActiveRecIndex(0);
+      updateAiRecsCache(freshRecs, now);
+
+      setOrderToast({
+        message: "Sarvam-105b Six Sigma Directives Refreshed (6h Token Cache Reset)",
+        po: "AI CYCLE ACTIVE",
+        eta: "Corridors: NH-19 / NH-34 Kanpur Division",
+      });
+      setTimeout(() => setOrderToast(null), 5000);
+    } catch (e) {
+      console.error("Refresh AI failed", e);
+    } finally {
+      setIsRefreshingAi(false);
+    }
+  };
+
+  // Accept As-Is
+  const handleAcceptRec = (rec: InterGodownRecommendation) => {
+    const qty = rec.suggested_qty;
+    const trId = `TR-LUM-2026-${Math.floor(100 + Math.random() * 900)}`;
+    const todayStr = new Date().toISOString().split("T")[0];
+
+    const outTx: LiveOrder = {
+      id: `tx-out-${Date.now()}`,
+      po_number: trId,
+      date: todayStr,
+      godown: rec.from_godown,
+      item_code: rec.item_code,
+      item_name: rec.item_name,
+      unit: rec.unit,
+      qty: qty,
+      lead_time_days: 1,
+      expected_delivery_date: todayStr,
+      urgency: "TRANSFER_OUT (Inter-District Rebalance)",
+      status: "DISPATCHED",
+    };
+
+    const inTx: LiveOrder = {
+      id: `tx-in-${Date.now()}`,
+      po_number: trId,
+      date: todayStr,
+      godown: rec.to_godown,
+      item_code: rec.item_code,
+      item_name: rec.item_name,
+      unit: rec.unit,
+      qty: qty,
+      lead_time_days: 1,
+      expected_delivery_date: todayStr,
+      urgency: "TRANSFER_IN (Inter-District Rebalance)",
+      status: "IN_TRANSIT",
+    };
+
+    const nextLive = [outTx, inTx, ...liveOrders];
+    setLiveOrders(nextLive);
+    localStorage.setItem("gridpulse_live_txs", JSON.stringify(nextLive));
+
+    const nextRecs = aiRecs.map((r) =>
+      r.id === rec.id
+        ? {
+            ...r,
+            status: "ACCEPTED" as const,
+            action_timestamp: new Date().toLocaleTimeString(),
+          }
+        : r
+    );
+    setAiRecs(nextRecs);
+    updateAiRecsCache(nextRecs);
+
+    setOrderToast({
+      message: `Inter-Godown Transfer ${trId} Accepted! ${qty} ${rec.unit} dispatched from ${rec.from_godown} to ${rec.to_godown}`,
+      po: trId,
+      eta: `${rec.transit_hours} hrs road transit (₹${rec.freight_inr})`,
+    });
+    setTimeout(() => setOrderToast(null), 6000);
+  };
+
+  // Confirm Modify & Accept
+  const handleConfirmModify = (rec: InterGodownRecommendation) => {
+    const qty = modifyQty > 0 ? modifyQty : rec.suggested_qty;
+    const donor = modifyDonor || rec.from_godown;
+    const route = computeKanpurRoute(donor, rec.to_godown);
+    const trId = `TR-LUM-2026-${Math.floor(100 + Math.random() * 900)}`;
+    const todayStr = new Date().toISOString().split("T")[0];
+
+    const outTx: LiveOrder = {
+      id: `tx-out-${Date.now()}`,
+      po_number: trId,
+      date: todayStr,
+      godown: donor,
+      item_code: rec.item_code,
+      item_name: rec.item_name,
+      unit: rec.unit,
+      qty: qty,
+      lead_time_days: 1,
+      expected_delivery_date: todayStr,
+      urgency: `TRANSFER_OUT (Modified: ${modifyNote || "Custom Terms"})`,
+      status: "DISPATCHED",
+    };
+
+    const inTx: LiveOrder = {
+      id: `tx-in-${Date.now()}`,
+      po_number: trId,
+      date: todayStr,
+      godown: rec.to_godown,
+      item_code: rec.item_code,
+      item_name: rec.item_name,
+      unit: rec.unit,
+      qty: qty,
+      lead_time_days: 1,
+      expected_delivery_date: todayStr,
+      urgency: `TRANSFER_IN (Modified: ${modifyNote || "Custom Terms"})`,
+      status: "IN_TRANSIT",
+    };
+
+    const nextLive = [outTx, inTx, ...liveOrders];
+    setLiveOrders(nextLive);
+    localStorage.setItem("gridpulse_live_txs", JSON.stringify(nextLive));
+
+    const nextRecs = aiRecs.map((r) =>
+      r.id === rec.id
+        ? {
+            ...r,
+            from_godown: donor,
+            suggested_qty: qty,
+            modified_qty: qty,
+            distance_km: route.distance_km,
+            transit_hours: route.transit_hours,
+            freight_inr: route.freight_inr,
+            user_note: modifyNote,
+            status: "MODIFIED & ACCEPTED" as const,
+            action_timestamp: new Date().toLocaleTimeString(),
+          }
+        : r
+    );
+    setAiRecs(nextRecs);
+    updateAiRecsCache(nextRecs);
+    setModifyingRecId(null);
+
+    setOrderToast({
+      message: `Modified Transfer ${trId} Confirmed: ${qty} ${rec.unit} from ${donor} to ${rec.to_godown}`,
+      po: trId,
+      eta: `${route.transit_hours} hrs road transit (₹${route.freight_inr})`,
+    });
+    setTimeout(() => setOrderToast(null), 6000);
+  };
+
+  // Confirm Reject
+  const handleConfirmReject = (rec: InterGodownRecommendation) => {
+    const nextRecs = aiRecs.map((r) =>
+      r.id === rec.id
+        ? {
+            ...r,
+            status: "REJECTED" as const,
+            rejection_reason: rejectionReason,
+            action_timestamp: new Date().toLocaleTimeString(),
+          }
+        : r
+    );
+    setAiRecs(nextRecs);
+    updateAiRecsCache(nextRecs);
+    setRejectingRecId(null);
+
+    setOrderToast({
+      message: `Transfer Recommendation Rejected: "${rejectionReason}" logged in audit trail`,
+      po: "ACTION LOGGED",
+      eta: "Status: REJECTED",
+    });
+    setTimeout(() => setOrderToast(null), 4000);
+  };
+
+  const currentAiRec = aiRecs[activeRecIndex] || aiRecs[0];
+  const pendingRecsCount = aiRecs.filter((r) => r.status === "PENDING").length;
+
+  const filteredAiRecs = useMemo(() => {
+    if (workbenchFilter === "ALL") return aiRecs;
+    if (workbenchFilter === "PENDING") return aiRecs.filter((r) => r.status === "PENDING");
+    if (workbenchFilter === "ACCEPTED")
+      return aiRecs.filter((r) => r.status === "ACCEPTED" || r.status === "MODIFIED & ACCEPTED");
+    if (workbenchFilter === "REJECTED") return aiRecs.filter((r) => r.status === "REJECTED");
+    return aiRecs;
+  }, [aiRecs, workbenchFilter]);
 
   // Six Sigma dynamic simulation scaling
   const simulatedReplayData = useMemo(() => {
@@ -954,6 +1257,22 @@ export default function GridPulseDashboard() {
           >
             <HardHat className="w-4 h-4 text-violet-400" />
             4. Field Contractors & Set Kitting
+          </button>
+          <button
+            onClick={() => setActiveDept("workbench")}
+            className={`flex items-center gap-2 py-3 px-3 sm:px-4 border-b-2 font-semibold transition shrink-0 ${
+              activeDept === "workbench"
+                ? "border-emerald-500 text-emerald-400 bg-emerald-500/10 rounded-t-lg"
+                : "border-transparent text-slate-400 hover:text-slate-200"
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-emerald-400" />
+            5. AI Action Workbench
+            {pendingRecsCount > 0 && (
+              <span className="px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold border border-emerald-500/30">
+                {pendingRecsCount}
+              </span>
+            )}
           </button>
         </div>
       </nav>
@@ -1845,6 +2164,390 @@ export default function GridPulseDashboard() {
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* ========================================================= */}
+        {/* DEPARTMENT 5: AI ACTION WORKBENCH (ACCEPT / MODIFY / REJECT) */}
+        {/* ========================================================= */}
+        {activeDept === "workbench" && (
+          <div className="space-y-6">
+            {/* Workbench Header & 6-Hour Cycle Control */}
+            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div className="space-y-1.5">
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+                    <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                    Sarvam-105b Six Sigma Action Engine
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono">
+                    <Clock className="w-3 h-3 text-cyan-400" />
+                    Auto-runs every 6h • Next run in {formatTimeRemaining(aiRecsLastRun)}
+                  </div>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
+                  Inter-Godown AI Action Workbench
+                </h2>
+                <p className="text-xs text-slate-400 max-w-2xl leading-relaxed">
+                  Directives generated from symmetric Kanpur road logistics matrix (45–162 km). Balance idle yard surplus (&gt;2× ROP) against site shortages in 2–5 hours instead of waiting 30–150 days for vendor factory lead times.
+                </p>
+              </div>
+
+              {/* 1-Click Run AI Now Button */}
+              <div className="shrink-0 flex items-center gap-3">
+                <button
+                  onClick={handleRefreshAiNow}
+                  disabled={isRefreshingAi}
+                  className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-white font-bold text-xs transition shadow-lg shadow-emerald-950/50 flex items-center gap-2 border border-emerald-500/30"
+                >
+                  <RotateCw className={`w-3.5 h-3.5 ${isRefreshingAi ? "animate-spin" : ""}`} />
+                  {isRefreshingAi ? "Running Sarvam AI..." : "↻ Run AI Now"}
+                </button>
+              </div>
+            </div>
+
+            {/* Filter Pills */}
+            <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-900/40 p-2 rounded-xl border border-slate-800/80">
+              <div className="flex items-center gap-2">
+                {(["ALL", "PENDING", "ACCEPTED", "REJECTED"] as const).map((filter) => {
+                  const count =
+                    filter === "ALL"
+                      ? aiRecs.length
+                      : filter === "PENDING"
+                      ? pendingRecsCount
+                      : filter === "ACCEPTED"
+                      ? aiRecs.filter((r) => r.status === "ACCEPTED" || r.status === "MODIFIED & ACCEPTED").length
+                      : aiRecs.filter((r) => r.status === "REJECTED").length;
+
+                  return (
+                    <button
+                      key={filter}
+                      onClick={() => setWorkbenchFilter(filter)}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold font-mono transition flex items-center gap-1.5 ${
+                        workbenchFilter === filter
+                          ? "bg-slate-800 text-white border border-slate-700 shadow-sm"
+                          : "text-slate-400 hover:text-slate-200"
+                      }`}
+                    >
+                      {filter}
+                      <span
+                        className={`px-1.5 py-0.2 rounded-full text-[10px] ${
+                          filter === "PENDING" && count > 0
+                            ? "bg-amber-500/20 text-amber-400"
+                            : filter === "ACCEPTED" && count > 0
+                            ? "bg-emerald-500/20 text-emerald-400"
+                            : "bg-slate-800 text-slate-400"
+                        }`}
+                      >
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="text-[11px] font-mono text-slate-400">
+                Active Month: <span className="text-white font-bold">{selectedMonth}</span> • {filteredAiRecs.length} Action Directives
+              </div>
+            </div>
+
+            {/* Directive Cards Grid */}
+            <div className="grid grid-cols-1 gap-5">
+              {filteredAiRecs.length === 0 ? (
+                <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-8 text-center text-slate-400 text-sm">
+                  No directives found for filter "{workbenchFilter}".
+                </div>
+              ) : (
+                filteredAiRecs.map((rec) => {
+                  const isModifying = modifyingRecId === rec.id;
+                  const isRejecting = rejectingRecId === rec.id;
+
+                  return (
+                    <div
+                      key={rec.id}
+                      className={`rounded-2xl border p-5 sm:p-6 transition shadow-xl space-y-4 ${
+                        rec.status === "ACCEPTED" || rec.status === "MODIFIED & ACCEPTED"
+                          ? "bg-emerald-950/15 border-emerald-800/40"
+                          : rec.status === "REJECTED"
+                          ? "bg-rose-950/10 border-rose-900/30 opacity-75"
+                          : rec.urgency === "CRITICAL"
+                          ? "bg-slate-900/90 border-rose-800/50 shadow-rose-950/20"
+                          : "bg-slate-900/80 border-slate-800"
+                      }`}
+                    >
+                      {/* Top Header Row */}
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono text-xs font-bold text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/50">
+                              {rec.item_code}
+                            </span>
+                            <span
+                              className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full uppercase ${
+                                rec.urgency === "CRITICAL"
+                                  ? "bg-rose-500/20 text-rose-300 border border-rose-500/40"
+                                  : "bg-amber-500/20 text-amber-300 border border-amber-500/40"
+                              }`}
+                            >
+                              {rec.urgency} DEFICIT
+                            </span>
+                            <span
+                              className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full uppercase ${
+                                rec.status === "PENDING"
+                                  ? "bg-amber-500/10 text-amber-400 border border-amber-500/30"
+                                  : rec.status === "ACCEPTED" || rec.status === "MODIFIED & ACCEPTED"
+                                  ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/50"
+                                  : "bg-rose-500/20 text-rose-400 border border-rose-500/30"
+                              }`}
+                            >
+                              {rec.status}
+                            </span>
+                          </div>
+                          <h3 className="text-base font-bold text-white flex items-center gap-2">
+                            {rec.item_name}
+                          </h3>
+                        </div>
+
+                        {/* Quantity Pill */}
+                        <div className="text-right sm:text-right shrink-0">
+                          <div className="text-2xl font-black font-mono text-white">
+                            {formatNumber(rec.suggested_qty)}{" "}
+                            <span className="text-xs font-medium text-slate-400">{rec.unit}</span>
+                          </div>
+                          <div className="text-[11px] text-emerald-400 font-mono font-semibold">
+                            +{rec.lead_time_days_saved} Days Saved vs PO
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Route & Freight Corridor Banner */}
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 bg-slate-950/70 p-4 rounded-xl border border-slate-800/90 text-xs">
+                        <div className="md:col-span-5 flex items-center gap-3">
+                          <div className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-amber-400 shrink-0">
+                            <Warehouse className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <div className="text-[10px] uppercase font-mono text-slate-400">Donor Godown (Surplus)</div>
+                            <div className="text-xs font-bold text-white">{rec.from_godown}</div>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-emerald-400 mx-auto shrink-0" />
+                          <div>
+                            <div className="text-[10px] uppercase font-mono text-slate-400">Recipient Site (Deficit)</div>
+                            <div className="text-xs font-bold text-emerald-300">{rec.to_godown}</div>
+                          </div>
+                        </div>
+
+                        <div className="md:col-span-4 flex items-center gap-4 border-t md:border-t-0 md:border-l border-slate-800 md:pl-4">
+                          <div>
+                            <div className="text-[10px] uppercase font-mono text-slate-400">Road Distance</div>
+                            <div className="text-xs font-bold font-mono text-white">{rec.distance_km} km</div>
+                          </div>
+                          <div>
+                            <div className="text-[10px] uppercase font-mono text-slate-400">Transit Time</div>
+                            <div className="text-xs font-bold font-mono text-cyan-400">~{rec.transit_hours} hrs</div>
+                          </div>
+                          <div>
+                            <div className="text-[10px] uppercase font-mono text-slate-400">Freight (10T Truck)</div>
+                            <div className="text-xs font-bold font-mono text-amber-400">₹{formatNumber(rec.freight_inr)}</div>
+                          </div>
+                        </div>
+
+                        <div className="md:col-span-3 flex items-center justify-end text-right border-t md:border-t-0 md:border-l border-slate-800 md:pl-4 text-[11px] text-slate-400 font-mono">
+                          {rec.freight_label}
+                        </div>
+                      </div>
+
+                      {/* Sarvam AI Reasoning & Why This Action */}
+                      <div className="bg-slate-950/40 border border-slate-800/80 rounded-xl p-3.5 space-y-1.5">
+                        <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
+                          <Bot className="w-3.5 h-3.5" />
+                          Sarvam AI Diagnostic Reasoning:
+                        </div>
+                        <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                          {rec.sarvam_reasoning || rec.reason}
+                        </p>
+                      </div>
+
+                      {/* Action Form or Buttons */}
+                      {rec.status === "PENDING" && (
+                        <div>
+                          {isModifying ? (
+                            <div className="bg-slate-950/90 border border-cyan-800/60 rounded-xl p-4 space-y-3">
+                              <div className="flex items-center justify-between text-xs font-bold text-cyan-300 font-mono">
+                                <span>✎ Modify Transfer Parameters</span>
+                                <span>PO/TR will record custom parameters</span>
+                              </div>
+
+                              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div>
+                                  <label className="text-[10px] font-mono text-slate-400 block mb-1">Transfer Qty ({rec.unit}):</label>
+                                  <input
+                                    type="number"
+                                    value={modifyQty}
+                                    onChange={(e) => setModifyQty(Math.max(1, Number(e.target.value)))}
+                                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white font-mono focus:ring-1 focus:ring-cyan-500"
+                                  />
+                                </div>
+
+                                <div>
+                                  <label className="text-[10px] font-mono text-slate-400 block mb-1">Donor Godown:</label>
+                                  <select
+                                    value={modifyDonor}
+                                    onChange={(e) => setModifyDonor(e.target.value)}
+                                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white font-mono focus:ring-1 focus:ring-cyan-500"
+                                  >
+                                    {[
+                                      "KANPUR NAGAR",
+                                      "KANPUR DEHAT",
+                                      "KANPUR ETAWAH",
+                                      "KANPUR FARRUKHABAD",
+                                      "KANPUR KANNAUJ",
+                                      "KANPUR AURAIYA",
+                                    ].map((g) => (
+                                      <option key={g} value={g} disabled={g === rec.to_godown}>
+                                        {g} {g === rec.to_godown ? "(Destination)" : ""}
+                                      </option>
+                                    ))}
+                                  </select>
+                                </div>
+
+                                <div>
+                                  <label className="text-[10px] font-mono text-slate-400 block mb-1">Dispatch Note:</label>
+                                  <input
+                                    type="text"
+                                    value={modifyNote}
+                                    onChange={(e) => setModifyNote(e.target.value)}
+                                    placeholder="e.g. Split consignment across 2 trucks"
+                                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white focus:ring-1 focus:ring-cyan-500"
+                                  />
+                                </div>
+                              </div>
+
+                              {/* Live Recalculated Route Preview */}
+                              {(() => {
+                                const newRoute = computeKanpurRoute(modifyDonor, rec.to_godown);
+                                return (
+                                  <div className="text-[11px] font-mono text-cyan-300 flex items-center gap-4 bg-cyan-950/30 p-2 rounded border border-cyan-900/40">
+                                    <span>Recalculated Route: {modifyDonor} → {rec.to_godown}</span>
+                                    <span>{newRoute.distance_km} km</span>
+                                    <span>~{newRoute.transit_hours} hrs</span>
+                                    <span>₹{formatNumber(newRoute.freight_inr)}</span>
+                                  </div>
+                                );
+                              })()}
+
+                              <div className="flex items-center gap-2 pt-2">
+                                <button
+                                  onClick={() => handleConfirmModify(rec)}
+                                  className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition flex items-center gap-1.5"
+                                >
+                                  <Check className="w-3.5 h-3.5" /> Confirm Modified Transfer
+                                </button>
+                                <button
+                                  onClick={() => setModifyingRecId(null)}
+                                  className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition"
+                                >
+                                  Cancel
+                                </button>
+                              </div>
+                            </div>
+                          ) : isRejecting ? (
+                            <div className="bg-slate-950/90 border border-rose-800/60 rounded-xl p-4 space-y-3">
+                              <div className="text-xs font-bold text-rose-300 font-mono flex items-center gap-1.5">
+                                <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
+                                Specify Rejection Reason (Logged in Audit Database):
+                              </div>
+
+                              <div className="flex flex-col sm:flex-row gap-2">
+                                <select
+                                  value={rejectionReason}
+                                  onChange={(e) => setRejectionReason(e.target.value)}
+                                  className="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:ring-1 focus:ring-rose-500 font-mono"
+                                >
+                                  <option value="Road blocked / Vehicle unavailable">Road blocked / Vehicle unavailable</option>
+                                  <option value="Target godown yard full">Target godown yard full</option>
+                                  <option value="Contractor erection rescheduled">Contractor erection rescheduled</option>
+                                  <option value="Donor stock reserved for priority feeder">Donor stock reserved for priority feeder</option>
+                                  <option value="Custom operational exception">Custom operational exception</option>
+                                </select>
+                                <button
+                                  onClick={() => handleConfirmReject(rec)}
+                                  className="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs transition flex items-center justify-center gap-1.5 shrink-0"
+                                >
+                                  <XCircle className="w-3.5 h-3.5" /> Confirm Rejection
+                                </button>
+                                <button
+                                  onClick={() => setRejectingRecId(null)}
+                                  className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition shrink-0"
+                                >
+                                  Cancel
+                                </button>
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="flex flex-wrap items-center gap-3 pt-1">
+                              <button
+                                onClick={() => handleAcceptRec(rec)}
+                                className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-lg shadow-emerald-950/40 flex items-center gap-1.5 border border-emerald-500/30"
+                              >
+                                <CheckCircle className="w-4 h-4" />
+                                ✓ Accept As-Is (Dispatch ~{rec.transit_hours}h)
+                              </button>
+
+                              <button
+                                onClick={() => {
+                                  setModifyingRecId(rec.id);
+                                  setModifyQty(rec.suggested_qty);
+                                  setModifyDonor(rec.from_godown);
+                                  setModifyNote("");
+                                }}
+                                className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 font-bold text-xs transition flex items-center gap-1.5 border border-slate-700"
+                              >
+                                <Edit3 className="w-3.5 h-3.5" />
+                                ✎ Modify Terms & Accept
+                              </button>
+
+                              <button
+                                onClick={() => {
+                                  setRejectingRecId(rec.id);
+                                  setRejectionReason("Road blocked / Vehicle unavailable");
+                                }}
+                                className="px-3 py-2.5 rounded-xl bg-slate-900 hover:bg-rose-950/40 text-slate-400 hover:text-rose-300 text-xs font-semibold transition border border-slate-800 hover:border-rose-900/50 flex items-center gap-1"
+                              >
+                                <XCircle className="w-3.5 h-3.5" />
+                                Reject Directive
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Completed / Logged State */}
+                      {(rec.status === "ACCEPTED" || rec.status === "MODIFIED & ACCEPTED") && (
+                        <div className="flex items-center justify-between text-xs font-mono text-emerald-400 bg-emerald-950/30 p-3 rounded-xl border border-emerald-800/40">
+                          <span className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                            Transfer voucher issued and logged to ERP Audit Ledger at {rec.action_timestamp || "recently"}.
+                            {rec.user_note ? ` Note: "${rec.user_note}"` : ""}
+                          </span>
+                          <span className="text-[10px] text-slate-400">Status: {rec.status}</span>
+                        </div>
+                      )}
+
+                      {rec.status === "REJECTED" && (
+                        <div className="flex items-center justify-between text-xs font-mono text-rose-400 bg-rose-950/20 p-3 rounded-xl border border-rose-900/30">
+                          <span className="flex items-center gap-2">
+                            <XCircle className="w-4 h-4 text-rose-400" />
+                            Directive rejected: "{rec.rejection_reason || "Operational exception"}" logged at {rec.action_timestamp || "recently"}.
+                          </span>
+                          <span className="text-[10px] text-slate-400">Status: REJECTED</span>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })
+              )}
             </div>
           </div>
         )}
