@@ -1,0 +1,5002 @@
+[
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-775",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-763",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 19.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-751",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-753",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-754",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-755",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 35.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-756",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 15.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-757",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 40.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-758",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-759",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 12.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-760",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-761",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 64.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-762",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 13.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-752",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-764",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 106.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-766",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 125.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-767",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 33.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-768",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 409.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-769",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-770",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 4.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-771",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 2.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-772",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 2.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-773",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 115.0
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-765",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 20.88
+  },
+  {
+    "date": "2026-10-29",
+    "voucher_no": "CM-20261029-774",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-09-24",
+    "voucher_no": "CM-20260924-748",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 30.0
+  },
+  {
+    "date": "2026-09-24",
+    "voucher_no": "CM-20260924-747",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.28
+  },
+  {
+    "date": "2026-09-24",
+    "voucher_no": "CM-20260924-750",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 11.0
+  },
+  {
+    "date": "2026-09-24",
+    "voucher_no": "CM-20260924-749",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 13.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-716",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-723",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-724",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 6.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-722",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-721",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 8.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-720",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 125.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-719",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 30.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-718",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 90.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-717",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 35.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-708",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-715",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 46.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-714",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 167.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-713",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-712",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 20.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-711",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 74.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-710",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 116.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-709",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 15.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-707",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 1.08
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-726",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020013",
+    "item_name": "25 SQMM ALUMINIUM LUGS",
+    "unit": "NOS",
+    "qty": 50.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-725",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 72.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-727",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 39.27
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-740",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 30.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-738",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-746",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 2.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-745",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-744",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 30.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-743",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 70.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-742",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 36.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-741",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-728",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 0.04
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-739",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 100.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-737",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 48.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-736",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 2.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-735",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 41.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-734",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 100.0
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-733",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010174",
+    "item_name": "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+    "unit": "MT",
+    "qty": 0.01
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-732",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 117.58
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-731",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 0.08
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-730",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 16.83
+  },
+  {
+    "date": "2026-09-21",
+    "voucher_no": "CM-20260921-729",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 16.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-696",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 33.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-697",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-702",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 6.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-695",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-694",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-699",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-698",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-706",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 4.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-700",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 25.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-701",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-703",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 20.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-704",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 15.0
+  },
+  {
+    "date": "2026-09-05",
+    "voucher_no": "CM-20260905-705",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 18.0
+  },
+  {
+    "date": "2026-09-02",
+    "voucher_no": "CM-20260902-693",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 266.0
+  },
+  {
+    "date": "2026-09-02",
+    "voucher_no": "CM-20260902-692",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 40.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-670",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 25.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-675",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 56.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-674",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-673",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-672",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-671",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-677",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 100.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-668",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.01
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-667",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-666",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-665",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-664",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-663",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.01
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-676",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 15.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-669",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-678",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020013",
+    "item_name": "25 SQMM ALUMINIUM LUGS",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-679",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020013",
+    "item_name": "25 SQMM ALUMINIUM LUGS",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-691",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 2.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-690",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-688",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 12.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-687",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 13.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-686",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 28.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-689",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-685",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-684",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-683",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 5.5
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-682",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 31.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-681",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-09-01",
+    "voucher_no": "CM-20260901-680",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 51.01
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-652",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-642",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 35.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-643",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 6.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-644",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-646",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-647",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-648",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-649",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-650",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 80.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-651",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 8.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-645",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-653",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-659",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-654",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 60.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-662",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-660",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 2.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-661",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 4.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-658",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-657",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 6.0
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-656",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 7.9
+  },
+  {
+    "date": "2026-08-29",
+    "voucher_no": "CM-20260829-655",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 20.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-626",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 25.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-634",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 24.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-627",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-628",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-629",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 9.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-630",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-631",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 25.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-633",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 2.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-632",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 15.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-635",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 40.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-637",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 30.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-638",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010174",
+    "item_name": "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+    "unit": "MT",
+    "qty": 0.04
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-639",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 40.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-640",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 2.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-641",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-08-27",
+    "voucher_no": "CM-20260827-636",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 50.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-604",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-609",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 63.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-608",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 4.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-607",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-606",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-605",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-601",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-598",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-603",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 15.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-602",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-600",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 7.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-599",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-611",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 80.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-610",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020008",
+    "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+    "unit": "NOS",
+    "qty": 22.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-620",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 4.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-612",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 29.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-619",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 25.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-613",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 59.49
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-625",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-624",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 7.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-622",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-621",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-623",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-618",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 27.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-617",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 3.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-616",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 30.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-615",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 1.0
+  },
+  {
+    "date": "2026-08-22",
+    "voucher_no": "CM-20260822-614",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 28.1
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-590",
+    "tx_type": "RETURN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 362.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-583",
+    "tx_type": "ISSUE",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 80.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-584",
+    "tx_type": "ISSUE",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 2.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-585",
+    "tx_type": "ISSUE",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 362.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-586",
+    "tx_type": "ISSUE",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 187.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-588",
+    "tx_type": "RETURN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 80.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-589",
+    "tx_type": "RETURN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 2.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-587",
+    "tx_type": "ISSUE",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 123.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-591",
+    "tx_type": "RETURN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 40.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-593",
+    "tx_type": "RETURN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 50.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-594",
+    "tx_type": "RETURN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 21.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-595",
+    "tx_type": "RETURN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 23.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-596",
+    "tx_type": "RETURN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 18.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-597",
+    "tx_type": "RETURN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 11.0
+  },
+  {
+    "date": "2026-08-13",
+    "voucher_no": "CM-20260813-592",
+    "tx_type": "RETURN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 147.0
+  },
+  {
+    "date": "2026-08-11",
+    "voucher_no": "CM-20260811-582",
+    "tx_type": "ISSUE",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 100.0
+  },
+  {
+    "date": "2026-08-11",
+    "voucher_no": "CM-20260811-581",
+    "tx_type": "ISSUE",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 0.49
+  },
+  {
+    "date": "2026-08-09",
+    "voucher_no": "CM-20260809-550",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-08-09",
+    "voucher_no": "CM-20260809-558",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 15.0
+  },
+  {
+    "date": "2026-08-09",
+    "voucher_no": "CM-20260809-557",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020013",
+    "item_name": "25 SQMM ALUMINIUM LUGS",
+    "unit": "NOS",
+    "qty": 20.0
+  },
+  {
+    "date": "2026-08-09",
+    "voucher_no": "CM-20260809-556",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020013",
+    "item_name": "25 SQMM ALUMINIUM LUGS",
+    "unit": "NOS",
+    "qty": 40.0
+  },
+  {
+    "date": "2026-08-09",
+    "voucher_no": "CM-20260809-555",
+    "tx_type": "CONSUMPTION",
+    "godown": "PROJECT SITE",
+    "item_code": "MLU020013",
+    "item_name": "25 SQMM ALUMINIUM LUGS",
+    "unit": "NOS",
+    "qty": 80.0
+  },
+  {
+    "date": "2026-07-30",
+    "voucher_no": "GC26730-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 2.49
+  },
+  {
+    "date": "2026-04-21",
+    "voucher_no": "IS26421-3",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 128.0
+  },
+  {
+    "date": "2026-04-21",
+    "voucher_no": "IS26421-3",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 738.0
+  },
+  {
+    "date": "2026-04-21",
+    "voucher_no": "IS26421-3",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 6050.0
+  },
+  {
+    "date": "2026-04-21",
+    "voucher_no": "IS26421-3",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 5.0
+  },
+  {
+    "date": "2026-04-17",
+    "voucher_no": "IR26417-4",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 20642.0
+  },
+  {
+    "date": "2026-04-17",
+    "voucher_no": "IR26417-4",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 59.0
+  },
+  {
+    "date": "2026-04-17",
+    "voucher_no": "IR26417-4",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 38.7
+  },
+  {
+    "date": "2026-04-17",
+    "voucher_no": "IR26417-4",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-04-17",
+    "voucher_no": "IR26417-4",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 155.0
+  },
+  {
+    "date": "2026-04-17",
+    "voucher_no": "IR26417-4",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 138.0
+  },
+  {
+    "date": "2026-04-09",
+    "voucher_no": "IS26409-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 138.0
+  },
+  {
+    "date": "2026-04-09",
+    "voucher_no": "IS26409-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 155.0
+  },
+  {
+    "date": "2026-04-09",
+    "voucher_no": "IS26409-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 20642.0
+  },
+  {
+    "date": "2026-04-09",
+    "voucher_no": "IS26409-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 38.7
+  },
+  {
+    "date": "2026-04-09",
+    "voucher_no": "IS26409-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 10.0
+  },
+  {
+    "date": "2026-04-09",
+    "voucher_no": "IS26409-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 59.0
+  },
+  {
+    "date": "2026-03-31",
+    "voucher_no": "IR25331-14",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 8500.0
+  },
+  {
+    "date": "2026-03-31",
+    "voucher_no": "IR25331-11",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 2879.0
+  },
+  {
+    "date": "2026-03-31",
+    "voucher_no": "IR25331-13",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 3615.0
+  },
+  {
+    "date": "2026-03-31",
+    "voucher_no": "IR25331-12",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 2579.0
+  },
+  {
+    "date": "2026-03-31",
+    "voucher_no": "IR25331-14",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 7600.0
+  },
+  {
+    "date": "2026-03-31",
+    "voucher_no": "IR25331-15",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 2985.0
+  },
+  {
+    "date": "2026-03-25",
+    "voucher_no": "IS25325-2",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 2879.0
+  },
+  {
+    "date": "2026-03-25",
+    "voucher_no": "IS25325-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 2579.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-22",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 253.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-3",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 500.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-3",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 8000.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-3",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 6500.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-3",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 7000.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-3",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 6500.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-26",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1500.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-23",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 5707.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-22",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 253.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-2",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 3000.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-20",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 86.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-30",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 3140.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-19",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 253.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-19",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 4102.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-18",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 222.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-16",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 1186.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-15",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 213.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-15",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 213.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-30",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 2245.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-33",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 16300.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-30",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 500.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-8",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 4050.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-31",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 200.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "ID25324-20",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 200.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "ID25324-19",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 200.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "ID25324-15",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 201.3
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "ID25324-12",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 12141.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-9",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 200.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-9",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 7450.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IS25324-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 8730.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-8",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1829.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-4",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 12.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-4",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 12185.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-33",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 1300.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-33",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 6000.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-33",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 9000.0
+  },
+  {
+    "date": "2026-03-24",
+    "voucher_no": "IC25324-5",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 140.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-20",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 1186.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-24",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 253.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-24",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 4102.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-23",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 222.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-22",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 1300.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-22",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 6000.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-22",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 23300.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-22",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 9000.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-11",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 500.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-19",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 213.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-19",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 213.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-11",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 3140.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-11",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 2245.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-10",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 4050.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-10",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1829.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-26",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 131.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-25",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 154.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-12",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 7450.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-27",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 86.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-5",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 6500.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-7",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 120.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-6",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 12.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-6",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 12185.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-5",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 500.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-30",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 253.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-5",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 8000.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-6",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 3994.8
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-5",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 6500.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-4",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 3000.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-38",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1500.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-35",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 5707.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-32",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 70949.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-31",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 253.0
+  },
+  {
+    "date": "2026-03-23",
+    "voucher_no": "ID25323-40",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR CLOSER",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 119335.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-14",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 253.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-18",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 5707.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-15",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 5479.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-15",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 12141.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-15",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 59991.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 213.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-13",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 253.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-10",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 86.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 213.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-2",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 830.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-2",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 356.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-5",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 23300.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-21",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1500.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-6",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 222.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-23",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 119335.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-8",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 154.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-7",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 253.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-7",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 4102.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-9",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 131.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-5",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 1300.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-5",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 6000.0
+  },
+  {
+    "date": "2026-03-21",
+    "voucher_no": "IC25321-5",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 9000.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-5",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 8000.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-10",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 4050.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-11",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 2245.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-11",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 1760.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-11",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 1380.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-11",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 500.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-12",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 7450.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-4",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070059",
+    "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+    "unit": "NOS",
+    "qty": 3000.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-10",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 1829.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-5",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 6500.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-5",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 6500.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-5",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 500.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-6",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 31.75
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-6",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 88.45
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-6",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 81.1
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-6",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 12185.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-6",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 12.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-7",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 80.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-7",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 40.0
+  },
+  {
+    "date": "2026-03-20",
+    "voucher_no": "IC25320-6",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MNB010128",
+    "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+    "unit": "KG",
+    "qty": 998.7
+  },
+  {
+    "date": "2026-03-19",
+    "voucher_no": "IS25319-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 7600.0
+  },
+  {
+    "date": "2026-03-19",
+    "voucher_no": "IS25319-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 8500.0
+  },
+  {
+    "date": "2026-03-19",
+    "voucher_no": "IS25319-3",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 2985.0
+  },
+  {
+    "date": "2026-03-19",
+    "voucher_no": "IS25319-2",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 3615.0
+  },
+  {
+    "date": "2026-03-18",
+    "voucher_no": "IS25318-1",
+    "tx_type": "TRANSFER_OUT",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 4004.0
+  },
+  {
+    "date": "2026-02-19",
+    "voucher_no": "IR25219-3",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 24.0
+  },
+  {
+    "date": "2026-02-19",
+    "voucher_no": "IR25219-2",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MLU020013",
+    "item_name": "25 SQMM ALUMINIUM LUGS",
+    "unit": "NOS",
+    "qty": 364.0
+  },
+  {
+    "date": "2026-02-19",
+    "voucher_no": "IR25219-2",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MNB010007",
+    "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+    "unit": "KG",
+    "qty": 450.0
+  },
+  {
+    "date": "2026-02-19",
+    "voucher_no": "IR25219-2",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 73.0
+  },
+  {
+    "date": "2026-02-19",
+    "voucher_no": "IR25219-2",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 50.0
+  },
+  {
+    "date": "2026-02-19",
+    "voucher_no": "IR25219-3",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 106.0
+  },
+  {
+    "date": "2026-02-19",
+    "voucher_no": "IR25219-2",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 150.0
+  },
+  {
+    "date": "2026-02-19",
+    "voucher_no": "IR25219-3",
+    "tx_type": "TRANSFER_IN",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 154.0
+  },
+  {
+    "date": "2025-03-09",
+    "voucher_no": "GS24309-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 75.0
+  },
+  {
+    "date": "2025-03-09",
+    "voucher_no": "GS24309-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 75.0
+  },
+  {
+    "date": "2025-03-06",
+    "voucher_no": "GS24306-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-03-05",
+    "voucher_no": "GS24305-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-03-04",
+    "voucher_no": "GS24304-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-03-04",
+    "voucher_no": "GS24304-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-03-02",
+    "voucher_no": "GS24302-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 66.0
+  },
+  {
+    "date": "2025-02-28",
+    "voucher_no": "GS24228-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-28",
+    "voucher_no": "GS24228-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 7200.0
+  },
+  {
+    "date": "2025-02-28",
+    "voucher_no": "GS24228-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 79.0
+  },
+  {
+    "date": "2025-02-28",
+    "voucher_no": "GS24228-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-27",
+    "voucher_no": "GS24227-013",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 70.0
+  },
+  {
+    "date": "2025-02-27",
+    "voucher_no": "GS24227-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-27",
+    "voucher_no": "GS24227-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-27",
+    "voucher_no": "GS24227-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-27",
+    "voucher_no": "GS24227-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-26",
+    "voucher_no": "GS24226-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 18067.0
+  },
+  {
+    "date": "2025-02-25",
+    "voucher_no": "GS24225-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 94.0
+  },
+  {
+    "date": "2025-02-25",
+    "voucher_no": "GS24225-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 72.0
+  },
+  {
+    "date": "2025-02-25",
+    "voucher_no": "GS24225-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 70.0
+  },
+  {
+    "date": "2025-02-25",
+    "voucher_no": "GS24225-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 70.0
+  },
+  {
+    "date": "2025-02-25",
+    "voucher_no": "GS24225-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 94.0
+  },
+  {
+    "date": "2025-02-25",
+    "voucher_no": "GS24225-011",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 70.0
+  },
+  {
+    "date": "2025-02-25",
+    "voucher_no": "GS24225-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-25",
+    "voucher_no": "GS24225-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-25",
+    "voucher_no": "GS24225-010",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 70.0
+  },
+  {
+    "date": "2025-02-24",
+    "voucher_no": "GS24224-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 55.0
+  },
+  {
+    "date": "2025-02-24",
+    "voucher_no": "GS24224-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 55.0
+  },
+  {
+    "date": "2025-02-24",
+    "voucher_no": "GS24224-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 55.0
+  },
+  {
+    "date": "2025-02-24",
+    "voucher_no": "GS24224-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-24",
+    "voucher_no": "GS24224-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 3995.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-010",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-011",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-012",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-013",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 70.0
+  },
+  {
+    "date": "2025-02-22",
+    "voucher_no": "GS24222-014",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 70.0
+  },
+  {
+    "date": "2025-02-19",
+    "voucher_no": "GS24219-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-19",
+    "voucher_no": "GS24219-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 50.0
+  },
+  {
+    "date": "2025-02-19",
+    "voucher_no": "GS24219-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 50.0
+  },
+  {
+    "date": "2025-02-19",
+    "voucher_no": "GS24219-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-19",
+    "voucher_no": "GS24219-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-19",
+    "voucher_no": "GS24219-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-19",
+    "voucher_no": "GS24219-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 74.0
+  },
+  {
+    "date": "2025-02-19",
+    "voucher_no": "GS24219-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-19",
+    "voucher_no": "GS24219-010",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 94.0
+  },
+  {
+    "date": "2025-02-18",
+    "voucher_no": "GS24218-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 70.0
+  },
+  {
+    "date": "2025-02-18",
+    "voucher_no": "GS24218-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-18",
+    "voucher_no": "GS24218-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 13.99
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 111.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 94.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 74.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 548.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 460.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 253.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 1154.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 1154.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-010",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 2.0
+  },
+  {
+    "date": "2025-02-17",
+    "voucher_no": "GS24217-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 97.0
+  },
+  {
+    "date": "2025-02-16",
+    "voucher_no": "GS24216-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 55.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-013",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 47.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-012",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 60.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-011",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 59.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 76.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 60.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-015",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 50.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-014",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 50.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-018",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 2400.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-016",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 50.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-020",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 1000.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-022",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-021",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-020",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 300.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-020",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 300.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-019",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-018",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 1534.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-018",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 1534.0
+  },
+  {
+    "date": "2025-02-15",
+    "voucher_no": "GS24215-017",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-14",
+    "voucher_no": "GS24214-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-14",
+    "voucher_no": "GS24214-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 78.0
+  },
+  {
+    "date": "2025-02-13",
+    "voucher_no": "GS24213-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 55.0
+  },
+  {
+    "date": "2025-02-12",
+    "voucher_no": "GS24212-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-12",
+    "voucher_no": "GS24212-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 1516.0
+  },
+  {
+    "date": "2025-02-12",
+    "voucher_no": "GS24212-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 3034.0
+  },
+  {
+    "date": "2025-02-12",
+    "voucher_no": "GS24212-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-12",
+    "voucher_no": "GS24212-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-12",
+    "voucher_no": "GS24212-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-12",
+    "voucher_no": "GS24212-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 70.0
+  },
+  {
+    "date": "2025-02-12",
+    "voucher_no": "GS24212-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 55.0
+  },
+  {
+    "date": "2025-02-11",
+    "voucher_no": "GS24211-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 54.0
+  },
+  {
+    "date": "2025-02-11",
+    "voucher_no": "GS24211-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 250.0
+  },
+  {
+    "date": "2025-02-11",
+    "voucher_no": "GS24211-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 1.0
+  },
+  {
+    "date": "2025-02-10",
+    "voucher_no": "GS24210-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR AURAIYA",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 2041.0
+  },
+  {
+    "date": "2025-02-10",
+    "voucher_no": "GS24210-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR AURAIYA",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 32.0
+  },
+  {
+    "date": "2025-02-10",
+    "voucher_no": "GS24210-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR AURAIYA",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 2000.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 65.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-002",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-003",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 1000.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 65.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-014",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR AURAIYA",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 1650.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-014",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR AURAIYA",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 1230.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-014",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR AURAIYA",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 1230.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-015",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR AURAIYA",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 1500.0
+  },
+  {
+    "date": "2025-02-08",
+    "voucher_no": "GS24208-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 5.95
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 1418.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR AURAIYA",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 2840.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 3352.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR FARRUKHABAD",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 11480.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 2155.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-007",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 1050.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 1600.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-004",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR AURAIYA",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 8153.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 1418.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MCA090005",
+    "item_name": "SUSPENSION CLAMP",
+    "unit": "NOS",
+    "qty": 7694.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-010",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 11995.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-011",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR KANNAUJ",
+    "item_code": "MRP070022",
+    "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+    "unit": "MTR",
+    "qty": 39768.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-012",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-013",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 96.0
+  },
+  {
+    "date": "2025-02-07",
+    "voucher_no": "GS24207-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MEH050075",
+    "item_name": "DEAD END CLAMP",
+    "unit": "NOS",
+    "qty": 3603.0
+  },
+  {
+    "date": "2025-02-06",
+    "voucher_no": "GS24206-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-06",
+    "voucher_no": "GS24206-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MPO010014",
+    "item_name": "PCC POLE 8.5 MTR 180 KG",
+    "unit": "PCS",
+    "qty": 80.0
+  },
+  {
+    "date": "2025-02-06",
+    "voucher_no": "GS24206-001",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MCA020009",
+    "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+    "unit": "KM",
+    "qty": 10.99
+  },
+  {
+    "date": "2025-02-05",
+    "voucher_no": "GS24205-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 2568.0
+  },
+  {
+    "date": "2025-02-05",
+    "voucher_no": "GS24205-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MRP070064",
+    "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 942.0
+  },
+  {
+    "date": "2025-02-05",
+    "voucher_no": "GS24205-005",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR DEHAT",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 600.0
+  },
+  {
+    "date": "2025-02-05",
+    "voucher_no": "GS24205-006",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR NAGAR",
+    "item_code": "MRP070065",
+    "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+    "unit": "NOS",
+    "qty": 7.0
+  },
+  {
+    "date": "2025-02-04",
+    "voucher_no": "GS24204-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 500.0
+  },
+  {
+    "date": "2025-02-04",
+    "voucher_no": "GS24204-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 500.0
+  },
+  {
+    "date": "2025-02-04",
+    "voucher_no": "GS24204-009",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MCO010007",
+    "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+    "unit": "NOS",
+    "qty": 2500.0
+  },
+  {
+    "date": "2025-02-04",
+    "voucher_no": "GS24204-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MRP070060",
+    "item_name": "POLE CLAMP RDSS",
+    "unit": "SET",
+    "qty": 3840.0
+  },
+  {
+    "date": "2025-02-04",
+    "voucher_no": "GS24204-008",
+    "tx_type": "RECEIPT (GRN)",
+    "godown": "KANPUR ETAWAH",
+    "item_code": "MEH050071",
+    "item_name": "EYE HOOK",
+    "unit": "NOS",
+    "qty": 3840.0
+  }
+]

@@ -31,7 +31,11 @@ import {
   Clock,
   HardHat,
   Warehouse,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Download,
+  Search,
+  ShoppingCart,
+  PlusCircle
 } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -50,6 +54,22 @@ import causalReplayData from "@/public/data/causal_replay.json";
 import setBalanceData from "@/public/data/set_balance.json";
 import recommendationsData from "@/public/data/recommendations.json";
 import ledgerMonthlyData from "@/public/data/ledger_monthly.json";
+import movementsData from "@/public/data/movements.json";
+
+interface LiveOrder {
+  id: string;
+  po_number: string;
+  date: string;
+  godown: string;
+  item_code: string;
+  item_name: string;
+  unit: string;
+  qty: number;
+  lead_time_days: number;
+  expected_delivery_date: string;
+  urgency: string;
+  status: string;
+}
 
 export default function GridPulseDashboard() {
   // Department Views
@@ -60,8 +80,12 @@ export default function GridPulseDashboard() {
   // Selected month (default June 2024 peak bottleneck)
   const [selectedMonth, setSelectedMonth] = useState<string>("2024-06");
 
-  // Selected godown filter for Ledger
+  // Selected godown filter for Ledger & Movements
   const [selectedGodown, setSelectedGodown] = useState<string>("ALL");
+
+  // Movement type filter for ERP Audit Database
+  const [movementTypeFilter, setMovementTypeFilter] = useState<string>("ALL");
+  const [movementSearchQuery, setMovementSearchQuery] = useState<string>("");
 
   // Set Balance ratio toggle: 'official' | 'empirical'
   const [ratioMode, setRatioMode] = useState<"official" | "empirical">("official");
@@ -81,11 +105,77 @@ export default function GridPulseDashboard() {
   const [dispatchingId, setDispatchingId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
+  // Live Orders state (persisted in localStorage key gridpulse_live_txs)
+  const [liveOrders, setLiveOrders] = useState<LiveOrder[]>([]);
+  const [orderModalItem, setOrderModalItem] = useState<any | null>(null);
+  const [orderQtyInput, setOrderQtyInput] = useState<number>(50);
+  const [orderSubmitting, setOrderSubmitting] = useState<boolean>(false);
+  const [orderToast, setOrderToast] = useState<{ message: string; po: string; eta: string } | null>(null);
+
   // Sarvam AI Copilot State
   const [aiPrompt, setAiPrompt] = useState<string>("");
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [aiLoading, setAiLoading] = useState<boolean>(false);
   const [aiSource, setAiSource] = useState<string | null>(null);
+
+  // Initialize persistent live orders from localStorage or pre-seed with 3 realistic entries
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("gridpulse_live_txs");
+      if (saved) {
+        setLiveOrders(JSON.parse(saved));
+      } else {
+        const seedOrders: LiveOrder[] = [
+          {
+            id: "po-seed-104",
+            po_number: "PO-LUM-2026-104",
+            date: "2026-11-20",
+            godown: "KANPUR NAGAR",
+            item_code: "MPO010014",
+            item_name: "PCC POLE 8.5 MTR 180 KG",
+            unit: "PCS",
+            qty: 82,
+            lead_time_days: 150,
+            expected_delivery_date: "2027-04-19",
+            urgency: "HIGH",
+            status: "IN_TRANSIT",
+          },
+          {
+            id: "po-seed-108",
+            po_number: "PO-LUM-2026-108",
+            date: "2026-11-21",
+            godown: "KANPUR DEHAT",
+            item_code: "MNB010174",
+            item_name: "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+            unit: "MT",
+            qty: 1.5,
+            lead_time_days: 90,
+            expected_delivery_date: "2027-02-19",
+            urgency: "CRITICAL",
+            status: "IN_TRANSIT",
+          },
+          {
+            id: "po-seed-112",
+            po_number: "PO-LUM-2026-112",
+            date: "2026-11-21",
+            godown: "KANPUR ETAWAH",
+            item_code: "MCO010007",
+            item_name: "WEDGE CONNECTORS / PG CLAMPS",
+            unit: "NOS",
+            qty: 500,
+            lead_time_days: 60,
+            expected_delivery_date: "2027-01-20",
+            urgency: "NORMAL",
+            status: "IN_TRANSIT",
+          },
+        ];
+        setLiveOrders(seedOrders);
+        localStorage.setItem("gridpulse_live_txs", JSON.stringify(seedOrders));
+      }
+    } catch (e) {
+      console.warn("localStorage unavailable", e);
+    }
+  }, []);
 
   // Lookups for active month
   const currentReplay = useMemo(() => {
@@ -143,11 +233,11 @@ export default function GridPulseDashboard() {
     };
   }, [simulatedReplayData, zScore]);
 
-  // Six Sigma summary constants
   const sixSigmaData = (summaryData as any).six_sigma;
   const projectSpc = (summaryData as any).project_spc;
+  const siteBuffers = (summaryData as any).site_buffers || {};
 
-  // Compute 6-District Site Statuses
+  // Compute 6-District Site Statuses & Buffer Stock Health
   const districtStatuses = useMemo(() => {
     return summaryData.godowns.map((g) => {
       let totalYard = 0;
@@ -165,6 +255,11 @@ export default function GridPulseDashboard() {
         }
       });
 
+      // Add live orders in-transit for this godown
+      const liveInTransit = liveOrders
+        .filter((o) => o.godown === g)
+        .reduce((sum, o) => sum + o.qty, 0);
+
       currentSetData.sets.forEach((s: any) => {
         const gSet = s.godowns?.[g];
         if (gSet && gSet.stranded_parents > 0) {
@@ -175,19 +270,26 @@ export default function GridPulseDashboard() {
         }
       });
 
+      const requiredBuffer = siteBuffers[g]?.total_buffer_units || 25000;
+      const bufferRatio = requiredBuffer > 0 ? totalYard / requiredBuffer : 1.0;
+      const bufferPct = Math.round(bufferRatio * 100);
+
       // Classification:
-      // Critical (pulsing red): Stranded parent sets > 0
-      // Warning (pulsing amber): Bloated yard stock > 100,000
-      // Healthy (emerald): Balanced
+      // Critical (pulsing red): Stranded parent sets > 0 OR Yard < 0.7x buffer
+      // Warning (pulsing amber): Bloated yard stock > 2.0x buffer
+      // Healthy (emerald): Within 0.8x - 2.0x buffer band
       let status: "critical" | "warning" | "healthy" = "healthy";
-      let statusText = "Operational Lean";
+      let statusText = `Optimal JIT (${bufferPct}% of Buffer Target)`;
 
       if (strandedSetsCount > 0) {
         status = "critical";
-        statusText = `🚨 ${formatNumber(strandedSetsCount)} Stranded Sets (${criticalBottlenecks[0] || "Hardware shortage"})`;
-      } else if (totalYard > 90000) {
+        statusText = `🚨 ${formatNumber(strandedSetsCount)} Stranded Sets (${criticalBottlenecks[0] || "Hardware"})`;
+      } else if (bufferRatio > 2.0 || totalYard > 90000) {
         status = "warning";
-        statusText = `⚠️ Yard Bloat (${formatNumber(totalYard)} units)`;
+        statusText = `⚠️ Yard Bloat (${bufferPct}% of Buffer — Waste Defect)`;
+      } else if (bufferRatio < 0.7) {
+        status = "critical";
+        statusText = `🚨 Stock Depleted (${bufferPct}% of Buffer — Starvation Risk)`;
       }
 
       return {
@@ -195,13 +297,121 @@ export default function GridPulseDashboard() {
         status,
         statusText,
         totalYard,
+        requiredBuffer,
+        bufferPct,
+        bufferRatio,
         totalIssues,
-        totalTransfersIn,
+        totalTransfersIn: totalTransfersIn + liveInTransit,
         strandedSetsCount,
         criticalBottlenecks,
       };
     });
-  }, [currentLedger, currentSetData]);
+  }, [currentLedger, currentSetData, siteBuffers, liveOrders]);
+
+  // Combined ERP Movement Database (500 historical vouchers + live PO orders)
+  const allMovements = useMemo(() => {
+    const liveVouchers = liveOrders.map((o) => ({
+      date: o.date,
+      voucher_no: o.po_number,
+      tx_type: "PURCHASE_ORDER (LIVE)",
+      godown: o.godown,
+      item_code: o.item_code,
+      item_name: o.item_name,
+      unit: o.unit,
+      qty: o.qty,
+    }));
+
+    let merged = [...liveVouchers, ...movementsData];
+
+    // Filter by godown
+    if (selectedGodown !== "ALL") {
+      merged = merged.filter((m) => m.godown === selectedGodown);
+    }
+
+    // Filter by movement type
+    if (movementTypeFilter !== "ALL") {
+      merged = merged.filter((m) => m.tx_type.toUpperCase().includes(movementTypeFilter.toUpperCase()));
+    }
+
+    // Filter by item search query
+    if (movementSearchQuery.trim()) {
+      const q = movementSearchQuery.toLowerCase();
+      merged = merged.filter(
+        (m) =>
+          m.item_code.toLowerCase().includes(q) ||
+          m.item_name.toLowerCase().includes(q) ||
+          m.voucher_no.toLowerCase().includes(q)
+      );
+    }
+
+    return merged;
+  }, [liveOrders, selectedGodown, movementTypeFilter, movementSearchQuery]);
+
+  // CSV Export Function
+  const handleExportCSV = () => {
+    const headers = ["Date", "Voucher_No", "Transaction_Type", "Godown_Store", "Item_Code", "Item_Name", "Unit", "Quantity"];
+    const rows = allMovements.map((m) => [
+      m.date,
+      m.voucher_no,
+      `"${m.tx_type}"`,
+      `"${m.godown}"`,
+      m.item_code,
+      `"${m.item_name.replace(/"/g, '""')}"`,
+      m.unit,
+      m.qty,
+    ]);
+
+    const csvContent = [headers.join(","), ...rows.map((r) => r.join(","))].join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `gridpulse_erp_movement_ledger_${selectedGodown}_${selectedMonth}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // Submit Site Order to POST /api/orders
+  const handlePlaceOrderSubmit = async () => {
+    if (!orderModalItem || !inspectedSite || orderQtyInput <= 0) return;
+
+    setOrderSubmitting(true);
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          godown: inspectedSite,
+          item_code: orderModalItem.item_code,
+          item_name: orderModalItem.item_name,
+          unit: orderModalItem.unit,
+          qty: orderQtyInput,
+          lead_time_days: orderModalItem.lead_time_days,
+          urgency: "HIGH (Site JIT Trigger)",
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success && data.order) {
+        const updated = [data.order, ...liveOrders];
+        setLiveOrders(updated);
+        localStorage.setItem("gridpulse_live_txs", JSON.stringify(updated));
+
+        setOrderToast({
+          message: `Purchase Order ${data.order.po_number} Placed for ${inspectedSite}`,
+          po: data.order.po_number,
+          eta: data.order.expected_delivery_date,
+        });
+        setTimeout(() => setOrderToast(null), 6000);
+        setOrderModalItem(null);
+      }
+    } catch (err) {
+      console.error("Order submission failed", err);
+    } finally {
+      setOrderSubmitting(false);
+    }
+  };
 
   // Auto-detected alerts for selected month
   const activeAlerts = useMemo(() => {
@@ -342,6 +552,22 @@ export default function GridPulseDashboard() {
 
   return (
     <div className="min-h-screen bg-[#070b13] text-slate-100 flex flex-col antialiased">
+      {/* Toast Banner for New Orders */}
+      {orderToast && (
+        <div className="fixed top-4 right-4 z-50 bg-emerald-950 border border-emerald-500 rounded-xl p-4 shadow-2xl flex items-center gap-3 max-w-md animate-bounce">
+          <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" />
+          <div className="text-xs space-y-0.5">
+            <div className="font-bold text-white">{orderToast.message}</div>
+            <div className="font-mono text-emerald-300 text-[11px]">
+              PO #{orderToast.po} | Delivery ETA: {orderToast.eta} | Stock In-Transit
+            </div>
+          </div>
+          <button onClick={() => setOrderToast(null)} className="text-slate-400 hover:text-white ml-2">
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
       {/* Top Header */}
       <header className="sticky top-0 z-40 bg-[#0c1220]/95 backdrop-blur border-b border-slate-800 px-4 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -475,7 +701,7 @@ export default function GridPulseDashboard() {
             }`}
           >
             <Warehouse className="w-4 h-4 text-amber-400" />
-            3. District Godown Stores (6 Stores)
+            3. District Godown Stores & ERP Database
           </button>
           <button
             onClick={() => setActiveDept("contractors")}
@@ -563,27 +789,27 @@ export default function GridPulseDashboard() {
               </div>
             </section>
 
-            {/* 6-District Glowing Site Wallboard */}
+            {/* 6-District Glowing Site Wallboard with Buffer Stock Health Gauges */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-base font-bold text-white flex items-center gap-2">
                     <Building2 className="w-4 h-4 text-emerald-400" />
-                    6-District Kanpur Operational Site Grid — Month: {selectedMonth}
+                    6-District Kanpur Site Wallboard & Buffer Stock Gauges — Month: {selectedMonth}
                   </h3>
                   <p className="text-xs text-slate-400">
-                    Live health telemetry across all 6 project stores. Click any district card to inspect erection progress, transit pipeline, and set bottlenecks.
+                    Live inventory vs Six Sigma buffer stock. Click any district tile to inspect 16 items and place direct site orders.
                   </p>
                 </div>
                 <div className="hidden sm:flex items-center gap-3 text-xs font-mono">
                   <span className="flex items-center gap-1.5 text-rose-400">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span> Critical Bottleneck
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span> Critical Deficit / Stranded
                   </span>
                   <span className="flex items-center gap-1.5 text-amber-400">
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Yard Bloat Warning
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Yard Bloat (&gt;2x Buffer)
                   </span>
                   <span className="flex items-center gap-1.5 text-emerald-400">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Operational Lean
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Optimal Buffer Band
                   </span>
                 </div>
               </div>
@@ -599,6 +825,10 @@ export default function GridPulseDashboard() {
                     : isWarning
                     ? "border-amber-500 shadow-[0_0_18px_rgba(245,158,11,0.25)] ring-1 ring-amber-500/50"
                     : "border-emerald-500/40 shadow-[0_0_12px_rgba(16,185,129,0.15)] hover:border-emerald-400";
+
+                  // Gauge bar color
+                  const gaugeColor = ds.bufferRatio < 0.7 ? "bg-rose-500" : ds.bufferRatio > 2.0 ? "bg-amber-500" : "bg-emerald-500";
+                  const gaugeWidth = Math.min(100, Math.round((ds.totalYard / (ds.requiredBuffer * 2.5)) * 100));
 
                   return (
                     <div
@@ -634,6 +864,27 @@ export default function GridPulseDashboard() {
                           {ds.statusText}
                         </div>
 
+                        {/* Buffer Stock Health Gauge */}
+                        <div className="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/80 space-y-1.5">
+                          <div className="flex justify-between items-center text-[10px] font-mono">
+                            <span className="text-slate-400">Current Stock vs Buffer Target:</span>
+                            <span className="text-white font-bold">
+                              {formatNumber(ds.totalYard)} / {formatNumber(ds.requiredBuffer)}
+                            </span>
+                          </div>
+                          <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div
+                              className={`h-full ${gaugeColor} transition-all duration-500`}
+                              style={{ width: `${gaugeWidth}%` }}
+                            ></div>
+                          </div>
+                          <div className="flex justify-between text-[9px] text-slate-500 font-mono">
+                            <span>0</span>
+                            <span className="text-emerald-400">Target: {formatNumber(ds.requiredBuffer)}</span>
+                            <span>Max Bloat (2.5x)</span>
+                          </div>
+                        </div>
+
                         {/* Store Metrics */}
                         <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono bg-slate-950/40 p-2 rounded-lg">
                           <div>
@@ -652,7 +903,9 @@ export default function GridPulseDashboard() {
                       </div>
 
                       <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
-                        <span>Click to inspect site drawer</span>
+                        <span className="flex items-center gap-1 text-emerald-400 font-semibold">
+                          <PlusCircle className="w-3.5 h-3.5" /> Inspect & Place Site Order
+                        </span>
                         <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
                       </div>
                     </div>
@@ -848,7 +1101,7 @@ export default function GridPulseDashboard() {
         )}
 
         {/* ========================================================= */}
-        {/* DEPARTMENT 3: DISTRICT GODOWN STORES                      */}
+        {/* DEPARTMENT 3: DISTRICT GODOWN STORES & ERP AUDIT DATABASE */}
         {/* ========================================================= */}
         {activeDept === "godowns" && (
           <div className="space-y-6">
@@ -856,10 +1109,10 @@ export default function GridPulseDashboard() {
               <div>
                 <h3 className="text-base font-bold text-white flex items-center gap-2">
                   <Warehouse className="w-4 h-4 text-amber-400" />
-                  District Godown Stores Ledger — Month: {selectedMonth}
+                  District Godown Stores Ledger & ERP Audit Database
                 </h3>
                 <p className="text-xs text-slate-400">
-                  Stock on ground = Receipts + Transfers IN - Transfers OUT - Issues + Returns. Includes KANPUR CLOSER wind-down tracking.
+                  Real ERP vouchers merged with live recorded site purchase orders. Includes 1-click CSV export.
                 </p>
               </div>
 
@@ -915,81 +1168,115 @@ export default function GridPulseDashboard() {
               </div>
             </div>
 
-            {/* Full Store Ledger Table */}
-            <div className="overflow-x-auto border border-slate-800 rounded-xl bg-slate-900/60 shadow-lg">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-slate-950/80 text-slate-400 font-mono uppercase tracking-wider border-b border-slate-800">
-                  <tr>
-                    <th className="py-3 px-4">Item Code & Description</th>
-                    <th className="py-3 px-3">Role</th>
-                    <th className="py-3 px-3">Lead Time</th>
-                    <th className="py-3 px-3 text-right">Receipts</th>
-                    <th className="py-3 px-3 text-right">Transfers Net</th>
-                    <th className="py-3 px-3 text-right">Contractor Issues</th>
-                    <th className="py-3 px-3 text-right">Returns</th>
-                    <th className="py-3 px-4 text-right text-emerald-400">Closing Yard Stock</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800/60">
-                  {Object.entries(currentLedger.items).map(([code, item]: [string, any]) => {
-                    const meta = (summaryData.items as any)[code];
-                    const isAll = selectedGodown === "ALL";
+            {/* Live ERP Stock Movement & Audit Database Table */}
+            <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-5 space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                    <Database className="w-4 h-4 text-emerald-400" />
+                    ERP Stock Movement & Live Transaction Ledger ({allMovements.length} Records)
+                  </h4>
+                  <p className="text-xs text-slate-400">
+                    Live ERP audit trail tracking GRN Receipts, District Transfers, Contractor Issues/Returns, and Site Purchase Orders.
+                  </p>
+                </div>
 
-                    const receipts = isAll ? item.total_receipts : item.godowns[selectedGodown]?.receipts || 0;
-                    const tin = isAll ? item.total_transfers_in : item.godowns[selectedGodown]?.transfers_in || 0;
-                    const tout = isAll ? item.total_transfers_out : item.godowns[selectedGodown]?.transfers_out || 0;
-                    const issues = isAll ? item.total_issues : item.godowns[selectedGodown]?.issues || 0;
-                    const returns = isAll ? item.total_returns : item.godowns[selectedGodown]?.returns || 0;
-                    const yardStock = isAll ? item.total_yard_stock : item.godowns[selectedGodown]?.closing_yard_stock || 0;
+                <div className="flex flex-wrap items-center gap-2.5">
+                  {/* Movement Type Filter */}
+                  <select
+                    value={movementTypeFilter}
+                    onChange={(e) => setMovementTypeFilter(e.target.value)}
+                    className="bg-slate-800 text-xs text-white border border-slate-700 rounded-md px-2.5 py-1.5 focus:outline-none font-mono"
+                  >
+                    <option value="ALL">All Types</option>
+                    <option value="ORDER">Live Purchase Orders</option>
+                    <option value="RECEIPT">GRN Receipts</option>
+                    <option value="TRANSFER">Transfers IN/OUT</option>
+                    <option value="ISSUE">Contractor Issues</option>
+                    <option value="RETURN">Yard Returns</option>
+                  </select>
 
-                    return (
-                      <tr key={code} className="hover:bg-slate-800/40 transition">
-                        <td className="py-3 px-4">
-                          <div className="font-mono font-bold text-white">{code}</div>
-                          <div className="text-[11px] text-slate-400 truncate max-w-[200px]">
-                            {meta?.item_name || ""}
-                          </div>
-                        </td>
-                        <td className="py-3 px-3 font-mono">
-                          <span
-                            className={`px-2 py-0.5 rounded text-[10px] font-semibold ${
-                              meta?.role === "Parent"
-                                ? "bg-amber-500/20 text-amber-300 border border-amber-500/40"
-                                : meta?.role === "Child"
-                                ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
-                                : "bg-slate-800 text-slate-400"
-                            }`}
-                          >
-                            {meta?.role || "Indep"}
-                          </span>
-                        </td>
-                        <td className="py-3 px-3 font-mono text-slate-300">{meta?.lead_time_days}d</td>
-                        <td className="py-3 px-3 text-right font-mono text-slate-300">
-                          {receipts > 0 ? formatNumber(receipts) : "-"}
-                        </td>
-                        <td className="py-3 px-3 text-right font-mono text-slate-300">
-                          {tin - tout !== 0 ? (
-                            <span className={tin - tout > 0 ? "text-emerald-400" : "text-rose-400"}>
-                              {tin - tout > 0 ? `+${formatNumber(tin - tout)}` : formatNumber(tin - tout)}
+                  {/* Search Query Input */}
+                  <div className="relative">
+                    <Search className="w-3.5 h-3.5 text-slate-500 absolute left-2.5 top-2.5" />
+                    <input
+                      type="text"
+                      placeholder="Search voucher or item..."
+                      value={movementSearchQuery}
+                      onChange={(e) => setMovementSearchQuery(e.target.value)}
+                      className="bg-slate-800 text-xs text-white border border-slate-700 rounded-md pl-8 pr-3 py-1.5 focus:outline-none font-mono w-48"
+                    />
+                  </div>
+
+                  {/* 1-Click CSV Export Button */}
+                  <button
+                    onClick={handleExportCSV}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition shadow"
+                  >
+                    <Download className="w-3.5 h-3.5" /> Export Ledger (.CSV)
+                  </button>
+                </div>
+              </div>
+
+              {/* Transactions Table */}
+              <div className="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950/70 max-h-96">
+                <table className="w-full text-left text-xs">
+                  <thead className="sticky top-0 bg-slate-900 text-slate-400 font-mono uppercase tracking-wider border-b border-slate-800">
+                    <tr>
+                      <th className="py-2.5 px-3">Date</th>
+                      <th className="py-2.5 px-3">Voucher / PO #</th>
+                      <th className="py-2.5 px-3">Type</th>
+                      <th className="py-2.5 px-3">Godown Store</th>
+                      <th className="py-2.5 px-4">Item Code & Name</th>
+                      <th className="py-2.5 px-3 text-right">Quantity</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/60">
+                    {allMovements.slice(0, 100).map((m, idx) => {
+                      const isOrder = m.tx_type.includes("ORDER");
+                      const isReceipt = m.tx_type.includes("RECEIPT");
+                      const isTransfer = m.tx_type.includes("TRANSFER");
+                      const isIssue = m.tx_type.includes("ISSUE");
+
+                      return (
+                        <tr key={idx} className="hover:bg-slate-800/40 transition">
+                          <td className="py-2 px-3 font-mono text-slate-400 whitespace-nowrap">{m.date}</td>
+                          <td className="py-2 px-3 font-mono font-bold text-white whitespace-nowrap">
+                            {m.voucher_no}
+                          </td>
+                          <td className="py-2 px-3 font-mono whitespace-nowrap">
+                            <span
+                              className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
+                                isOrder
+                                  ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/60"
+                                  : isReceipt
+                                  ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/60"
+                                  : isTransfer
+                                  ? "bg-amber-500/20 text-amber-300 border border-amber-500/60"
+                                  : isIssue
+                                  ? "bg-violet-500/20 text-violet-300 border border-violet-500/60"
+                                  : "bg-slate-800 text-slate-400"
+                              }`}
+                            >
+                              {m.tx_type}
                             </span>
-                          ) : (
-                            "-"
-                          )}
-                        </td>
-                        <td className="py-3 px-3 text-right font-mono text-slate-300">
-                          {issues > 0 ? formatNumber(issues) : "-"}
-                        </td>
-                        <td className="py-3 px-3 text-right font-mono text-slate-300">
-                          {returns > 0 ? formatNumber(returns) : "-"}
-                        </td>
-                        <td className="py-3 px-4 text-right font-mono font-bold text-emerald-400">
-                          {formatNumber(yardStock)} {meta?.unit}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                          </td>
+                          <td className="py-2 px-3 text-slate-300 font-medium whitespace-nowrap">{m.godown}</td>
+                          <td className="py-2 px-4">
+                            <div className="font-mono font-bold text-slate-200">{m.item_code}</div>
+                            <div className="text-[11px] text-slate-400 truncate max-w-[220px]">
+                              {m.item_name}
+                            </div>
+                          </td>
+                          <td className="py-2 px-3 text-right font-mono font-bold text-emerald-400 whitespace-nowrap">
+                            {formatNumber(m.qty)} {m.unit}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             {/* KANPUR CLOSER Wind-Down Store Info Box */}
@@ -1186,20 +1473,20 @@ export default function GridPulseDashboard() {
       </main>
 
       {/* ========================================================= */}
-      {/* SLIDE-OVER DRAWER: CLICK-TO-INSPECT DISTRICT SITE        */}
+      {/* SLIDE-OVER DRAWER: COMPLETE 16-ITEM INVENTORY & SITE ORDER */}
       {/* ========================================================= */}
       {inspectedSite && (
         <div className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-sm transition-opacity">
-          <div className="w-full max-w-md bg-[#0e1424] border-l border-slate-800 p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
+          <div className="w-full max-w-xl bg-[#0e1424] border-l border-slate-800 p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
                     <Building2 className="w-5 h-5 text-emerald-400" />
-                    {inspectedSite}
+                    {inspectedSite} — Site Inventory & Buffer Audit
                   </h3>
                   <span className="text-xs text-slate-400 font-mono">
-                    Site Telemetry — {selectedMonth}
+                    Month: {selectedMonth} | Total Buffer Target: {formatNumber(siteBuffers[inspectedSite]?.total_buffer_units || 25000)} units
                   </span>
                 </div>
                 <button
@@ -1210,110 +1497,160 @@ export default function GridPulseDashboard() {
                 </button>
               </div>
 
-              {/* 1. Construction & Erection Progress */}
-              <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 space-y-2">
-                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-                  <HardHat className="w-4 h-4 text-emerald-400" /> 1. Construction / Erection Progress
-                </span>
-                <div className="grid grid-cols-2 gap-3 pt-1 text-xs font-mono">
-                  <div className="bg-slate-950 p-2.5 rounded-lg">
-                    <span className="text-slate-500 text-[10px]">Issued to Site</span>
-                    <div className="text-base font-bold text-emerald-400">
-                      {formatNumber(
-                        Object.values(currentLedger.items).reduce((acc: number, curr: any) => {
-                          return acc + (curr.godowns?.[inspectedSite]?.issues || 0);
-                        }, 0)
-                      )} units
+              {/* Order Placement Sub-Modal / Bar */}
+              {orderModalItem && (
+                <div className="bg-emerald-950/80 border border-emerald-500 rounded-xl p-4 space-y-3 shadow-lg">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase">
+                        Direct Site Purchase Order (POST /api/orders)
+                      </span>
+                      <h4 className="text-sm font-bold text-white">{orderModalItem.item_name}</h4>
+                      <span className="text-xs text-slate-300 font-mono">
+                        Code: {orderModalItem.item_code} | Lead Time: {orderModalItem.lead_time_days} days
+                      </span>
                     </div>
+                    <button onClick={() => setOrderModalItem(null)} className="text-slate-400 hover:text-white">
+                      <X className="w-4 h-4" />
+                    </button>
                   </div>
-                  <div className="bg-slate-950 p-2.5 rounded-lg">
-                    <span className="text-slate-500 text-[10px]">Yard Closing Stock</span>
-                    <div className="text-base font-bold text-slate-200">
-                      {formatNumber(
-                        Object.values(currentLedger.items).reduce((acc: number, curr: any) => {
-                          return acc + (curr.godowns?.[inspectedSite]?.closing_yard_stock || 0);
-                        }, 0)
-                      )} units
+
+                  <div className="flex items-center gap-3 pt-2">
+                    <div className="flex-1">
+                      <label className="text-[11px] text-slate-400 block mb-1">
+                        Recommended Order Qty ({orderModalItem.unit}):
+                      </label>
+                      <input
+                        type="number"
+                        value={orderQtyInput}
+                        onChange={(e) => setOrderQtyInput(Number(e.target.value))}
+                        className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white font-mono focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                      />
                     </div>
+                    <button
+                      onClick={handlePlaceOrderSubmit}
+                      disabled={orderSubmitting || orderQtyInput <= 0}
+                      className="mt-5 px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1.5 transition shadow"
+                    >
+                      {orderSubmitting ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <ShoppingCart className="w-3.5 h-3.5" />}
+                      Confirm PO Dispatch
+                    </button>
                   </div>
                 </div>
-              </div>
+              )}
 
-              {/* 2. Material Required (ORDER NOW) */}
-              <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 space-y-2">
-                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-                  <Package className="w-4 h-4 text-cyan-400" /> 2. Material Required (Lead-Time Countdown)
-                </span>
-                <div className="space-y-1.5 pt-1 text-xs">
-                  {currentRecommendations.orders_now.slice(0, 3).map((o: any, idx: number) => (
-                    <div key={idx} className="bg-slate-950 p-2 rounded flex justify-between items-center text-[11px]">
-                      <div>
-                        <div className="font-mono font-bold text-white">{o.item_code}</div>
-                        <div className="text-slate-400 truncate max-w-[170px]">{o.item_name}</div>
-                      </div>
-                      <div className="text-right font-mono">
-                        <div className="text-emerald-400 font-bold">+{o.suggested_order_qty}</div>
-                        <div className="text-slate-500 text-[10px]">{o.lead_time_days}d lead</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* 3. Stock In Transit */}
-              <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 space-y-2">
-                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-                  <Truck className="w-4 h-4 text-amber-400" /> 3. Stock In Transit
-                </span>
-                <div className="bg-slate-950 p-3 rounded-lg text-xs font-mono flex justify-between items-center">
-                  <div>
-                    <span className="text-slate-400 text-[11px]">Transfers IN This Month</span>
-                    <div className="text-sm font-bold text-cyan-300">
-                      +{formatNumber(
-                        Object.values(currentLedger.items).reduce((acc: number, curr: any) => {
-                          return acc + (curr.godowns?.[inspectedSite]?.transfers_in || 0);
-                        }, 0)
-                      )} units
-                    </div>
-                  </div>
-                  <span className="px-2 py-0.5 rounded text-[10px] bg-cyan-950 text-cyan-300 border border-cyan-800">
-                    Pipeline Active
+              {/* 16-Item Site Inventory & Buffer Target Table */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                    <Package className="w-4 h-4 text-emerald-400" /> Complete 16-Item Site Inventory & Buffer Target
                   </span>
+                  <span className="text-[10px] text-slate-400 font-mono">1-Click JIT Ordering</span>
+                </div>
+
+                <div className="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950/70 max-h-96">
+                  <table className="w-full text-left text-xs">
+                    <thead className="sticky top-0 bg-slate-900 text-slate-400 font-mono uppercase tracking-wider border-b border-slate-800">
+                      <tr>
+                        <th className="py-2.5 px-3">Item Description</th>
+                        <th className="py-2.5 px-2 text-right">On-Hand</th>
+                        <th className="py-2.5 px-2 text-right">Buffer</th>
+                        <th className="py-2.5 px-2 text-right">In-Transit</th>
+                        <th className="py-2.5 px-2 text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800/60">
+                      {Object.entries(currentLedger.items).map(([code, item]: [string, any]) => {
+                        const meta = (summaryData.items as any)[code];
+                        const onHand = item.godowns?.[inspectedSite]?.closing_yard_stock || 0;
+                        const bufferTarget = siteBuffers[inspectedSite]?.items?.[code] || 50;
+
+                        // Calculate in-transit orders for this item and godown
+                        const inTransitOrders = liveOrders
+                          .filter((o) => o.godown === inspectedSite && o.item_code === code)
+                          .reduce((acc, curr) => acc + curr.qty, 0);
+
+                        const isDeficit = onHand < bufferTarget;
+                        const isBloated = onHand > bufferTarget * 2.5;
+
+                        return (
+                          <tr key={code} className="hover:bg-slate-800/40 transition">
+                            <td className="py-2.5 px-3">
+                              <div className="font-mono font-bold text-white text-[11px]">{code}</div>
+                              <div className="text-[10px] text-slate-400 truncate max-w-[160px]">
+                                {meta?.item_name || ""}
+                              </div>
+                            </td>
+                            <td className="py-2.5 px-2 text-right font-mono font-bold text-slate-200">
+                              {formatNumber(onHand)}
+                            </td>
+                            <td className="py-2.5 px-2 text-right font-mono text-emerald-400">
+                              {formatNumber(bufferTarget)}
+                            </td>
+                            <td className="py-2.5 px-2 text-right font-mono text-cyan-400">
+                              {inTransitOrders > 0 ? `+${formatNumber(inTransitOrders)}` : "-"}
+                            </td>
+                            <td className="py-2.5 px-2 text-center">
+                              <button
+                                onClick={() => {
+                                  const recQty = Math.max(10, Math.round(bufferTarget * 1.2 - onHand - inTransitOrders));
+                                  setOrderModalItem({
+                                    item_code: code,
+                                    item_name: meta?.item_name || code,
+                                    unit: meta?.unit || "UNITS",
+                                    lead_time_days: meta?.lead_time_days || 30,
+                                  });
+                                  setOrderQtyInput(recQty > 0 ? recQty : 25);
+                                }}
+                                className="px-2 py-1 rounded bg-slate-800 hover:bg-emerald-600 hover:text-white text-slate-300 font-mono text-[10px] transition border border-slate-700"
+                              >
+                                Order
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              {/* 4. Flagged Set Bottlenecks */}
-              <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 space-y-2">
-                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-                  <AlertTriangle className="w-4 h-4 text-rose-400" /> 4. Flagged Set Bottlenecks
-                </span>
-                <div className="space-y-2 text-xs">
-                  {currentSetData.sets.map((s: any) => {
-                    const gSet = s.godowns?.[inspectedSite];
-                    return (
-                      <div key={s.parent_code} className="bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-[11px]">
-                        <div className="flex justify-between font-mono font-bold">
-                          <span className="text-white">{s.parent_name}</span>
-                          <span className={gSet?.stranded_parents > 0 ? "text-rose-400" : "text-emerald-400"}>
-                            {gSet?.stranded_parents > 0 ? `Stranded: ${gSet.stranded_parents}` : "Balanced"}
-                          </span>
-                        </div>
-                        {gSet?.stranded_parents > 0 && (
-                          <div className="text-amber-400 mt-1 text-[10px]">
-                            Constrained by child: {gSet.bottleneck}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
+              {/* Transit & Bottleneck Summary Box */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3 text-xs font-mono">
+                  <span className="text-[10px] text-slate-400 uppercase block mb-1">
+                    Contractor Site Issues:
+                  </span>
+                  <div className="text-base font-bold text-emerald-400">
+                    {formatNumber(
+                      Object.values(currentLedger.items).reduce((acc: number, curr: any) => {
+                        return acc + (curr.godowns?.[inspectedSite]?.issues || 0);
+                      }, 0)
+                    )} units
+                  </div>
+                </div>
+                <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3 text-xs font-mono">
+                  <span className="text-[10px] text-slate-400 uppercase block mb-1">
+                    Active In-Transit Pipeline:
+                  </span>
+                  <div className="text-base font-bold text-cyan-400">
+                    +{formatNumber(
+                      liveOrders
+                        .filter((o) => o.godown === inspectedSite)
+                        .reduce((sum, o) => sum + o.qty, 0)
+                    )} units
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-slate-800">
               <button
-                onClick={() => setInspectedSite(null)}
-                className="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition"
+                onClick={() => {
+                  setInspectedSite(null);
+                  setOrderModalItem(null);
+                }}
+                className="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition"
               >
                 Close Site Drawer
               </button>

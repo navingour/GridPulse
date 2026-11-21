@@ -636,10 +636,81 @@ summary = {
     "highlight_bottleneck_month": "2024-06"
 }
 
+# Compute site buffer stock targets for each of the 6 godowns
+site_buffers = {}
+for g in godowns:
+    g_items = {}
+    g_total_buffer = 0.0
+    for item in item_codes:
+        mu_item = item_six_sigma[item]["mean_monthly_consumption"]
+        lt_m = item_meta[item]["lead_time_months"]
+        # Godown share approx 1/6th of project burn with lead time safety factor
+        g_buffer = round(max(5.0, (mu_item / 6.0) * lt_m * 1.0), 1)
+        g_items[item] = g_buffer
+        g_total_buffer += g_buffer
+    site_buffers[g] = {
+        "total_buffer_units": round(g_total_buffer, 1),
+        "items": g_items
+    }
+
+# Build ERP movements sample (500 representative records)
+print("Extracting 500 key ERP movement vouchers for movements.json...")
+movement_records = []
+
+# Receipts (150 rows)
+rec_sample = receipts_df.sort_values("date", ascending=False).head(150)
+for _, r in rec_sample.iterrows():
+    movement_records.append({
+        "date": str(r["date"]),
+        "voucher_no": str(r["grn_no"]),
+        "tx_type": "RECEIPT (GRN)",
+        "godown": str(r["godown"]),
+        "item_code": str(r["item_code"]),
+        "item_name": str(r["item_name"]),
+        "unit": str(r["unit"]),
+        "qty": round(float(r["qty_received"]), 2)
+    })
+
+# Transfers (150 rows)
+tf_sample = transfers_df.sort_values("date", ascending=False).head(150)
+for _, r in tf_sample.iterrows():
+    movement_records.append({
+        "date": str(r["date"]),
+        "voucher_no": str(r["voucher_no"]),
+        "tx_type": f"TRANSFER_{r['direction']}",
+        "godown": str(r["godown"]),
+        "item_code": str(r["item_code"]),
+        "item_name": str(r["item_name"]),
+        "unit": str(r["unit"]),
+        "qty": round(float(r["qty"]), 2)
+    })
+
+# Contractor Moves (200 rows)
+moves_sample = moves_df.sort_values("date", ascending=False).head(200)
+for idx, r in moves_sample.iterrows():
+    g_val = str(r["godown"]) if pd.notna(r["godown"]) and str(r["godown"]).strip() != "" else "PROJECT SITE"
+    movement_records.append({
+        "date": str(r["date"]),
+        "voucher_no": f"CM-{str(r['date']).replace('-', '')}-{idx % 900 + 100}",
+        "tx_type": str(r["type"]),
+        "godown": g_val,
+        "item_code": str(r["item_code"]),
+        "item_name": str(r["item_name"]),
+        "unit": str(r["unit"]),
+        "qty": round(float(r["qty"]), 2)
+    })
+
+movement_records.sort(key=lambda x: x["date"], reverse=True)
+
 # Write output files
 print("Writing JSON outputs to public/data/...")
+summary["site_buffers"] = site_buffers
+
 with open(os.path.join(OUTPUT_DIR, "summary.json"), "w") as f:
     json.dump(summary, f, indent=2)
+
+with open(os.path.join(OUTPUT_DIR, "movements.json"), "w") as f:
+    json.dump(movement_records, f, indent=2)
 
 with open(os.path.join(OUTPUT_DIR, "causal_replay.json"), "w") as f:
     json.dump(causal_replay_data, f, indent=2)
@@ -653,4 +724,4 @@ with open(os.path.join(OUTPUT_DIR, "recommendations.json"), "w") as f:
 with open(os.path.join(OUTPUT_DIR, "ledger_monthly.json"), "w") as f:
     json.dump(monthly_ledger, f)
 
-print("Build complete! Six Sigma metrics generated successfully.")
+print("Build complete! movements.json & site_buffers generated successfully.")
