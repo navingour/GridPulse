@@ -57,6 +57,48 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    const now = new Date();
+
+    // Check if this is a BOM Kit Batch Order
+    if (body.items && Array.isArray(body.items) && body.items.length > 0) {
+      const kitGodown = (body.godown || "KANPUR DEHAT").toUpperCase();
+      const kitPoNumber = body.po_number || `PO-KIT-2026-${Math.floor(100 + Math.random() * 900)}`;
+
+      const createdOrders = body.items.map((it: any, idx: number) => {
+        const ltDays = Number(it.lead_time_days) || 30;
+        const deliveryDate = new Date(now.getTime() + ltDays * 24 * 60 * 60 * 1000);
+
+        return {
+          id: `po-kit-${Date.now()}-${idx}`,
+          po_number: kitPoNumber,
+          date: now.toISOString().split("T")[0],
+          godown: (it.godown || kitGodown).toUpperCase(),
+          item_code: it.item_code,
+          item_name: it.item_name || it.item_code,
+          unit: it.unit || "UNITS",
+          qty: Number(it.qty),
+          lead_time_days: ltDays,
+          expected_delivery_date: deliveryDate.toISOString().split("T")[0],
+          urgency: it.urgency || "HIGH (Synchronized BOM Kit)",
+          status: "IN_TRANSIT",
+        };
+      });
+
+      // Add all to activeOrders
+      createdOrders.forEach((o: any) => activeOrders.unshift(o));
+
+      return NextResponse.json(
+        {
+          success: true,
+          po_number: kitPoNumber,
+          message: `Synchronized BOM Kit Purchase Order ${kitPoNumber} created with ${createdOrders.length} line items.`,
+          orders: createdOrders,
+        },
+        { status: 201 }
+      );
+    }
+
+    // Single item order fallback
     const { godown, item_code, item_name, unit, qty, lead_time_days, urgency } = body;
 
     if (!godown || !item_code || !qty || qty <= 0) {
@@ -67,10 +109,8 @@ export async function POST(req: Request) {
     }
 
     const ltDays = Number(lead_time_days) || 30;
-    const now = new Date();
     const deliveryDate = new Date(now.getTime() + ltDays * 24 * 60 * 60 * 1000);
-
-    const poNumber = `PO-LUM-2026-${Math.floor(100 + Math.random() * 900)}`;
+    const poNumber = body.po_number || `PO-LUM-2026-${Math.floor(100 + Math.random() * 900)}`;
 
     const newOrder = {
       id: `po-${Date.now()}`,
@@ -92,8 +132,10 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         success: true,
+        po_number: poNumber,
         message: `Purchase Order ${poNumber} generated successfully.`,
         order: newOrder,
+        orders: [newOrder],
       },
       { status: 201 }
     );

@@ -372,16 +372,46 @@ export default function GridPulseDashboard() {
     document.body.removeChild(link);
   };
 
-  // Submit Site Order to POST /api/orders
+  // Submit Site Order to POST /api/orders (Supports Single and BOM-Aware Synchronized Kit)
   const handlePlaceOrderSubmit = async () => {
     if (!orderModalItem || !inspectedSite || orderQtyInput <= 0) return;
 
     setOrderSubmitting(true);
     try {
-      const res = await fetch("/api/orders", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const parentChildren = summaryData.sets.filter((s: any) => s.parent_code === orderModalItem.item_code);
+      const isParent = parentChildren.length > 0;
+
+      let payload: any;
+      if (isParent) {
+        const kitPo = `PO-KIT-2026-${Math.floor(100 + Math.random() * 900)}`;
+        const kitItems = [
+          {
+            godown: inspectedSite,
+            item_code: orderModalItem.item_code,
+            item_name: orderModalItem.item_name,
+            unit: orderModalItem.unit,
+            qty: orderQtyInput,
+            lead_time_days: orderModalItem.lead_time_days,
+            urgency: "HIGH (Parent Component)",
+          },
+          ...parentChildren.map((ch: any) => ({
+            godown: inspectedSite,
+            item_code: ch.child_code,
+            item_name: ch.child_name,
+            unit: ch.child_unit,
+            qty: Math.max(0.1, Math.round(orderQtyInput * ch.official_ratio * 10) / 10),
+            lead_time_days: (summaryData.items as any)[ch.child_code]?.lead_time_days || 60,
+            urgency: "HIGH (Synchronized BOM Kit Line)",
+          })),
+        ];
+
+        payload = {
+          godown: inspectedSite,
+          po_number: kitPo,
+          items: kitItems,
+        };
+      } else {
+        payload = {
           godown: inspectedSite,
           item_code: orderModalItem.item_code,
           item_name: orderModalItem.item_name,
@@ -389,19 +419,25 @@ export default function GridPulseDashboard() {
           qty: orderQtyInput,
           lead_time_days: orderModalItem.lead_time_days,
           urgency: "HIGH (Site JIT Trigger)",
-        }),
+        };
+      }
+
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
-      if (data.success && data.order) {
-        const updated = [data.order, ...liveOrders];
+      if (data.success && data.orders) {
+        const updated = [...data.orders, ...liveOrders];
         setLiveOrders(updated);
         localStorage.setItem("gridpulse_live_txs", JSON.stringify(updated));
 
         setOrderToast({
-          message: `Purchase Order ${data.order.po_number} Placed for ${inspectedSite}`,
-          po: data.order.po_number,
-          eta: data.order.expected_delivery_date,
+          message: `${isParent ? "Synchronized BOM Kit" : "Purchase Order"} ${data.po_number} Placed for ${inspectedSite}`,
+          po: data.po_number,
+          eta: data.orders[0]?.expected_delivery_date || "2027-02-19",
         });
         setTimeout(() => setOrderToast(null), 6000);
         setOrderModalItem(null);
@@ -410,6 +446,55 @@ export default function GridPulseDashboard() {
       console.error("Order submission failed", err);
     } finally {
       setOrderSubmitting(false);
+    }
+  };
+
+  // 1-Click Order Missing Child Kit from Stranded Set Card
+  const handleOrderMissingChildKit = async (s: any) => {
+    const strandedQty = ratioMode === "official" ? s.stranded_official : s.stranded_empirical;
+    if (strandedQty <= 0) return;
+
+    const kitPo = `PO-KIT-2026-${Math.floor(100 + Math.random() * 900)}`;
+    const kitItems = s.children.map((ch: any) => {
+      const ratio = ratioMode === "official" ? ch.official_ratio : ch.empirical_ratio;
+      const neededQty = Math.max(0.5, Math.round(strandedQty * ratio * 10) / 10);
+      return {
+        godown: "KANPUR DEHAT",
+        item_code: ch.child_code,
+        item_name: ch.child_name,
+        unit: ch.child_unit,
+        qty: neededQty,
+        lead_time_days: (summaryData.items as any)[ch.child_code]?.lead_time_days || 60,
+        urgency: "CRITICAL (Unfreeze Stranded Parent Set)",
+      };
+    });
+
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          godown: "KANPUR DEHAT",
+          po_number: kitPo,
+          items: kitItems,
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success && data.orders) {
+        const updated = [...data.orders, ...liveOrders];
+        setLiveOrders(updated);
+        localStorage.setItem("gridpulse_live_txs", JSON.stringify(updated));
+
+        setOrderToast({
+          message: `Synchronized Child Kit ${kitPo} Placed for ${s.parent_name}`,
+          po: kitPo,
+          eta: data.orders[0]?.expected_delivery_date || "2027-02-19",
+        });
+        setTimeout(() => setOrderToast(null), 6000);
+      }
+    } catch (e) {
+      console.error("Kit order failed", e);
     }
   };
 
@@ -1407,6 +1492,18 @@ export default function GridPulseDashboard() {
                         </div>
                       ))}
                     </div>
+
+                    {isBottlenecked && (
+                      <div className="pt-3 border-t border-slate-800">
+                        <button
+                          onClick={() => handleOrderMissingChildKit(s)}
+                          className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition shadow flex items-center justify-center gap-1.5"
+                        >
+                          <Package className="w-3.5 h-3.5" />
+                          Order Missing Child Kit ({formatNumber(stranded)} sets)
+                        </button>
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -1498,46 +1595,90 @@ export default function GridPulseDashboard() {
               </div>
 
               {/* Order Placement Sub-Modal / Bar */}
-              {orderModalItem && (
-                <div className="bg-emerald-950/80 border border-emerald-500 rounded-xl p-4 space-y-3 shadow-lg">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase">
-                        Direct Site Purchase Order (POST /api/orders)
-                      </span>
-                      <h4 className="text-sm font-bold text-white">{orderModalItem.item_name}</h4>
-                      <span className="text-xs text-slate-300 font-mono">
-                        Code: {orderModalItem.item_code} | Lead Time: {orderModalItem.lead_time_days} days
-                      </span>
-                    </div>
-                    <button onClick={() => setOrderModalItem(null)} className="text-slate-400 hover:text-white">
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
+              {orderModalItem && (() => {
+                const parentChildren = summaryData.sets.filter((s: any) => s.parent_code === orderModalItem.item_code);
+                const isParent = parentChildren.length > 0;
 
-                  <div className="flex items-center gap-3 pt-2">
-                    <div className="flex-1">
-                      <label className="text-[11px] text-slate-400 block mb-1">
-                        Recommended Order Qty ({orderModalItem.unit}):
-                      </label>
-                      <input
-                        type="number"
-                        value={orderQtyInput}
-                        onChange={(e) => setOrderQtyInput(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white font-mono focus:outline-none focus:ring-1 focus:ring-emerald-500"
-                      />
+                return (
+                  <div className="bg-emerald-950/90 border border-emerald-500 rounded-xl p-4 space-y-3 shadow-xl">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase flex items-center gap-1">
+                          <Package className="w-3 h-3" />
+                          {isParent ? "BOM-Aware Parent-Child Kit Order" : "Direct Site Purchase Order"}
+                        </span>
+                        <h4 className="text-sm font-bold text-white">{orderModalItem.item_name}</h4>
+                        <span className="text-xs text-slate-300 font-mono">
+                          Code: {orderModalItem.item_code} | Lead Time: {orderModalItem.lead_time_days} days
+                        </span>
+                      </div>
+                      <button onClick={() => setOrderModalItem(null)} className="text-slate-400 hover:text-white">
+                        <X className="w-4 h-4" />
+                      </button>
                     </div>
-                    <button
-                      onClick={handlePlaceOrderSubmit}
-                      disabled={orderSubmitting || orderQtyInput <= 0}
-                      className="mt-5 px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1.5 transition shadow"
-                    >
-                      {orderSubmitting ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <ShoppingCart className="w-3.5 h-3.5" />}
-                      Confirm PO Dispatch
-                    </button>
+
+                    <div className="flex items-center gap-3 pt-2">
+                      <div className="flex-1">
+                        <label className="text-[11px] text-slate-400 block mb-1">
+                          Parent Order Qty ({orderModalItem.unit}):
+                        </label>
+                        <input
+                          type="number"
+                          value={orderQtyInput}
+                          onChange={(e) => setOrderQtyInput(Number(e.target.value))}
+                          className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white font-mono focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                        />
+                      </div>
+                      <button
+                        onClick={handlePlaceOrderSubmit}
+                        disabled={orderSubmitting || orderQtyInput <= 0}
+                        className="mt-5 px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1.5 transition shadow"
+                      >
+                        {orderSubmitting ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <ShoppingCart className="w-3.5 h-3.5" />}
+                        {isParent ? "Confirm Synchronized Kit PO" : "Confirm PO Dispatch"}
+                      </button>
+                    </div>
+
+                    {/* BOM Synchronized JIT Kit Breakdown */}
+                    {isParent && (
+                      <div className="bg-slate-900/90 border border-slate-700/80 rounded-lg p-3 space-y-2 mt-2">
+                        <div className="flex items-center justify-between text-[11px] font-mono font-bold text-amber-300">
+                          <span className="flex items-center gap-1.5">
+                            <Layers className="w-3.5 h-3.5" /> Synchronized JIT Kit Breakdown (BOM-Aware)
+                          </span>
+                          <span className="text-[10px] bg-amber-950 text-amber-400 px-2 py-0.5 rounded border border-amber-800">
+                            Auto-Bundled Children
+                          </span>
+                        </div>
+                        <p className="text-[10px] text-slate-400">
+                          Ordering {orderQtyInput} {orderModalItem.unit} of parent bundles all required child hardware based on sets.csv ratios:
+                        </p>
+                        <div className="space-y-1 text-[11px] font-mono">
+                          {parentChildren.map((ch: any) => {
+                            const childOnHand = (currentLedger.items as any)?.[ch.child_code]?.godowns?.[inspectedSite]?.closing_yard_stock || 0;
+                            const childInTransit = liveOrders
+                              .filter((o) => o.godown === inspectedSite && o.item_code === ch.child_code)
+                              .reduce((sum, o) => sum + o.qty, 0);
+                            const reqQty = Math.max(0.1, Math.round(orderQtyInput * ch.official_ratio * 10) / 10);
+                            const isShort = childOnHand + childInTransit < reqQty;
+
+                            return (
+                              <div key={ch.child_code} className="flex justify-between items-center bg-slate-950 px-2.5 py-1.5 rounded">
+                                <span className="text-slate-300 truncate max-w-[240px]">
+                                  {ch.child_name} ({ch.child_code})
+                                </span>
+                                <span className={isShort ? "text-rose-400 font-bold" : "text-emerald-400 font-bold"}>
+                                  +{reqQty} {ch.child_unit} {isShort ? "(Deficit Bundled)" : "(Matched)"}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-              )}
+                );
+              })()}
 
               {/* 16-Item Site Inventory & Buffer Target Table */}
               <div className="space-y-3">
