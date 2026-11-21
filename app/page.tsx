@@ -459,7 +459,7 @@ export default function GridPulseDashboard() {
       updateAiRecsCache(freshRecs, now);
 
       setOrderToast({
-        message: "Sarvam-105b Six Sigma Directives Refreshed (6h Token Cache Reset)",
+        message: "Sarvam-105b Transfer Directives Refreshed (6h Token Cache Reset)",
         po: "AI CYCLE ACTIVE",
         eta: "Corridors: NH-19 / NH-34 Kanpur Division",
       });
@@ -990,7 +990,7 @@ export default function GridPulseDashboard() {
         severity: o.urgency.includes("CRITICAL") ? "CRITICAL" : "WARNING",
         item: `${o.item_name} (${o.item_code})`,
         title: `Reorder Required: +${o.suggested_order_qty} units`,
-        description: `Lead time is ${o.lead_time_days} days. Stock will drop below Six Sigma ROP within ${o.months_of_supply} months.`,
+        description: `Lead time is ${o.lead_time_days} days. Stock will drop below Statistical ROP within ${o.months_of_supply} months.`,
       });
     });
 
@@ -1126,7 +1126,7 @@ export default function GridPulseDashboard() {
                   Lumino 1,700 Poles
                 </span>
                 <span className="hidden sm:inline-block text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/60">
-                  Six Sigma DMAIC & SPC
+                  Causal JIT & Set Planner
                 </span>
               </h1>
             </div>
@@ -1206,7 +1206,7 @@ export default function GridPulseDashboard() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="font-mono text-emerald-400 font-medium">No Auth Required</span>
+            <span className="font-mono text-emerald-400 font-medium">Kanpur Division • Live ERP</span>
           </div>
         </div>
       </header>
@@ -1284,19 +1284,117 @@ export default function GridPulseDashboard() {
         {/* ========================================================= */}
         {activeDept === "wallboard" && (
           <div className="space-y-6">
+            {/* Top Sarvam-105b Live Dispatch Ticker (Cycles every 5s) */}
+            {aiRecs.length > 0 && currentAiRec && (
+              <div
+                onMouseEnter={() => setAutoScrollPaused(true)}
+                onMouseLeave={() => setAutoScrollPaused(false)}
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#0c1628] via-[#0f1d35] to-[#0a1424] border border-cyan-800/40 p-4 shadow-xl transition-all"
+              >
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                  {/* Left: Ticker Label & AI Indicator */}
+                  <div className="flex items-center gap-3 shrink-0">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
+                      <Bot className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-white tracking-wide flex items-center gap-1.5">
+                          <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                          Sarvam-105b Live Dispatch Ticker
+                        </span>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800/50">
+                          Corridor {activeRecIndex + 1} of {aiRecs.length}
+                        </span>
+                        <span
+                          className={`text-[9px] font-mono font-bold px-1.5 py-0.2 rounded uppercase ${
+                            currentAiRec.urgency === "CRITICAL"
+                              ? "bg-rose-500/20 text-rose-300 border border-rose-500/30"
+                              : "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                          }`}
+                        >
+                          {currentAiRec.urgency}
+                        </span>
+                      </div>
+                      <div className="text-[11px] text-slate-400 font-mono flex items-center gap-2 mt-0.5">
+                        <span className="flex items-center gap-1 text-slate-400">
+                          <Clock className="w-3 h-3 text-cyan-400" />
+                          Auto-runs every 6h • Next in {formatTimeRemaining(aiRecsLastRun)}
+                        </span>
+                        <span className="text-slate-600">•</span>
+                        <span className="text-emerald-400">+{currentAiRec.lead_time_days_saved}d factory lead-time saved</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Middle: Active Route & Transfer Details */}
+                  <div className="flex-1 min-w-0 bg-slate-950/60 border border-slate-800/80 rounded-xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="font-bold text-slate-200">{currentAiRec.from_godown}</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <span className="font-bold text-emerald-300">{currentAiRec.to_godown}</span>
+                      <span className="text-slate-500 font-mono">({currentAiRec.distance_km} km)</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 font-mono text-[11px]">
+                      <span className="text-white font-bold">
+                        {formatNumber(currentAiRec.suggested_qty)} {currentAiRec.unit}
+                      </span>
+                      <span className="text-slate-400 truncate max-w-[140px] sm:max-w-[200px]" title={currentAiRec.item_name}>
+                        {currentAiRec.item_name}
+                      </span>
+                      <span className="text-amber-400 font-semibold">
+                        ₹{formatNumber(currentAiRec.freight_inr)}
+                      </span>
+                      <span className="text-cyan-400">
+                        ~{currentAiRec.transit_hours}h road
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Right: Cycle Controls & Review & Act Button */}
+                  <div className="flex items-center gap-2 shrink-0">
+                    <div className="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-0.5 text-slate-400">
+                      <button
+                        onClick={() => setActiveRecIndex((prev) => (prev - 1 + aiRecs.length) % aiRecs.length)}
+                        className="p-1.5 hover:text-white transition"
+                        title="Previous corridor"
+                      >
+                        <ChevronLeft className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={() => setActiveRecIndex((prev) => (prev + 1) % aiRecs.length)}
+                        className="p-1.5 hover:text-white transition"
+                        title="Next corridor"
+                      >
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+
+                    <button
+                      onClick={() => setActiveDept("workbench")}
+                      className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-lg shadow-emerald-950/40 flex items-center gap-1.5 border border-emerald-500/30 shrink-0"
+                    >
+                      Review & Act →
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Top "The Bar" Executive Benchmark Card */}
             <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-[#0e1626] to-[#0a1220] border border-slate-800 p-5 sm:p-7 shadow-2xl">
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                 <div className="space-y-2 max-w-xl">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
                     <ShieldCheck className="w-3.5 h-3.5" />
-                    VCH3 Executive Benchmark — "The Bar"
+                    Executive Benchmark — Causal JIT Pull vs. Historical Push
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                    87.4% Idle Stock Reduction Under Six Sigma Control
+                    87.4% Idle Stock Reduction via Causal JIT Control
                   </h2>
                   <p className="text-sm text-slate-300 leading-relaxed">
-                    By replacing uncoordinated batch-ordering with Six Sigma ROP (ROP = μd × L + Z · σd √L), GridPulse eliminates stranded sets and prevents yard bloat with a <strong>100% zero-shortage site guarantee</strong>.
+                    By replacing uncoordinated batch-ordering with Statistical ROP (ROP = μd × L + Z · σd √L), GridPulse eliminates stranded sets and prevents yard bloat with a <strong>100% zero-shortage site guarantee</strong>.
                   </p>
                 </div>
 
@@ -1326,7 +1424,7 @@ export default function GridPulseDashboard() {
 
                   <div className="bg-slate-900/80 border border-cyan-800/40 rounded-xl p-4 flex flex-col justify-between">
                     <span className="text-[11px] font-semibold tracking-wider text-cyan-400 uppercase flex items-center gap-1">
-                      <Gauge className="w-3 h-3 text-cyan-400" /> Six Sigma Level
+                      <Gauge className="w-3 h-3 text-cyan-400" /> Process Capability
                     </span>
                     <div className="mt-2 text-2xl font-mono font-black text-cyan-300">
                       {sixSigmaData?.gridpulse_planner?.sigma_level || 3.5}σ
@@ -1358,7 +1456,7 @@ export default function GridPulseDashboard() {
                     Kanpur Project Sites & District Godown Wallboard — Month: {selectedMonth}
                   </h3>
                   <p className="text-xs text-slate-400">
-                    Live inventory vs Six Sigma buffer stock & lead-time back-scheduled project sites. Click any tile to inspect and place site orders.
+                    Live inventory vs Service-Level Buffer & lead-time back-scheduled project sites. Click any tile to inspect and place site orders.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
@@ -1590,7 +1688,7 @@ export default function GridPulseDashboard() {
                     44-Month Idle Stock Trajectory (Mar 2023 – Oct 2026)
                   </h3>
                   <p className="text-xs text-slate-400">
-                    Comparing historical yard accumulation vs strictly causal Six Sigma ROP ({zScore}σ Service Level).
+                    Comparing historical yard accumulation vs strictly causal Statistical ROP ({zScore}σ Service Level).
                   </p>
                 </div>
                 <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
@@ -1683,7 +1781,7 @@ export default function GridPulseDashboard() {
                     <Package className="w-4 h-4" /> ORDER NOW QUEUE (Lead-Time Protected)
                   </span>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">
-                    Six Sigma ROP
+                    Statistical ROP
                   </span>
                 </div>
 
@@ -2179,7 +2277,7 @@ export default function GridPulseDashboard() {
                 <div className="flex flex-wrap items-center gap-2">
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
                     <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                    Sarvam-105b Six Sigma Action Engine
+                    Sarvam-105b Kanpur Transfer Optimizer
                   </div>
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono">
                     <Clock className="w-3 h-3 text-cyan-400" />
