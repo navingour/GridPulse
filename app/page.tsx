@@ -35,7 +35,8 @@ import {
   Download,
   Search,
   ShoppingCart,
-  PlusCircle
+  PlusCircle,
+  Trash2
 } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -69,6 +70,29 @@ interface LiveOrder {
   expected_delivery_date: string;
   urgency: string;
   status: string;
+}
+
+interface CustomSiteItem {
+  item_code: string;
+  item_name: string;
+  unit: string;
+  qty: number;
+  lead_time_days: number;
+  must_order_by: string;
+  days_slack: number;
+  is_parent?: boolean;
+}
+
+interface CustomSite {
+  id: string;
+  name: string;
+  work_scope: string;
+  required_by_date: string;
+  created_at: string;
+  items: CustomSiteItem[];
+  status: "critical" | "warning" | "optimal";
+  min_slack: number;
+  total_required_units: number;
 }
 
 export default function GridPulseDashboard() {
@@ -112,13 +136,43 @@ export default function GridPulseDashboard() {
   const [orderSubmitting, setOrderSubmitting] = useState<boolean>(false);
   const [orderToast, setOrderToast] = useState<{ message: string; po: string; eta: string } | null>(null);
 
+  // Custom Project Sites & Lead-Time Back-Scheduler State
+  const [customSites, setCustomSites] = useState<CustomSite[]>([]);
+  const [newSiteModalOpen, setNewSiteModalOpen] = useState<boolean>(false);
+  const [inspectedCustomSite, setInspectedCustomSite] = useState<CustomSite | null>(null);
+
+  // New Site Onboarding Form State
+  const [siteFormName, setSiteFormName] = useState<string>("KANPUR BILHAUR FEEDER-04");
+  const [siteFormScope, setSiteFormScope] = useState<string>("11kV Overhead Line — 180 Poles, 45 1-Phase Boxes");
+  const [siteFormReqDate, setSiteFormReqDate] = useState<string>(() => {
+    const d = new Date();
+    d.setDate(d.getDate() + 90);
+    return d.toISOString().split("T")[0];
+  });
+  const [formItemCode, setFormItemCode] = useState<string>("MPO010014");
+  const [formItemQty, setFormItemQty] = useState<number>(180);
+  const [stagedSiteItems, setStagedSiteItems] = useState<CustomSiteItem[]>([]);
+
+  // Back-schedule calculation helper
+  const calculateItemSlack = (leadTimeDays: number, targetDateStr: string) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const target = new Date(targetDateStr);
+    target.setHours(0, 0, 0, 0);
+    const mustOrderMs = target.getTime() - leadTimeDays * 86400000;
+    const mustOrderDate = new Date(mustOrderMs);
+    const mustOrderStr = mustOrderDate.toISOString().split("T")[0];
+    const daysSlack = Math.ceil((mustOrderMs - today.getTime()) / 86400000);
+    return { must_order_by: mustOrderStr, days_slack: daysSlack };
+  };
+
   // Sarvam AI Copilot State
   const [aiPrompt, setAiPrompt] = useState<string>("");
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [aiLoading, setAiLoading] = useState<boolean>(false);
   const [aiSource, setAiSource] = useState<string | null>(null);
 
-  // Initialize persistent live orders from localStorage or pre-seed with 3 realistic entries
+  // Initialize persistent live orders and custom sites from localStorage
   useEffect(() => {
     try {
       const saved = localStorage.getItem("gridpulse_live_txs");
@@ -171,6 +225,66 @@ export default function GridPulseDashboard() {
         ];
         setLiveOrders(seedOrders);
         localStorage.setItem("gridpulse_live_txs", JSON.stringify(seedOrders));
+      }
+
+      // Hydrate custom sites
+      const savedSites = localStorage.getItem("gridpulse_custom_sites");
+      if (savedSites) {
+        setCustomSites(JSON.parse(savedSites));
+      } else {
+        // Pre-seed realistic custom site KANPUR BILHAUR FEEDER-04
+        const today = new Date();
+        const reqDate = new Date();
+        reqDate.setDate(today.getDate() + 60); // 60 days out
+        const reqDateStr = reqDate.toISOString().split("T")[0];
+
+        const poleSched = calculateItemSlack(150, reqDateStr); // 150d lead time -> negative slack
+        const boxSched = calculateItemSlack(120, reqDateStr);
+        const boltSched = calculateItemSlack(90, reqDateStr);
+
+        const initialSite: CustomSite = {
+          id: "site-bilhaur-04",
+          name: "KANPUR BILHAUR FEEDER-04",
+          work_scope: "11kV Overhead Line — 180 Poles, 45 1-Phase Boxes",
+          required_by_date: reqDateStr,
+          created_at: today.toISOString().split("T")[0],
+          items: [
+            {
+              item_code: "MPO010014",
+              item_name: "P.C.C. POLE (8.5 MTR.) LONG",
+              unit: "NOS",
+              qty: 180,
+              lead_time_days: 150,
+              must_order_by: poleSched.must_order_by,
+              days_slack: poleSched.days_slack,
+            },
+            {
+              item_code: "MRP070064",
+              item_name: "Single phase (SMC) Pole top distribution box with clamps",
+              unit: "NOS",
+              qty: 45,
+              lead_time_days: 120,
+              must_order_by: boxSched.must_order_by,
+              days_slack: boxSched.days_slack,
+              is_parent: true,
+            },
+            {
+              item_code: "MNB010174",
+              item_name: "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+              unit: "MT",
+              qty: 0.12,
+              lead_time_days: 90,
+              must_order_by: boltSched.must_order_by,
+              days_slack: boltSched.days_slack,
+            },
+          ],
+          status: poleSched.days_slack <= 0 ? "critical" : poleSched.days_slack <= 20 ? "warning" : "optimal",
+          min_slack: Math.min(poleSched.days_slack, boxSched.days_slack, boltSched.days_slack),
+          total_required_units: 225.12,
+        };
+
+        setCustomSites([initialSite]);
+        localStorage.setItem("gridpulse_custom_sites", JSON.stringify([initialSite]));
       }
     } catch (e) {
       console.warn("localStorage unavailable", e);
@@ -876,26 +990,51 @@ export default function GridPulseDashboard() {
 
             {/* 6-District Glowing Site Wallboard with Buffer Stock Health Gauges */}
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <h3 className="text-base font-bold text-white flex items-center gap-2">
                     <Building2 className="w-4 h-4 text-emerald-400" />
-                    6-District Kanpur Site Wallboard & Buffer Stock Gauges — Month: {selectedMonth}
+                    Kanpur Project Sites & District Godown Wallboard — Month: {selectedMonth}
                   </h3>
                   <p className="text-xs text-slate-400">
-                    Live inventory vs Six Sigma buffer stock. Click any district tile to inspect 16 items and place direct site orders.
+                    Live inventory vs Six Sigma buffer stock & lead-time back-scheduled project sites. Click any tile to inspect and place site orders.
                   </p>
                 </div>
-                <div className="hidden sm:flex items-center gap-3 text-xs font-mono">
-                  <span className="flex items-center gap-1.5 text-rose-400">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span> Critical Deficit / Stranded
-                  </span>
-                  <span className="flex items-center gap-1.5 text-amber-400">
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Yard Bloat (&gt;2x Buffer)
-                  </span>
-                  <span className="flex items-center gap-1.5 text-emerald-400">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Optimal Buffer Band
-                  </span>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => {
+                      setNewSiteModalOpen(true);
+                      if (stagedSiteItems.length === 0) {
+                        const sched = calculateItemSlack(150, siteFormReqDate);
+                        setStagedSiteItems([
+                          {
+                            item_code: "MPO010014",
+                            item_name: "P.C.C. POLE (8.5 MTR.) LONG",
+                            unit: "NOS",
+                            qty: 180,
+                            lead_time_days: 150,
+                            must_order_by: sched.must_order_by,
+                            days_slack: sched.days_slack,
+                          },
+                        ]);
+                      }
+                    }}
+                    className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-lg shadow-emerald-900/30 transition border border-emerald-500/40 shrink-0"
+                  >
+                    <PlusCircle className="w-4 h-4" />
+                    + New Project Site
+                  </button>
+                  <div className="hidden lg:flex items-center gap-3 text-xs font-mono">
+                    <span className="flex items-center gap-1.5 text-rose-400">
+                      <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span> Deficit / Breached
+                    </span>
+                    <span className="flex items-center gap-1.5 text-amber-400">
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Urgent (&lt;20d)
+                    </span>
+                    <span className="flex items-center gap-1.5 text-emerald-400">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Optimal
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -990,6 +1129,88 @@ export default function GridPulseDashboard() {
                       <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
                         <span className="flex items-center gap-1 text-emerald-400 font-semibold">
                           <PlusCircle className="w-3.5 h-3.5" /> Inspect & Place Site Order
+                        </span>
+                        <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                      </div>
+                    </div>
+                  );
+                })}
+
+                {/* Onboarded Project Sites with Deterministic Lead-Time Back-Scheduler */}
+                {customSites.map((cs) => {
+                  const isCritical = cs.status === "critical";
+                  const isWarning = cs.status === "warning";
+
+                  const glowClasses = isCritical
+                    ? "border-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.35)] ring-1 ring-rose-500/50 animate-pulse"
+                    : isWarning
+                    ? "border-amber-500 shadow-[0_0_18px_rgba(245,158,11,0.25)] ring-1 ring-amber-500/50"
+                    : "border-emerald-500/40 shadow-[0_0_12px_rgba(16,185,129,0.15)] hover:border-emerald-400";
+
+                  return (
+                    <div
+                      key={cs.id}
+                      onClick={() => {
+                        setInspectedSite(null);
+                        setInspectedCustomSite(cs);
+                      }}
+                      className={`cursor-pointer bg-slate-900/80 rounded-xl p-5 border transition-all duration-300 hover:scale-[1.01] flex flex-col justify-between ${glowClasses}`}
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-start justify-between gap-2">
+                          <div>
+                            <h4 className="text-sm font-bold text-white tracking-tight flex items-center gap-1.5">
+                              {cs.name}
+                            </h4>
+                            <span className="text-[10px] font-mono text-cyan-400 uppercase">
+                              Onboarded Project Site • Back-Scheduled
+                            </span>
+                          </div>
+                          <span
+                            className={`px-2 py-0.5 rounded text-[10px] font-bold font-mono uppercase ${
+                              isCritical
+                                ? "bg-rose-500/20 text-rose-300 border border-rose-500/60"
+                                : isWarning
+                                ? "bg-amber-500/20 text-amber-300 border border-amber-500/60"
+                                : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/60"
+                            }`}
+                          >
+                            {isCritical
+                              ? `BREACH (${cs.min_slack}d)`
+                              : isWarning
+                              ? `URGENT (${cs.min_slack}d)`
+                              : `ON TRACK (+${cs.min_slack}d)`}
+                          </span>
+                        </div>
+
+                        {/* Work Scope Box */}
+                        <div className="text-xs text-slate-300 bg-slate-950/80 p-2.5 rounded-lg border border-slate-800 line-clamp-2">
+                          <span className="text-[10px] text-slate-400 block font-mono uppercase mb-0.5">Work Scope:</span>
+                          {cs.work_scope}
+                        </div>
+
+                        {/* Lead-Time Countdown & Target Metric */}
+                        <div className="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/80 space-y-1.5 font-mono text-[11px]">
+                          <div className="flex justify-between items-center">
+                            <span className="text-slate-400">Target Material Date:</span>
+                            <span className="text-white font-bold">{cs.required_by_date}</span>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-slate-400">Lead-Time Slack:</span>
+                            <span className={isCritical ? "text-rose-400 font-bold" : isWarning ? "text-amber-400 font-bold" : "text-emerald-400 font-bold"}>
+                              {cs.min_slack <= 0 ? `${cs.min_slack} days (Overdue)` : `+${cs.min_slack} days buffer`}
+                            </span>
+                          </div>
+                          <div className="flex justify-between items-center text-[10px] text-slate-400 pt-1 border-t border-slate-800/60">
+                            <span>Required BOM:</span>
+                            <span className="text-cyan-300">{cs.items.length} Items ({formatNumber(cs.total_required_units)} units)</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                        <span className="flex items-center gap-1 text-cyan-400 font-semibold">
+                          <Clock className="w-3.5 h-3.5" /> Inspect Schedule & Place PO
                         </span>
                         <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
                       </div>
@@ -1794,6 +2015,671 @@ export default function GridPulseDashboard() {
                 className="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition"
               >
                 Close Site Drawer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================= */}
+      {/* SLIDE-OVER DRAWER: CUSTOM PROJECT SITE BACK-SCHEDULE & PO */}
+      {/* ========================================================= */}
+      {inspectedCustomSite && (
+        <div className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-sm transition-opacity">
+          <div className="w-full max-w-xl bg-[#0e1424] border-l border-slate-800 p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
+            <div className="space-y-6">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <Building2 className="w-5 h-5 text-cyan-400" />
+                      {inspectedCustomSite.name}
+                    </h3>
+                    <span
+                      className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
+                        inspectedCustomSite.status === "critical"
+                          ? "bg-rose-500/20 text-rose-300 border border-rose-500/60 animate-pulse"
+                          : inspectedCustomSite.status === "warning"
+                          ? "bg-amber-500/20 text-amber-300 border border-amber-500/60"
+                          : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/60"
+                      }`}
+                    >
+                      {inspectedCustomSite.status === "critical"
+                        ? `BREACH (${inspectedCustomSite.min_slack}d)`
+                        : inspectedCustomSite.status === "warning"
+                        ? `URGENT (${inspectedCustomSite.min_slack}d)`
+                        : `SAFE (+${inspectedCustomSite.min_slack}d)`}
+                    </span>
+                  </div>
+                  <span className="text-xs text-slate-400 font-mono block mt-1">
+                    Onboarded Project Site • Target Date: {inspectedCustomSite.required_by_date}
+                  </span>
+                </div>
+                <button
+                  onClick={() => setInspectedCustomSite(null)}
+                  className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Work Scope Box */}
+              <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 space-y-1.5">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
+                  Work Scope & Project Milestones
+                </span>
+                <p className="text-xs text-slate-200 font-medium leading-relaxed">
+                  {inspectedCustomSite.work_scope}
+                </p>
+              </div>
+
+              {/* Lead Time Back-Schedule Alert Banner */}
+              {inspectedCustomSite.status === "critical" ? (
+                <div className="bg-rose-950/40 border border-rose-600/60 rounded-xl p-4 text-xs space-y-1.5">
+                  <div className="flex items-center gap-2 text-rose-400 font-bold font-mono">
+                    <AlertTriangle className="w-4 h-4" /> LEAD-TIME WINDOW BREACHED ({Math.abs(inspectedCustomSite.min_slack)} Days Deficit)
+                  </div>
+                  <p className="text-slate-300 leading-relaxed text-[11px]">
+                    Standard manufacturing lead times exceed the target deployment date. In particular, 150-day PCC Poles or 90-day hardware cannot be manufactured in time under normal purchase cycles. Immediate expediting, emergency inter-godown transfer, or advance dispatch is required.
+                  </p>
+                </div>
+              ) : inspectedCustomSite.status === "warning" ? (
+                <div className="bg-amber-950/40 border border-amber-600/60 rounded-xl p-4 text-xs space-y-1.5">
+                  <div className="flex items-center gap-2 text-amber-400 font-bold font-mono">
+                    <Clock className="w-4 h-4" /> URGENT ORDERING WINDOW ({inspectedCustomSite.min_slack} Days Slack Remaining)
+                  </div>
+                  <p className="text-slate-300 leading-relaxed text-[11px]">
+                    Procurement orders must be dispatched within the next {inspectedCustomSite.min_slack} days to ensure materials arrive on site before work commences.
+                  </p>
+                </div>
+              ) : (
+                <div className="bg-emerald-950/40 border border-emerald-600/60 rounded-xl p-4 text-xs space-y-1.5">
+                  <div className="flex items-center gap-2 text-emerald-400 font-bold font-mono">
+                    <ShieldCheck className="w-4 h-4" /> OPTIMAL LEAD-TIME BUFFER ({inspectedCustomSite.min_slack} Days Slack)
+                  </div>
+                  <p className="text-slate-300 leading-relaxed text-[11px]">
+                    All items are within comfortable manufacturing lead-time windows.
+                  </p>
+                </div>
+              )}
+
+              {/* Item-by-Item Schedule Table */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                    <Package className="w-4 h-4 text-cyan-400" /> Site BOM & Lead-Time Schedule
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-mono">
+                    {inspectedCustomSite.items.length} Items ({formatNumber(inspectedCustomSite.total_required_units)} units)
+                  </span>
+                </div>
+
+                <div className="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950/70 max-h-80">
+                  <table className="w-full text-left text-xs">
+                    <thead className="sticky top-0 bg-slate-900 text-slate-400 font-mono uppercase tracking-wider border-b border-slate-800">
+                      <tr>
+                        <th className="py-2.5 px-3">Item Description</th>
+                        <th className="py-2.5 px-2 text-right">Required</th>
+                        <th className="py-2.5 px-2 text-center">Lead Time</th>
+                        <th className="py-2.5 px-2 text-center">Must Order By</th>
+                        <th className="py-2.5 px-2 text-right">Slack</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800/60 font-mono text-[11px]">
+                      {inspectedCustomSite.items.map((it) => {
+                        const isBreached = it.days_slack <= 0;
+                        const isUrgent = it.days_slack > 0 && it.days_slack <= 20;
+
+                        return (
+                          <tr key={it.item_code} className="hover:bg-slate-800/40 transition">
+                            <td className="py-2.5 px-3">
+                              <div className="font-mono font-bold text-white text-[11px] flex items-center gap-1.5">
+                                {it.item_code}
+                                {it.is_parent && (
+                                  <span className="text-[9px] px-1 py-0.2 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 font-mono">
+                                    PARENT
+                                  </span>
+                                )}
+                              </div>
+                              <div className="text-[10px] text-slate-400 truncate max-w-[180px]">
+                                {it.item_name}
+                              </div>
+                            </td>
+                            <td className="py-2.5 px-2 text-right font-bold text-slate-200">
+                              {it.qty} {it.unit}
+                            </td>
+                            <td className="py-2.5 px-2 text-center text-slate-400">
+                              {it.lead_time_days}d
+                            </td>
+                            <td className="py-2.5 px-2 text-center text-slate-300">
+                              {it.must_order_by}
+                            </td>
+                            <td className="py-2.5 px-2 text-right font-bold">
+                              <span
+                                className={`px-2 py-0.5 rounded text-[10px] ${
+                                  isBreached
+                                    ? "bg-rose-500/20 text-rose-300 border border-rose-500/50"
+                                    : isUrgent
+                                    ? "bg-amber-500/20 text-amber-300 border border-amber-500/50"
+                                    : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/50"
+                                }`}
+                              >
+                                {it.days_slack <= 0 ? `${it.days_slack}d` : `+${it.days_slack}d`}
+                              </span>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* 1-Click Action: Place Complete Site Order */}
+              <div className="space-y-3 pt-2">
+                <button
+                  onClick={async () => {
+                    if (!inspectedCustomSite) return;
+                    setOrderSubmitting(true);
+                    try {
+                      const kitPo = `PO-KIT-2026-${Math.floor(100 + Math.random() * 900)}`;
+                      const kitItems = inspectedCustomSite.items.map((item) => ({
+                        godown: inspectedCustomSite.name,
+                        item_code: item.item_code,
+                        item_name: item.item_name,
+                        unit: item.unit,
+                        qty: item.qty,
+                        lead_time_days: item.lead_time_days,
+                        urgency: item.days_slack <= 0 ? "CRITICAL (BREACHED LEAD TIME)" : "HIGH (PROJECT LAUNCH)",
+                      }));
+
+                      const res = await fetch("/api/orders", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          godown: inspectedCustomSite.name,
+                          po_number: kitPo,
+                          items: kitItems,
+                        }),
+                      });
+
+                      const data = await res.json();
+                      if (data.success && data.orders) {
+                        const updated = [...data.orders, ...liveOrders];
+                        setLiveOrders(updated);
+                        localStorage.setItem("gridpulse_live_txs", JSON.stringify(updated));
+
+                        setOrderToast({
+                          message: `Complete Site Order ${data.po_number} Placed for ${inspectedCustomSite.name}`,
+                          po: data.po_number,
+                          eta: data.orders[0]?.expected_delivery_date || "2027-04-19",
+                        });
+                        setTimeout(() => setOrderToast(null), 6000);
+                        setInspectedCustomSite(null);
+                      }
+                    } catch (err) {
+                      console.error("Custom site order submission failed", err);
+                    } finally {
+                      setOrderSubmitting(false);
+                    }
+                  }}
+                  disabled={orderSubmitting}
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 disabled:bg-slate-800 text-white text-xs font-bold flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50 transition border border-emerald-500/40"
+                >
+                  {orderSubmitting ? <RefreshCw className="w-4 h-4 animate-spin" /> : <ShoppingCart className="w-4 h-4" />}
+                  Place Complete Site Order ({inspectedCustomSite.items.length} Items via PO-KIT-2026-XXX)
+                </button>
+
+                {/* Delete Site button */}
+                <button
+                  onClick={() => {
+                    const filtered = customSites.filter((s) => s.id !== inspectedCustomSite.id);
+                    setCustomSites(filtered);
+                    localStorage.setItem("gridpulse_custom_sites", JSON.stringify(filtered));
+                    setInspectedCustomSite(null);
+                  }}
+                  className="w-full py-2 rounded-lg bg-slate-900 hover:bg-rose-950/40 text-slate-400 hover:text-rose-300 text-xs font-mono transition border border-slate-800 hover:border-rose-900/50 flex items-center justify-center gap-1.5"
+                >
+                  <Trash2 className="w-3.5 h-3.5" /> Remove Site from Wallboard
+                </button>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-800">
+              <button
+                onClick={() => setInspectedCustomSite(null)}
+                className="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition"
+              >
+                Close Drawer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================= */}
+      {/* MODAL: + NEW PROJECT SITE ONBOARDING & BACK-SCHEDULER     */}
+      {/* ========================================================= */}
+      {newSiteModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 overflow-y-auto">
+          <div className="w-full max-w-2xl bg-[#0e1424] border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto">
+            {/* Modal Header */}
+            <div className="flex items-start justify-between border-b border-slate-800 pb-4">
+              <div>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-1">
+                  <Sparkles className="w-3 h-3" /> Lead-Time Back-Scheduler
+                </div>
+                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                  <PlusCircle className="w-5 h-5 text-emerald-400" />
+                  + New Project Site Onboarding
+                </h3>
+                <p className="text-xs text-slate-400 mt-1">
+                  Enter target material required date. GridPulse back-schedules manufacturing lead times (30–150d) to detect breach risks deterministically.
+                </p>
+              </div>
+              <button
+                onClick={() => setNewSiteModalOpen(false)}
+                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Quick Template Presets */}
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              <span className="text-slate-400 font-mono text-[11px]">Quick Templates:</span>
+              <button
+                type="button"
+                onClick={() => {
+                  setSiteFormName("KANPUR BILHAUR FEEDER-04");
+                  setSiteFormScope("11kV Overhead Line — 180 Poles, 45 1-Phase Boxes");
+                  const d = new Date();
+                  d.setDate(d.getDate() + 60);
+                  const targetDate = d.toISOString().split("T")[0];
+                  setSiteFormReqDate(targetDate);
+                  const poleSched = calculateItemSlack(150, targetDate);
+                  const boxSched = calculateItemSlack(120, targetDate);
+                  const boltSched = calculateItemSlack(90, targetDate);
+                  setStagedSiteItems([
+                    {
+                      item_code: "MPO010014",
+                      item_name: "P.C.C. POLE (8.5 MTR.) LONG",
+                      unit: "NOS",
+                      qty: 180,
+                      lead_time_days: 150,
+                      must_order_by: poleSched.must_order_by,
+                      days_slack: poleSched.days_slack,
+                    },
+                    {
+                      item_code: "MRP070064",
+                      item_name: "Single phase (SMC) Pole top distribution box with clamps",
+                      unit: "NOS",
+                      qty: 45,
+                      lead_time_days: 120,
+                      must_order_by: boxSched.must_order_by,
+                      days_slack: boxSched.days_slack,
+                      is_parent: true,
+                    },
+                    {
+                      item_code: "MNB010174",
+                      item_name: "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+                      unit: "MT",
+                      qty: 0.12,
+                      lead_time_days: 90,
+                      must_order_by: boltSched.must_order_by,
+                      days_slack: boltSched.days_slack,
+                    },
+                  ]);
+                }}
+                className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 text-[11px] font-mono transition border border-slate-700"
+              >
+                11kV Feeder (Breach Demo)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSiteFormName("KANPUR GHATAMPUR 33kV LINE");
+                  setSiteFormScope("33kV Substation Interconnect — 400 Poles, 15km AB Cable");
+                  const d = new Date();
+                  d.setDate(d.getDate() + 180);
+                  const targetDate = d.toISOString().split("T")[0];
+                  setSiteFormReqDate(targetDate);
+                  const poleSched = calculateItemSlack(150, targetDate);
+                  const cableSched = calculateItemSlack(60, targetDate);
+                  setStagedSiteItems([
+                    {
+                      item_code: "MPO010014",
+                      item_name: "P.C.C. POLE (8.5 MTR.) LONG",
+                      unit: "NOS",
+                      qty: 400,
+                      lead_time_days: 150,
+                      must_order_by: poleSched.must_order_by,
+                      days_slack: poleSched.days_slack,
+                    },
+                    {
+                      item_code: "MCA020009",
+                      item_name: "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM",
+                      unit: "KM",
+                      qty: 15,
+                      lead_time_days: 60,
+                      must_order_by: cableSched.must_order_by,
+                      days_slack: cableSched.days_slack,
+                    },
+                  ]);
+                }}
+                className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-cyan-400 text-[11px] font-mono transition border border-slate-700"
+              >
+                33kV Line (Safe Demo)
+              </button>
+            </div>
+
+            {/* Main Form Fields */}
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
+                    Site / Feeder Name:
+                  </label>
+                  <input
+                    type="text"
+                    value={siteFormName}
+                    onChange={(e) => setSiteFormName(e.target.value)}
+                    placeholder="e.g. KANPUR BILHAUR FEEDER-04"
+                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
+                    Target Material Required-By Date:
+                  </label>
+                  <input
+                    type="date"
+                    value={siteFormReqDate}
+                    onChange={(e) => {
+                      const newDate = e.target.value;
+                      setSiteFormReqDate(newDate);
+                      setStagedSiteItems((prev) =>
+                        prev.map((it) => {
+                          const sched = calculateItemSlack(it.lead_time_days, newDate);
+                          return {
+                            ...it,
+                            must_order_by: sched.must_order_by,
+                            days_slack: sched.days_slack,
+                          };
+                        })
+                      );
+                    }}
+                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
+                  Work Scope & Project Milestones:
+                </label>
+                <input
+                  type="text"
+                  value={siteFormScope}
+                  onChange={(e) => setSiteFormScope(e.target.value)}
+                  placeholder="e.g. 11kV Overhead Line — 180 Poles, 45 1-Phase Boxes"
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                />
+              </div>
+
+              {/* Item Catalog & BOM Builder */}
+              <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
+                    <Package className="w-4 h-4 text-emerald-400" /> Items Required Builder (16-Item Catalog)
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-mono">BOM Auto-Bundled</span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-end">
+                  <div className="sm:col-span-7">
+                    <label className="text-[10px] font-mono text-slate-400 block mb-1">Select Catalog Item:</label>
+                    <select
+                      value={formItemCode}
+                      onChange={(e) => setFormItemCode(e.target.value)}
+                      className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white font-mono focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    >
+                      {Object.entries(summaryData.items).map(([code, it]: [string, any]) => (
+                        <option key={code} value={code}>
+                          {code} — {it.item_name} ({it.lead_time_days}d lead time)
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label className="text-[10px] font-mono text-slate-400 block mb-1">
+                      Target Qty ({(summaryData.items as any)[formItemCode]?.unit || "UNITS"}):
+                    </label>
+                    <input
+                      type="number"
+                      value={formItemQty}
+                      onChange={(e) => setFormItemQty(Math.max(1, Number(e.target.value)))}
+                      className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white font-mono focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const meta = (summaryData.items as any)[formItemCode];
+                        const parentChildren = summaryData.sets.filter((s: any) => s.parent_code === formItemCode);
+                        const isParent = parentChildren.length > 0;
+                        const sched = calculateItemSlack(meta?.lead_time_days || 30, siteFormReqDate);
+
+                        const newItem: CustomSiteItem = {
+                          item_code: formItemCode,
+                          item_name: meta?.item_name || formItemCode,
+                          unit: meta?.unit || "UNITS",
+                          qty: Number(formItemQty),
+                          lead_time_days: meta?.lead_time_days || 30,
+                          must_order_by: sched.must_order_by,
+                          days_slack: sched.days_slack,
+                          is_parent: isParent,
+                        };
+
+                        let nextStaged = [...stagedSiteItems.filter((i) => i.item_code !== formItemCode), newItem];
+
+                        if (isParent) {
+                          parentChildren.forEach((ch: any) => {
+                            const childMeta = (summaryData.items as any)[ch.child_code];
+                            const childLead = childMeta?.lead_time_days || 60;
+                            const childSched = calculateItemSlack(childLead, siteFormReqDate);
+                            const childQty = Math.max(0.1, Math.round(Number(formItemQty) * ch.official_ratio * 10) / 10);
+                            if (!nextStaged.some((i) => i.item_code === ch.child_code)) {
+                              nextStaged.push({
+                                item_code: ch.child_code,
+                                item_name: ch.child_name,
+                                unit: ch.child_unit,
+                                qty: childQty,
+                                lead_time_days: childLead,
+                                must_order_by: childSched.must_order_by,
+                                days_slack: childSched.days_slack,
+                              });
+                            }
+                          });
+                        }
+                        setStagedSiteItems(nextStaged);
+                      }}
+                      className="w-full py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition flex items-center justify-center gap-1 shadow"
+                    >
+                      <PlusCircle className="w-3.5 h-3.5" /> Add
+                    </button>
+                  </div>
+                </div>
+
+                {/* Live BOM Child Preview for Parent items */}
+                {(() => {
+                  const parentChildren = summaryData.sets.filter((s: any) => s.parent_code === formItemCode);
+                  if (parentChildren.length === 0) return null;
+
+                  return (
+                    <div className="bg-slate-900/90 border border-amber-900/40 rounded-lg p-2.5 space-y-1.5 text-xs">
+                      <div className="flex items-center justify-between text-[11px] font-mono text-amber-300 font-bold">
+                        <span className="flex items-center gap-1.5">
+                          <Layers className="w-3.5 h-3.5 text-amber-400" /> Auto-Included Child BOM Hardware (sets.csv)
+                        </span>
+                        <span className="text-[10px] bg-amber-950 text-amber-400 px-2 py-0.5 rounded border border-amber-800">
+                          BOM Synchronized
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 font-mono text-[10px]">
+                        {parentChildren.map((ch: any) => (
+                          <div key={ch.child_code} className="bg-slate-950 p-1.5 rounded flex justify-between items-center text-slate-300">
+                            <span className="truncate max-w-[180px]">{ch.child_name} ({ch.child_code})</span>
+                            <span className="text-amber-400 font-bold">
+                              +{Math.max(0.1, Math.round(formItemQty * ch.official_ratio * 10) / 10)} {ch.child_unit}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
+
+              {/* Staged Items Schedule Table */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-300 uppercase font-mono">
+                    Staged Site Schedule ({stagedSiteItems.length} items):
+                  </span>
+                  {stagedSiteItems.length > 0 && (() => {
+                    const minSlack = Math.min(...stagedSiteItems.map((i) => i.days_slack));
+                    return (
+                      <span className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded ${
+                        minSlack <= 0
+                          ? "bg-rose-500/20 text-rose-300 border border-rose-500/50 animate-pulse"
+                          : minSlack <= 20
+                          ? "bg-amber-500/20 text-amber-300 border border-amber-500/50"
+                          : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/50"
+                      }`}>
+                        {minSlack <= 0
+                          ? `LEAD-TIME BREACH (${minSlack}d deficit)`
+                          : minSlack <= 20
+                          ? `URGENT ORDER (${minSlack}d slack)`
+                          : `OPTIMAL (+${minSlack}d slack)`}
+                      </span>
+                    );
+                  })()}
+                </div>
+
+                <div className="border border-slate-800 rounded-xl bg-slate-950/70 overflow-hidden">
+                  <table className="w-full text-left text-xs">
+                    <thead className="bg-slate-900 text-slate-400 font-mono uppercase tracking-wider border-b border-slate-800 text-[10px]">
+                      <tr>
+                        <th className="py-2 px-3">Item</th>
+                        <th className="py-2 px-2 text-right">Qty</th>
+                        <th className="py-2 px-2 text-center">Lead Time</th>
+                        <th className="py-2 px-2 text-center">Must Order By</th>
+                        <th className="py-2 px-2 text-right">Slack</th>
+                        <th className="py-2 px-2 text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800/60 font-mono text-[11px]">
+                      {stagedSiteItems.length > 0 ? (
+                        stagedSiteItems.map((item) => (
+                          <tr key={item.item_code} className="hover:bg-slate-800/40">
+                            <td className="py-2 px-3">
+                              <div className="font-bold text-white text-[11px]">{item.item_code}</div>
+                              <div className="text-[10px] text-slate-400 truncate max-w-[180px]">{item.item_name}</div>
+                            </td>
+                            <td className="py-2 px-2 text-right font-bold text-slate-200">{item.qty} {item.unit}</td>
+                            <td className="py-2 px-2 text-center text-slate-400">{item.lead_time_days}d</td>
+                            <td className="py-2 px-2 text-center text-slate-300">{item.must_order_by}</td>
+                            <td className="py-2 px-2 text-right">
+                              <span className={`px-1.5 py-0.5 rounded text-[10px] ${
+                                item.days_slack <= 0
+                                  ? "bg-rose-500/20 text-rose-300 font-bold"
+                                  : item.days_slack <= 20
+                                  ? "bg-amber-500/20 text-amber-300 font-bold"
+                                  : "text-emerald-400"
+                              }`}>
+                                {item.days_slack <= 0 ? `${item.days_slack}d` : `+${item.days_slack}d`}
+                              </span>
+                            </td>
+                            <td className="py-2 px-2 text-center">
+                              <button
+                                onClick={() => setStagedSiteItems(stagedSiteItems.filter((i) => i.item_code !== item.item_code))}
+                                className="text-slate-500 hover:text-rose-400 transition"
+                              >
+                                <X className="w-3.5 h-3.5" />
+                              </button>
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan={6} className="py-4 text-center text-slate-500 italic">
+                            No items staged yet. Select from catalog above or click a Quick Template.
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Actions */}
+            <div className="pt-4 border-t border-slate-800 flex items-center justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setNewSiteModalOpen(false)}
+                className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                disabled={!siteFormName.trim() || stagedSiteItems.length === 0}
+                onClick={() => {
+                  const refreshedItems = stagedSiteItems.map((item) => {
+                    const sched = calculateItemSlack(item.lead_time_days, siteFormReqDate);
+                    return {
+                      ...item,
+                      must_order_by: sched.must_order_by,
+                      days_slack: sched.days_slack,
+                    };
+                  });
+
+                  const minSlack = Math.min(...refreshedItems.map((i) => i.days_slack));
+                  const status = minSlack <= 0 ? "critical" : minSlack <= 20 ? "warning" : "optimal";
+
+                  const newSite: CustomSite = {
+                    id: `site-${Date.now()}`,
+                    name: siteFormName.trim(),
+                    work_scope: siteFormScope.trim() || "Distribution Line Erection",
+                    required_by_date: siteFormReqDate,
+                    created_at: new Date().toISOString().split("T")[0],
+                    items: refreshedItems,
+                    status,
+                    min_slack: minSlack,
+                    total_required_units: refreshedItems.reduce((acc, curr) => acc + curr.qty, 0),
+                  };
+
+                  const updatedSites = [newSite, ...customSites];
+                  setCustomSites(updatedSites);
+                  localStorage.setItem("gridpulse_custom_sites", JSON.stringify(updatedSites));
+                  setNewSiteModalOpen(false);
+
+                  setOrderToast({
+                    message: `New Site "${newSite.name}" Onboarded & Lead-Time Scheduled`,
+                    po: minSlack <= 0 ? "ALERT: LEAD-TIME BREACH" : "SCHEDULE ACTIVE",
+                    eta: `Target: ${newSite.required_by_date}`,
+                  });
+                  setTimeout(() => setOrderToast(null), 5000);
+                }}
+                className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-white text-xs font-bold transition shadow flex items-center gap-1.5"
+              >
+                <CheckCircle2 className="w-4 h-4" /> Deploy Site to Wallboard
               </button>
             </div>
           </div>
