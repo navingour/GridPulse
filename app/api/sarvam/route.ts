@@ -6,8 +6,21 @@ export async function POST(req: Request) {
 
     const apiKey = process.env.SARVAM_API_KEY;
 
-    // Six Sigma Deterministic fallback response function
+    // Deterministic fallback response function
     const getFallbackResponse = () => {
+      if (context?.type === "dispatch_alert") {
+        const site = context?.site || "Kanpur Dehat";
+        const item = context?.item || "G.I. Nuts & Bolts M16x65mm (MNB010174)";
+        return `*🚨 URGENT OPERATIONAL DISPATCH — Lumino Industries 1,700 Poles*
+*District Store:* ${site}
+*Attention:* Materials Manager & Storekeeper
+*Directive:* IMMEDIATE INTER-GODOWN REBALANCE / ORDER ACTION
+*Item Flagged:* ${item}
+*Situation:* Critical stock deficit risking contractor erection stoppage.
+*Required Action:* Dispatch 250 units from surplus Kanpur Nagar store immediately. Acknowledge receipt on GridPulse ledger.
+*Authorized By:* GridPulse AI Supply Copilot (Sarvam-105b)`;
+      }
+
       if (context?.type === "six_sigma") {
         return `**Sarvam AI Six Sigma (DMAIC & SPC) Assessment**:
 - **DPMO Shift**: Historical district operations exhibited ~34,564 DPMO (~3.3σ) driven primarily by Idle Yard Waste (>2x lead-time demand) and stranded parent sets. GridPulse Six Sigma causal planning cuts defects to ~22,333 DPMO (~3.5σ) while slashing aggregate inventory by 87%.
@@ -42,7 +55,7 @@ Based on the 44-month Kanpur ledger (231,076 moves across 6 godowns), contractor
     const systemPrompt = `You are GridPulse AI Supply Copilot for Lumino Industries' 1,700 Poles Kanpur Power-Line Project.
 You specialize in Six Sigma (DMAIC), Statistical Process Control (SPC), Coefficient of Variation (CV = sigma/mu), DPMO, and Lead-Time Buffer optimization.
 Analyze 6 district godowns and 16 items across 44 months.
-Provide crisp, quantitative root-cause diagnosis and actionable directives (ORDER NOW, HOLD, INTER-GODOWN TRANSFER).`;
+Provide crisp, quantitative root-cause diagnosis, vendor dispatch briefs, and WhatsApp/Email storekeeper alerts.`;
 
     const sarvamRes = await fetch("https://api.sarvam.ai/v1/chat/completions", {
       method: "POST",
@@ -54,7 +67,7 @@ Provide crisp, quantitative root-cause diagnosis and actionable directives (ORDE
         model: "sarvam-105b",
         messages: [
           { role: "system", content: systemPrompt },
-          { role: "user", content: `Six Sigma Context: ${JSON.stringify(context || {})}\n\nQuestion/Task: ${prompt}` },
+          { role: "user", content: `Context: ${JSON.stringify(context || {})}\n\nTask: ${prompt}` },
         ],
         temperature: 0.2,
         max_tokens: 1024,
@@ -84,7 +97,7 @@ Provide crisp, quantitative root-cause diagnosis and actionable directives (ORDE
     return NextResponse.json({
       source: "fallback_rule_engine",
       response:
-        "**GridPulse Six Sigma Supply Copilot**:\n- Analysis indicates significant Coefficient of Variation (CV) mismatch between erratic site consumption and lump-sum vendor deliveries.\n- Recommendation: Maintain 3σ safety buffer on items with >90-day lead time and use DMAIC inter-godown transfers to eliminate stranded sets.",
+        "*🚨 URGENT OPERATIONAL DISPATCH — Lumino 1,700 Poles*\nImmediate inter-district transfer required. Rebalance hardware stock to prevent contractor stoppage.",
     });
   }
 }
