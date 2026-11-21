@@ -9,6 +9,16 @@ SPRINT_STATE.md
 *.pem
 *.key
 *AccountKey.json
+test_sarvam.py
+
+# Raw hackathon data files (MUST NOT BE PUSHED TO PUBLIC REPO)
+*.csv
+*.xlsx
+*.pdf
+csv/
+brief/
+Lumino README.md
+lumino_data.xlsx
 
 # Dependencies & build artifacts
 node_modules/

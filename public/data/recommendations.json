@@ -1,0 +1,3731 @@
+[
+  {
+    "month": "2023-03",
+    "orders_now": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "lead_time_days": 60,
+        "current_stock": 50.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 2.5,
+        "suggested_order_qty": 40.0,
+        "urgency": "HIGH",
+        "reason": "Only 2.5 months supply remaining. Lead time is 60 days (2 months)."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "lead_time_days": 120,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 120 days (4 months)."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "lead_time_days": 30,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 30 days (1 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 988.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 49.4,
+        "incoming_grn_qty": 988.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 49.4 months of stock with 988.0 PCS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR NAGAR",
+        "transfer_qty": 20.0,
+        "from_stock": 50.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR NAGAR has only 0.0 KM (site burn risk), while KANPUR DEHAT has 49.97 KM surplus."
+      },
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 20.0,
+        "from_stock": 50.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 KM (site burn risk), while KANPUR DEHAT has 49.97 KM surplus."
+      },
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 20.0,
+        "from_stock": 50.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 KM (site burn risk), while KANPUR DEHAT has 49.97 KM surplus."
+      },
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 20.0,
+        "from_stock": 50.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 KM (site burn risk), while KANPUR DEHAT has 49.97 KM surplus."
+      },
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 20.0,
+        "from_stock": 50.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 KM (site burn risk), while KANPUR DEHAT has 49.97 KM surplus."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 20.0,
+        "from_stock": 488.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 PCS (site burn risk), while KANPUR NAGAR has 488.0 PCS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2023-04",
+    "orders_now": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "lead_time_days": 60,
+        "current_stock": 50.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 2.5,
+        "suggested_order_qty": 40.0,
+        "urgency": "HIGH",
+        "reason": "Only 2.5 months supply remaining. Lead time is 60 days (2 months)."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "lead_time_days": 120,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 120 days (4 months)."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "lead_time_days": 30,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 30 days (1 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 4440.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 222.0,
+        "incoming_grn_qty": 3904.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 222.0 months of stock with 3904.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070064",
+        "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "current_stock": 774.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 38.7,
+        "incoming_grn_qty": 774.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 38.7 months of stock with 774.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070065",
+        "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "current_stock": 2798.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 139.9,
+        "incoming_grn_qty": 2798.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 139.9 months of stock with 2798.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR NAGAR",
+        "transfer_qty": 20.0,
+        "from_stock": 50.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR NAGAR has only 0.0 KM (site burn risk), while KANPUR DEHAT has 49.97 KM surplus."
+      },
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 20.0,
+        "from_stock": 50.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 KM (site burn risk), while KANPUR DEHAT has 49.97 KM surplus."
+      },
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 20.0,
+        "from_stock": 50.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 KM (site burn risk), while KANPUR DEHAT has 49.97 KM surplus."
+      },
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 20.0,
+        "from_stock": 50.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 KM (site burn risk), while KANPUR DEHAT has 49.97 KM surplus."
+      },
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 20.0,
+        "from_stock": 50.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 KM (site burn risk), while KANPUR DEHAT has 49.97 KM surplus."
+      },
+      {
+        "item_code": "MRP070064",
+        "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "from_godown": "KANPUR ETAWAH",
+        "to_godown": "KANPUR NAGAR",
+        "transfer_qty": 20.0,
+        "from_stock": 774.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR NAGAR has only 0.0 NOS (site burn risk), while KANPUR ETAWAH has 774.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2023-05",
+    "orders_now": [
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "lead_time_days": 30,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 30 days (1 months)."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MNB010128",
+        "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MNB010174",
+        "item_name": "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 19.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 1.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 1.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MRP070022",
+        "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+        "lead_time_days": 60,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 60 days (2 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 399.5,
+        "monthly_burn": 20.0,
+        "months_of_supply": 20.0,
+        "incoming_grn_qty": 349.5,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 20.0 months of stock with 349.5 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 10850.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 542.5,
+        "incoming_grn_qty": 10850.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 542.5 months of stock with 10850.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "current_stock": 2500.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 125.0,
+        "incoming_grn_qty": 2500.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 125.0 months of stock with 2500.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "current_stock": 12485.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 624.2,
+        "incoming_grn_qty": 12485.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 624.2 months of stock with 12485.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 2495.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 124.8,
+        "incoming_grn_qty": 2495.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 124.8 months of stock with 2495.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "current_stock": 20000.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 1000.0,
+        "incoming_grn_qty": 20000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 1000.0 months of stock with 20000.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR NAGAR",
+        "transfer_qty": 20.0,
+        "from_stock": 300.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR NAGAR has only 0.0 NOS (site burn risk), while KANPUR DEHAT has 300.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 20.0,
+        "from_stock": 12000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 12000.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2023-06",
+    "orders_now": [
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "lead_time_days": 30,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 30 days (1 months)."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MNB010128",
+        "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MNB010174",
+        "item_name": "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 24.5,
+        "monthly_burn": 20.0,
+        "months_of_supply": 1.2,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 1.2 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "lead_time_days": 150,
+        "current_stock": 10178.0,
+        "monthly_burn": 1762.0,
+        "months_of_supply": 5.8,
+        "suggested_order_qty": 3524.0,
+        "urgency": "HIGH",
+        "reason": "Only 5.8 months supply remaining. Lead time is 150 days (5 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 436.7,
+        "monthly_burn": 20.0,
+        "months_of_supply": 21.8,
+        "incoming_grn_qty": 99.8,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 21.8 months of stock with 99.8 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 22100.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 1105.0,
+        "incoming_grn_qty": 12600.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 1105.0 months of stock with 12600.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "current_stock": 11929.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 596.5,
+        "incoming_grn_qty": 10000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 596.5 months of stock with 10000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "current_stock": 23960.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 1198.0,
+        "incoming_grn_qty": 12833.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 1198.0 months of stock with 12833.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 6709.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 335.4,
+        "incoming_grn_qty": 4990.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 335.4 months of stock with 4990.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "current_stock": 136793.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 6839.6,
+        "incoming_grn_qty": 117000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6839.6 months of stock with 117000.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": []
+  },
+  {
+    "month": "2023-07",
+    "orders_now": [
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "lead_time_days": 30,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 30 days (1 months)."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MNB010128",
+        "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 569.3,
+        "monthly_burn": 62.7,
+        "months_of_supply": 9.1,
+        "incoming_grn_qty": 259.7,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 9.1 months of stock with 259.7 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 27803.0,
+        "monthly_burn": 1350.0,
+        "months_of_supply": 20.6,
+        "incoming_grn_qty": 10150.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 20.6 months of stock with 10150.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "current_stock": 32859.0,
+        "monthly_burn": 1358.0,
+        "months_of_supply": 24.2,
+        "incoming_grn_qty": 11695.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 24.2 months of stock with 11695.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 6336.0,
+        "monthly_burn": 776.0,
+        "months_of_supply": 8.2,
+        "incoming_grn_qty": 1680.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.2 months of stock with 1680.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "current_stock": 147024.0,
+        "monthly_burn": 207.0,
+        "months_of_supply": 710.3,
+        "incoming_grn_qty": 13000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 710.3 months of stock with 13000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MNB010174",
+        "item_name": "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+        "current_stock": 39.0,
+        "monthly_burn": 0.2,
+        "months_of_supply": 180.6,
+        "incoming_grn_qty": 15.3,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 180.6 months of stock with 15.3 MT arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MRP070064",
+        "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 1318.0,
+        "from_stock": 3295.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 3295.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2023-08",
+    "orders_now": [
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "lead_time_days": 30,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 30 days (1 months)."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 694.0,
+        "monthly_burn": 94.8,
+        "months_of_supply": 7.3,
+        "incoming_grn_qty": 198.9,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 7.3 months of stock with 198.9 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 63316.0,
+        "monthly_burn": 2898.5,
+        "months_of_supply": 21.8,
+        "incoming_grn_qty": 39360.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 21.8 months of stock with 39360.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "current_stock": 74909.8,
+        "monthly_burn": 1174.6,
+        "months_of_supply": 63.8,
+        "incoming_grn_qty": 69425.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 63.8 months of stock with 69425.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "current_stock": 84869.0,
+        "monthly_burn": 2077.0,
+        "months_of_supply": 40.9,
+        "incoming_grn_qty": 54400.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 40.9 months of stock with 54400.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 14675.0,
+        "monthly_burn": 1414.5,
+        "months_of_supply": 10.4,
+        "incoming_grn_qty": 10500.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 10.4 months of stock with 10500.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "current_stock": 217814.0,
+        "monthly_burn": 1488.0,
+        "months_of_supply": 146.4,
+        "incoming_grn_qty": 75000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 146.4 months of stock with 75000.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MNB010128",
+        "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 20.0,
+        "from_stock": 12720.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 KG (site burn risk), while KANPUR NAGAR has 12720.0 KG surplus."
+      },
+      {
+        "item_code": "MNB010128",
+        "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 20.0,
+        "from_stock": 12720.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 KG (site burn risk), while KANPUR NAGAR has 12720.0 KG surplus."
+      }
+    ]
+  },
+  {
+    "month": "2023-09",
+    "orders_now": [
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "lead_time_days": 30,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 30 days (1 months)."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 86455.0,
+        "monthly_burn": 3165.0,
+        "months_of_supply": 27.3,
+        "incoming_grn_qty": 29040.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 27.3 months of stock with 29040.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "current_stock": 111326.8,
+        "monthly_burn": 1338.4,
+        "months_of_supply": 83.2,
+        "incoming_grn_qty": 40075.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 83.2 months of stock with 40075.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "current_stock": 139971.0,
+        "monthly_burn": 2181.3,
+        "months_of_supply": 64.2,
+        "incoming_grn_qty": 58320.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 64.2 months of stock with 58320.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 31916.0,
+        "monthly_burn": 1563.3,
+        "months_of_supply": 20.4,
+        "incoming_grn_qty": 21320.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 20.4 months of stock with 21320.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MNB010128",
+        "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+        "current_stock": 76132.9,
+        "monthly_burn": 20.0,
+        "months_of_supply": 3806.6,
+        "incoming_grn_qty": 25260.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 3806.6 months of stock with 25260.0 KG arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 23457.0,
+        "monthly_burn": 1882.7,
+        "months_of_supply": 12.5,
+        "incoming_grn_qty": 6395.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 12.5 months of stock with 6395.0 PCS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": []
+  },
+  {
+    "month": "2023-10",
+    "orders_now": [
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 819.5,
+        "monthly_burn": 114.3,
+        "months_of_supply": 7.2,
+        "incoming_grn_qty": 398.4,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 7.2 months of stock with 398.4 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 87207.0,
+        "monthly_burn": 4682.0,
+        "months_of_supply": 18.6,
+        "incoming_grn_qty": 5000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 18.6 months of stock with 5000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "current_stock": 15000.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 750.0,
+        "incoming_grn_qty": 15000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 750.0 months of stock with 15000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 23110.0,
+        "monthly_burn": 2115.3,
+        "months_of_supply": 10.9,
+        "incoming_grn_qty": 4226.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 10.9 months of stock with 4226.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070022",
+        "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+        "current_stock": 228794.4,
+        "monthly_burn": 7648.9,
+        "months_of_supply": 29.9,
+        "incoming_grn_qty": 1995.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 29.9 months of stock with 1995.0 MTR arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070060",
+        "item_name": "POLE CLAMP RDSS",
+        "current_stock": 97690.0,
+        "monthly_burn": 3503.7,
+        "months_of_supply": 27.9,
+        "incoming_grn_qty": 7051.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 27.9 months of stock with 7051.0 SET arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 3998.0,
+        "from_stock": 83887.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 83887.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 20.0,
+        "from_stock": 6000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 6000.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 20.0,
+        "from_stock": 6000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 6000.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 20.0,
+        "from_stock": 6000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 6000.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2023-11",
+    "orders_now": [
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 914.4,
+        "monthly_burn": 111.0,
+        "months_of_supply": 8.2,
+        "incoming_grn_qty": 299.8,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.2 months of stock with 299.8 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 89505.0,
+        "monthly_burn": 4382.3,
+        "months_of_supply": 20.4,
+        "incoming_grn_qty": 11300.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 20.4 months of stock with 11300.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 27826.0,
+        "monthly_burn": 2180.0,
+        "months_of_supply": 12.8,
+        "incoming_grn_qty": 1800.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 12.8 months of stock with 1800.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "current_stock": 20504.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 1025.2,
+        "incoming_grn_qty": 6000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 1025.2 months of stock with 6000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 22592.0,
+        "monthly_burn": 3059.0,
+        "months_of_supply": 7.4,
+        "incoming_grn_qty": 3008.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 7.4 months of stock with 3008.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070022",
+        "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+        "current_stock": 315322.4,
+        "monthly_burn": 8933.4,
+        "months_of_supply": 35.3,
+        "incoming_grn_qty": 108487.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 35.3 months of stock with 108487.0 MTR arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 7177.0,
+        "from_stock": 81338.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 81338.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 20.0,
+        "from_stock": 6000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 6000.0 NOS surplus."
+      },
+      {
+        "item_code": "MRP070065",
+        "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 458.0,
+        "from_stock": 1145.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 1145.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2023-12",
+    "orders_now": [
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "current_stock": 124038.0,
+        "monthly_burn": 496.0,
+        "months_of_supply": 250.1,
+        "incoming_grn_qty": 105000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 250.1 months of stock with 105000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 24744.0,
+        "monthly_burn": 3967.7,
+        "months_of_supply": 6.2,
+        "incoming_grn_qty": 5447.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.2 months of stock with 5447.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070022",
+        "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+        "current_stock": 325496.4,
+        "monthly_burn": 14118.6,
+        "months_of_supply": 23.1,
+        "incoming_grn_qty": 40193.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 23.1 months of stock with 40193.0 MTR arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070064",
+        "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "current_stock": 37010.0,
+        "monthly_burn": 5346.0,
+        "months_of_supply": 6.9,
+        "incoming_grn_qty": 2600.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.9 months of stock with 2600.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070065",
+        "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "current_stock": 23080.0,
+        "monthly_burn": 1455.7,
+        "months_of_supply": 15.9,
+        "incoming_grn_qty": 7099.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 15.9 months of stock with 7099.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 11802.7,
+        "from_stock": 77645.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 77645.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 496.0,
+        "from_stock": 41000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 41000.0 NOS surplus."
+      },
+      {
+        "item_code": "MRP070065",
+        "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 1455.7,
+        "from_stock": 4283.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 4283.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-01",
+    "orders_now": [
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "lead_time_days": 90,
+        "current_stock": 0.0,
+        "monthly_burn": 20.0,
+        "months_of_supply": 0.0,
+        "suggested_order_qty": 40.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 0.0 months supply remaining. Lead time is 90 days (3 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 70826.0,
+        "monthly_burn": 8223.3,
+        "months_of_supply": 8.6,
+        "incoming_grn_qty": 3000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.6 months of stock with 3000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 21752.0,
+        "monthly_burn": 4124.0,
+        "months_of_supply": 5.3,
+        "incoming_grn_qty": 4000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 5.3 months of stock with 4000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 24647.0,
+        "monthly_burn": 3798.0,
+        "months_of_supply": 6.5,
+        "incoming_grn_qty": 2557.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.5 months of stock with 2557.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070059",
+        "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+        "current_stock": 186801.0,
+        "monthly_burn": 15061.7,
+        "months_of_supply": 12.4,
+        "incoming_grn_qty": 44000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 12.4 months of stock with 44000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070064",
+        "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "current_stock": 35207.0,
+        "monthly_burn": 6677.3,
+        "months_of_supply": 5.3,
+        "incoming_grn_qty": 5000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 5.3 months of stock with 5000.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR FARRUKHABAD",
+        "to_godown": "KANPUR NAGAR",
+        "transfer_qty": 7690.8,
+        "from_stock": 19227.0,
+        "to_stock": 2.0,
+        "reason": "KANPUR NAGAR has only 2.0 NOS (site burn risk), while KANPUR FARRUKHABAD has 19227.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 16999.3,
+        "from_stock": 73070.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 73070.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 981.0,
+        "from_stock": 41000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 41000.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 981.0,
+        "from_stock": 41000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 41000.0 NOS surplus."
+      },
+      {
+        "item_code": "MRP070065",
+        "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 1581.6,
+        "from_stock": 3954.0,
+        "to_stock": 1.0,
+        "reason": "KANPUR AURAIYA has only 1.0 NOS (site burn risk), while KANPUR NAGAR has 3954.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-02",
+    "orders_now": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "lead_time_days": 60,
+        "current_stock": 564.6,
+        "monthly_burn": 201.3,
+        "months_of_supply": 2.8,
+        "suggested_order_qty": 402.5,
+        "urgency": "HIGH",
+        "reason": "Only 2.8 months supply remaining. Lead time is 60 days (2 months)."
+      },
+      {
+        "item_code": "MRP070064",
+        "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "lead_time_days": 120,
+        "current_stock": 33127.0,
+        "monthly_burn": 7781.3,
+        "months_of_supply": 4.3,
+        "suggested_order_qty": 15562.7,
+        "urgency": "HIGH",
+        "reason": "Only 4.3 months supply remaining. Lead time is 120 days (4 months)."
+      }
+    ],
+    "holds": [
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 65936.0,
+        "monthly_burn": 10360.3,
+        "months_of_supply": 6.4,
+        "incoming_grn_qty": 11700.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.4 months of stock with 11700.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 29795.0,
+        "monthly_burn": 4788.0,
+        "months_of_supply": 6.2,
+        "incoming_grn_qty": 13900.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.2 months of stock with 13900.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "current_stock": 20494.2,
+        "monthly_burn": 20.0,
+        "months_of_supply": 1024.7,
+        "incoming_grn_qty": 23184.2,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 1024.7 months of stock with 23184.2 KG arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 27783.0,
+        "monthly_burn": 3158.3,
+        "months_of_supply": 8.8,
+        "incoming_grn_qty": 7053.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.8 months of stock with 7053.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070059",
+        "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+        "current_stock": 176721.0,
+        "monthly_burn": 18133.3,
+        "months_of_supply": 9.7,
+        "incoming_grn_qty": 16000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 9.7 months of stock with 16000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070060",
+        "item_name": "POLE CLAMP RDSS",
+        "current_stock": 57506.5,
+        "monthly_burn": 11209.3,
+        "months_of_supply": 5.1,
+        "incoming_grn_qty": 8000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 5.1 months of stock with 8000.0 SET arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR FARRUKHABAD",
+        "to_godown": "KANPUR NAGAR",
+        "transfer_qty": 7081.2,
+        "from_stock": 17703.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR NAGAR has only 0.0 NOS (site burn risk), while KANPUR FARRUKHABAD has 17703.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 16141.7,
+        "from_stock": 70448.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 70448.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 16141.7,
+        "from_stock": 70448.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 70448.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 1534.0,
+        "from_stock": 41000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 41000.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 1534.0,
+        "from_stock": 41000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 41000.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 20.0,
+        "from_stock": 20494.2,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 KG (site burn risk), while KANPUR NAGAR has 20494.16 KG surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-03",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 78283.0,
+        "monthly_burn": 11906.3,
+        "months_of_supply": 6.6,
+        "incoming_grn_qty": 16600.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.6 months of stock with 16600.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "current_stock": 68281.0,
+        "monthly_burn": 12151.9,
+        "months_of_supply": 5.6,
+        "incoming_grn_qty": 10000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 5.6 months of stock with 10000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 41998.0,
+        "monthly_burn": 4843.7,
+        "months_of_supply": 8.7,
+        "incoming_grn_qty": 13100.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.7 months of stock with 13100.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "current_stock": 23501.2,
+        "monthly_burn": 20.0,
+        "months_of_supply": 1175.1,
+        "incoming_grn_qty": 351.1,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 1175.1 months of stock with 351.1 KG arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 30368.0,
+        "monthly_burn": 3288.7,
+        "months_of_supply": 9.2,
+        "incoming_grn_qty": 5065.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 9.2 months of stock with 5065.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070059",
+        "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+        "current_stock": 190565.0,
+        "monthly_burn": 21557.3,
+        "months_of_supply": 8.8,
+        "incoming_grn_qty": 25000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.8 months of stock with 25000.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 14200.3,
+        "from_stock": 60082.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 60082.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 14200.3,
+        "from_stock": 60082.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 60082.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 3297.7,
+        "from_stock": 41000.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 41000.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 20.0,
+        "from_stock": 14305.1,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 KG (site burn risk), while KANPUR NAGAR has 14305.07 KG surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-04",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "current_stock": 244104.0,
+        "monthly_burn": 8253.7,
+        "months_of_supply": 29.6,
+        "incoming_grn_qty": 114500.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 29.6 months of stock with 114500.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 32213.0,
+        "monthly_burn": 3017.0,
+        "months_of_supply": 10.7,
+        "incoming_grn_qty": 4066.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 10.7 months of stock with 4066.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070022",
+        "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+        "current_stock": 384414.7,
+        "monthly_burn": 23384.0,
+        "months_of_supply": 16.4,
+        "incoming_grn_qty": 151334.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 16.4 months of stock with 151334.0 MTR arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 8253.7,
+        "from_stock": 171726.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 171726.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 3781.3,
+        "from_stock": 40960.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 40960.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 34.0,
+        "from_stock": 12180.1,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 KG (site burn risk), while KANPUR NAGAR has 12180.13 KG surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-05",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 81261.0,
+        "monthly_burn": 9317.3,
+        "months_of_supply": 8.7,
+        "incoming_grn_qty": 15000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.7 months of stock with 15000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "current_stock": 133047.0,
+        "monthly_burn": 8960.7,
+        "months_of_supply": 14.8,
+        "incoming_grn_qty": 76000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 14.8 months of stock with 76000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "current_stock": 105208.0,
+        "monthly_burn": 7346.7,
+        "months_of_supply": 14.3,
+        "incoming_grn_qty": 29130.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 14.3 months of stock with 29130.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 47169.0,
+        "monthly_burn": 3408.3,
+        "months_of_supply": 13.8,
+        "incoming_grn_qty": 10600.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 13.8 months of stock with 10600.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "current_stock": 82004.2,
+        "monthly_burn": 462.4,
+        "months_of_supply": 177.3,
+        "incoming_grn_qty": 60000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 177.3 months of stock with 60000.0 KG arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 36866.0,
+        "monthly_burn": 2872.7,
+        "months_of_supply": 12.8,
+        "incoming_grn_qty": 6634.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 12.8 months of stock with 6634.0 PCS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 7531.3,
+        "from_stock": 166117.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 166117.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 5804.0,
+        "from_stock": 40960.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 40960.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 462.4,
+        "from_stock": 29959.6,
+        "to_stock": 0.2,
+        "reason": "KANPUR AURAIYA has only 0.19 KG (site burn risk), while KANPUR NAGAR has 29959.56 KG surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-06",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 875.9,
+        "monthly_burn": 97.9,
+        "months_of_supply": 9.0,
+        "incoming_grn_qty": 477.6,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 9.0 months of stock with 477.6 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 39922.0,
+        "monthly_burn": 2227.3,
+        "months_of_supply": 17.9,
+        "incoming_grn_qty": 5745.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 17.9 months of stock with 5745.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070059",
+        "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+        "current_stock": 296574.0,
+        "monthly_burn": 12853.3,
+        "months_of_supply": 23.1,
+        "incoming_grn_qty": 11500.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 23.1 months of stock with 11500.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070064",
+        "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "current_stock": 66742.0,
+        "monthly_burn": 4553.7,
+        "months_of_supply": 14.7,
+        "incoming_grn_qty": 15000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 14.7 months of stock with 15000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070065",
+        "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "current_stock": 28002.0,
+        "monthly_burn": 1540.3,
+        "months_of_supply": 18.2,
+        "incoming_grn_qty": 13598.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 18.2 months of stock with 13598.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 4470.3,
+        "from_stock": 162075.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 162075.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 4470.3,
+        "from_stock": 162075.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 162075.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 5009.0,
+        "from_stock": 40960.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 40960.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-07",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 803.0,
+        "monthly_burn": 95.0,
+        "months_of_supply": 8.5,
+        "incoming_grn_qty": 134.9,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.5 months of stock with 134.9 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "current_stock": 276333.3,
+        "monthly_burn": 4237.7,
+        "months_of_supply": 65.2,
+        "incoming_grn_qty": 46500.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 65.2 months of stock with 46500.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 40243.0,
+        "monthly_burn": 2297.0,
+        "months_of_supply": 17.5,
+        "incoming_grn_qty": 6067.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 17.5 months of stock with 6067.0 PCS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 6129.7,
+        "from_stock": 16991.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 16991.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 5421.7,
+        "from_stock": 40910.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 40910.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-08",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 869.1,
+        "monthly_burn": 134.6,
+        "months_of_supply": 6.5,
+        "incoming_grn_qty": 267.9,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.5 months of stock with 267.9 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 78899.0,
+        "monthly_burn": 6720.3,
+        "months_of_supply": 11.7,
+        "incoming_grn_qty": 25000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 11.7 months of stock with 25000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 48967.0,
+        "monthly_burn": 3079.3,
+        "months_of_supply": 15.9,
+        "incoming_grn_qty": 15000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 15.9 months of stock with 15000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "current_stock": 84537.8,
+        "monthly_burn": 1297.1,
+        "months_of_supply": 65.2,
+        "incoming_grn_qty": 16300.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 65.2 months of stock with 16300.0 KG arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 40699.0,
+        "monthly_burn": 3472.0,
+        "months_of_supply": 11.7,
+        "incoming_grn_qty": 6877.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 11.7 months of stock with 6877.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070064",
+        "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "current_stock": 63891.0,
+        "monthly_burn": 4909.3,
+        "months_of_supply": 13.0,
+        "incoming_grn_qty": 11800.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 13.0 months of stock with 11800.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 3892.0,
+        "from_stock": 40910.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 40910.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 3892.0,
+        "from_stock": 40910.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 40910.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-09",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 1012.0,
+        "monthly_burn": 180.0,
+        "months_of_supply": 5.6,
+        "incoming_grn_qty": 418.6,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 5.6 months of stock with 418.6 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "current_stock": 106223.6,
+        "monthly_burn": 7731.1,
+        "months_of_supply": 13.7,
+        "incoming_grn_qty": 35700.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 13.7 months of stock with 35700.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 40315.0,
+        "monthly_burn": 4952.0,
+        "months_of_supply": 8.1,
+        "incoming_grn_qty": 5064.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.1 months of stock with 5064.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070060",
+        "item_name": "POLE CLAMP RDSS",
+        "current_stock": 94118.8,
+        "monthly_burn": 8229.1,
+        "months_of_supply": 11.4,
+        "incoming_grn_qty": 35640.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 11.4 months of stock with 35640.0 SET arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070064",
+        "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "current_stock": 64101.0,
+        "monthly_burn": 6513.7,
+        "months_of_supply": 9.8,
+        "incoming_grn_qty": 9700.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 9.8 months of stock with 9700.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 7311.2,
+        "from_stock": 117983.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 117983.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 6703.7,
+        "from_stock": 40910.0,
+        "to_stock": 5.0,
+        "reason": "KANPUR ETAWAH has only 5.0 NOS (site burn risk), while KANPUR NAGAR has 40910.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 6703.7,
+        "from_stock": 40910.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 40910.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-10",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 1047.8,
+        "monthly_burn": 231.4,
+        "months_of_supply": 4.5,
+        "incoming_grn_qty": 299.7,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 4.5 months of stock with 299.7 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 40616.0,
+        "monthly_burn": 5871.7,
+        "months_of_supply": 6.9,
+        "incoming_grn_qty": 2857.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.9 months of stock with 2857.0 PCS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 10937.9,
+        "from_stock": 113689.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 113689.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 7332.0,
+        "from_stock": 40910.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 40910.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 7332.0,
+        "from_stock": 40910.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 40910.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-11",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 66214.0,
+        "monthly_burn": 12123.3,
+        "months_of_supply": 5.5,
+        "incoming_grn_qty": 20000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 5.5 months of stock with 20000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "current_stock": 81045.6,
+        "monthly_burn": 13015.3,
+        "months_of_supply": 6.2,
+        "incoming_grn_qty": 9480.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.2 months of stock with 9480.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 37519.0,
+        "monthly_burn": 6544.0,
+        "months_of_supply": 5.7,
+        "incoming_grn_qty": 6000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 5.7 months of stock with 6000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "current_stock": 91650.4,
+        "monthly_burn": 4054.1,
+        "months_of_supply": 22.6,
+        "incoming_grn_qty": 20000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 22.6 months of stock with 20000.0 KG arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 43363.0,
+        "monthly_burn": 4808.3,
+        "months_of_supply": 9.0,
+        "incoming_grn_qty": 4600.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 9.0 months of stock with 4600.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070059",
+        "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+        "current_stock": 221506.0,
+        "monthly_burn": 25102.0,
+        "months_of_supply": 8.8,
+        "incoming_grn_qty": 34000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.8 months of stock with 34000.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 11831.0,
+        "from_stock": 107931.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 107931.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 7057.0,
+        "from_stock": 37082.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 37082.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 7057.0,
+        "from_stock": 37082.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 37082.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2024-12",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 63617.0,
+        "monthly_burn": 10047.7,
+        "months_of_supply": 6.3,
+        "incoming_grn_qty": 5900.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.3 months of stock with 5900.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "current_stock": 118603.6,
+        "monthly_burn": 11025.0,
+        "months_of_supply": 10.8,
+        "incoming_grn_qty": 43720.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 10.8 months of stock with 43720.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "current_stock": 155004.6,
+        "monthly_burn": 10081.7,
+        "months_of_supply": 15.4,
+        "incoming_grn_qty": 77948.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 15.4 months of stock with 77948.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 43747.0,
+        "monthly_burn": 5649.3,
+        "months_of_supply": 7.7,
+        "incoming_grn_qty": 9600.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 7.7 months of stock with 9600.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "current_stock": 300479.3,
+        "monthly_burn": 10485.3,
+        "months_of_supply": 28.7,
+        "incoming_grn_qty": 78000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 28.7 months of stock with 78000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "current_stock": 124069.0,
+        "monthly_burn": 4612.5,
+        "months_of_supply": 26.9,
+        "incoming_grn_qty": 36722.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 26.9 months of stock with 36722.0 KG arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": []
+  },
+  {
+    "month": "2025-01",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 740.2,
+        "monthly_burn": 179.6,
+        "months_of_supply": 4.1,
+        "incoming_grn_qty": 11.9,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 4.1 months of stock with 11.9 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 69067.0,
+        "monthly_burn": 8424.3,
+        "months_of_supply": 8.2,
+        "incoming_grn_qty": 15000.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 8.2 months of stock with 15000.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 52791.0,
+        "monthly_burn": 4651.0,
+        "months_of_supply": 11.4,
+        "incoming_grn_qty": 13400.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 11.4 months of stock with 13400.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 43884.0,
+        "monthly_burn": 2014.0,
+        "months_of_supply": 21.8,
+        "incoming_grn_qty": 2316.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 21.8 months of stock with 2316.0 PCS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070022",
+        "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+        "current_stock": 419535.3,
+        "monthly_burn": 23900.8,
+        "months_of_supply": 17.6,
+        "incoming_grn_qty": 67695.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 17.6 months of stock with 67695.0 MTR arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MRP070059",
+        "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+        "current_stock": 232500.0,
+        "monthly_burn": 19386.7,
+        "months_of_supply": 12.0,
+        "incoming_grn_qty": 19400.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 12.0 months of stock with 19400.0 NOS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 9354.7,
+        "from_stock": 144474.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 144474.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 911.2,
+        "from_stock": 2278.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 2278.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2025-02",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 692.1,
+        "monthly_burn": 112.5,
+        "months_of_supply": 6.2,
+        "incoming_grn_qty": 31.9,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 6.2 months of stock with 31.9 KM arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "current_stock": 94566.0,
+        "monthly_burn": 7828.0,
+        "months_of_supply": 12.1,
+        "incoming_grn_qty": 34732.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 12.1 months of stock with 34732.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "current_stock": 121352.6,
+        "monthly_burn": 7003.3,
+        "months_of_supply": 17.3,
+        "incoming_grn_qty": 18119.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 17.3 months of stock with 18119.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "current_stock": 149164.6,
+        "monthly_burn": 8266.7,
+        "months_of_supply": 18.0,
+        "incoming_grn_qty": 14038.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 18.0 months of stock with 14038.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "current_stock": 63168.0,
+        "monthly_burn": 3905.3,
+        "months_of_supply": 16.2,
+        "incoming_grn_qty": 14268.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 16.2 months of stock with 14268.0 NOS arriving this month. Hold next supplier dispatch."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 48991.0,
+        "monthly_burn": 1712.3,
+        "months_of_supply": 28.6,
+        "incoming_grn_qty": 6966.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 28.6 months of stock with 6966.0 PCS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 9932.0,
+        "from_stock": 140364.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 140364.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 481.7,
+        "from_stock": 1733.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 1733.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2025-03",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "current_stock": 48247.0,
+        "monthly_burn": 1714.3,
+        "months_of_supply": 28.1,
+        "incoming_grn_qty": 580.0,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 28.1 months of stock with 580.0 PCS arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 489.2,
+        "from_stock": 1223.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 1223.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2025-04",
+    "orders_now": [],
+    "holds": [],
+    "transfers": []
+  },
+  {
+    "month": "2025-05",
+    "orders_now": [],
+    "holds": [],
+    "transfers": []
+  },
+  {
+    "month": "2025-06",
+    "orders_now": [],
+    "holds": [],
+    "transfers": []
+  },
+  {
+    "month": "2025-07",
+    "orders_now": [],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR ETAWAH",
+        "to_godown": "KANPUR NAGAR",
+        "transfer_qty": 28.4,
+        "from_stock": 70.9,
+        "to_stock": 2.1,
+        "reason": "KANPUR NAGAR has only 2.11 KM (site burn risk), while KANPUR ETAWAH has 70.92 KM surplus."
+      },
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "from_godown": "KANPUR ETAWAH",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 28.4,
+        "from_stock": 70.9,
+        "to_stock": 0.2,
+        "reason": "KANPUR KANNAUJ has only 0.22 KM (site burn risk), while KANPUR ETAWAH has 70.92 KM surplus."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 6379.7,
+        "from_stock": 39651.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 39651.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 2871.7,
+        "from_stock": 20832.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 20832.0 NOS surplus."
+      },
+      {
+        "item_code": "MRP070060",
+        "item_name": "POLE CLAMP RDSS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 6365.3,
+        "from_stock": 16789.5,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 SET (site burn risk), while KANPUR NAGAR has 16789.5 SET surplus."
+      },
+      {
+        "item_code": "MRP070065",
+        "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "from_godown": "KANPUR DEHAT",
+        "to_godown": "KANPUR NAGAR",
+        "transfer_qty": 1542.0,
+        "from_stock": 3855.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR NAGAR has only 0.0 NOS (site burn risk), while KANPUR DEHAT has 3855.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2025-08",
+    "orders_now": [],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 6668.0,
+        "from_stock": 24840.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 24840.0 NOS surplus."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 6668.0,
+        "from_stock": 24840.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 24840.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 2626.7,
+        "from_stock": 23647.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 23647.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2025-09",
+    "orders_now": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "lead_time_days": 60,
+        "current_stock": 256.7,
+        "monthly_burn": 97.1,
+        "months_of_supply": 2.6,
+        "suggested_order_qty": 194.2,
+        "urgency": "HIGH",
+        "reason": "Only 2.6 months supply remaining. Lead time is 60 days (2 months)."
+      }
+    ],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 5015.3,
+        "from_stock": 25301.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 25301.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 1565.3,
+        "from_stock": 25927.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 25927.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 1565.3,
+        "from_stock": 25927.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 25927.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2025-10",
+    "orders_now": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "lead_time_days": 60,
+        "current_stock": 253.3,
+        "monthly_burn": 101.3,
+        "months_of_supply": 2.5,
+        "suggested_order_qty": 202.6,
+        "urgency": "HIGH",
+        "reason": "Only 2.5 months supply remaining. Lead time is 60 days (2 months)."
+      }
+    ],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 5217.0,
+        "from_stock": 25031.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 25031.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 1532.0,
+        "from_stock": 25822.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 25822.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 6588.3,
+        "from_stock": 119479.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 119479.0 NOS surplus."
+      },
+      {
+        "item_code": "MRP070060",
+        "item_name": "POLE CLAMP RDSS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR KANNAUJ",
+        "transfer_qty": 3923.7,
+        "from_stock": 25752.5,
+        "to_stock": 0.0,
+        "reason": "KANPUR KANNAUJ has only 0.0 SET (site burn risk), while KANPUR NAGAR has 25752.5 SET surplus."
+      },
+      {
+        "item_code": "MRP070064",
+        "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+        "from_godown": "KANPUR ETAWAH",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 3483.6,
+        "from_stock": 8709.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR ETAWAH has 8709.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2025-11",
+    "orders_now": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "lead_time_days": 60,
+        "current_stock": 182.2,
+        "monthly_burn": 90.7,
+        "months_of_supply": 2.0,
+        "suggested_order_qty": 181.4,
+        "urgency": "HIGH",
+        "reason": "Only 2.0 months supply remaining. Lead time is 60 days (2 months)."
+      }
+    ],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 4241.7,
+        "from_stock": 24995.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 24995.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 1250.3,
+        "from_stock": 25882.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 25882.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 5018.0,
+        "from_stock": 119479.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 119479.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR ETAWAH",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 1091.3,
+        "from_stock": 26989.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR ETAWAH has 26989.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 1761.3,
+        "from_stock": 26840.5,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 KG (site burn risk), while KANPUR NAGAR has 26840.46 KG surplus."
+      },
+      {
+        "item_code": "MRP070059",
+        "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 5798.7,
+        "from_stock": 21240.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 21240.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2025-12",
+    "orders_now": [
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "lead_time_days": 150,
+        "current_stock": 19892.0,
+        "monthly_burn": 4271.7,
+        "months_of_supply": 4.7,
+        "suggested_order_qty": 8543.3,
+        "urgency": "CRITICAL",
+        "reason": "Only 4.7 months supply remaining. Lead time is 150 days (5 months)."
+      }
+    ],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 1794.3,
+        "from_stock": 25877.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 25877.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 6811.7,
+        "from_stock": 119459.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 119459.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR ETAWAH",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 1844.3,
+        "from_stock": 19489.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR ETAWAH has 19489.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR ETAWAH",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 1844.3,
+        "from_stock": 19489.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR ETAWAH has 19489.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 4115.6,
+        "from_stock": 26822.5,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 KG (site burn risk), while KANPUR NAGAR has 26822.46 KG surplus."
+      },
+      {
+        "item_code": "MRP070060",
+        "item_name": "POLE CLAMP RDSS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 3248.3,
+        "from_stock": 25858.5,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 SET (site burn risk), while KANPUR NAGAR has 25858.5 SET surplus."
+      }
+    ]
+  },
+  {
+    "month": "2026-01",
+    "orders_now": [],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 3001.0,
+        "from_stock": 24996.0,
+        "to_stock": 3.0,
+        "reason": "KANPUR ETAWAH has only 3.0 NOS (site burn risk), while KANPUR NAGAR has 24996.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 1540.7,
+        "from_stock": 25877.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 25877.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 6719.7,
+        "from_stock": 119459.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 119459.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR ETAWAH",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 2431.7,
+        "from_stock": 7111.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR ETAWAH has 7111.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR ETAWAH",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 2431.7,
+        "from_stock": 7111.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR ETAWAH has 7111.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 5522.1,
+        "from_stock": 26822.5,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 KG (site burn risk), while KANPUR NAGAR has 26822.46 KG surplus."
+      }
+    ]
+  },
+  {
+    "month": "2026-02",
+    "orders_now": [
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "lead_time_days": 150,
+        "current_stock": 17048.0,
+        "monthly_burn": 3414.7,
+        "months_of_supply": 5.0,
+        "suggested_order_qty": 6829.3,
+        "urgency": "CRITICAL",
+        "reason": "Only 5.0 months supply remaining. Lead time is 150 days (5 months)."
+      }
+    ],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 3445.3,
+        "from_stock": 22715.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22715.0 NOS surplus."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 3445.3,
+        "from_stock": 22715.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22715.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 3541.0,
+        "from_stock": 41509.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 41509.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 1593.7,
+        "from_stock": 26031.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 26031.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 7664.3,
+        "from_stock": 110339.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 110339.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 5999.5,
+        "from_stock": 27272.5,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 KG (site burn risk), while KANPUR NAGAR has 27272.46 KG surplus."
+      }
+    ]
+  },
+  {
+    "month": "2026-03",
+    "orders_now": [],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 1523.3,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 1686.7,
+        "from_stock": 22141.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22141.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 703.0,
+        "from_stock": 11286.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 11286.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 4456.3,
+        "from_stock": 110477.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 110477.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 3626.5,
+        "from_stock": 27272.5,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 KG (site burn risk), while KANPUR NAGAR has 27272.46 KG surplus."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "from_godown": "KANPUR FARRUKHABAD",
+        "to_godown": "KANPUR NAGAR",
+        "transfer_qty": 1028.0,
+        "from_stock": 2570.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR NAGAR has only 0.0 PCS (site burn risk), while KANPUR FARRUKHABAD has 2570.0 PCS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2026-04",
+    "orders_now": [
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "lead_time_days": 30,
+        "current_stock": 15588.0,
+        "monthly_burn": 11290.3,
+        "months_of_supply": 1.4,
+        "suggested_order_qty": 22580.7,
+        "urgency": "HIGH",
+        "reason": "Only 1.4 months supply remaining. Lead time is 30 days (1 months)."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "lead_time_days": 150,
+        "current_stock": 10939.0,
+        "monthly_burn": 2339.0,
+        "months_of_supply": 4.7,
+        "suggested_order_qty": 4678.0,
+        "urgency": "CRITICAL",
+        "reason": "Only 4.7 months supply remaining. Lead time is 150 days (5 months)."
+      },
+      {
+        "item_code": "MRP070059",
+        "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+        "lead_time_days": 120,
+        "current_stock": 33692.0,
+        "monthly_burn": 13945.3,
+        "months_of_supply": 2.4,
+        "suggested_order_qty": 27890.7,
+        "urgency": "CRITICAL",
+        "reason": "Only 2.4 months supply remaining. Lead time is 120 days (4 months)."
+      }
+    ],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 5718.5,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 5718.5,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 4724.2,
+        "from_stock": 22200.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22200.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 2237.7,
+        "from_stock": 11296.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 11296.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 11384.1,
+        "from_stock": 110477.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 110477.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 6511.8,
+        "from_stock": 27311.2,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 KG (site burn risk), while KANPUR NAGAR has 27311.16 KG surplus."
+      }
+    ]
+  },
+  {
+    "month": "2026-05",
+    "orders_now": [
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "lead_time_days": 30,
+        "current_stock": 15588.0,
+        "monthly_burn": 9552.7,
+        "months_of_supply": 1.6,
+        "suggested_order_qty": 19105.3,
+        "urgency": "HIGH",
+        "reason": "Only 1.6 months supply remaining. Lead time is 30 days (1 months)."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "lead_time_days": 150,
+        "current_stock": 10939.0,
+        "monthly_burn": 1918.0,
+        "months_of_supply": 5.7,
+        "suggested_order_qty": 3836.0,
+        "urgency": "HIGH",
+        "reason": "Only 5.7 months supply remaining. Lead time is 150 days (5 months)."
+      },
+      {
+        "item_code": "MRP070059",
+        "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+        "lead_time_days": 120,
+        "current_stock": 33686.0,
+        "monthly_burn": 13457.4,
+        "months_of_supply": 2.5,
+        "suggested_order_qty": 26914.8,
+        "urgency": "CRITICAL",
+        "reason": "Only 2.5 months supply remaining. Lead time is 120 days (4 months)."
+      }
+    ],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 5603.8,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 5603.8,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 4822.5,
+        "from_stock": 22200.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22200.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 2303.7,
+        "from_stock": 11296.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 11296.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 10546.8,
+        "from_stock": 110477.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 110477.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 5676.1,
+        "from_stock": 27311.2,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 KG (site burn risk), while KANPUR NAGAR has 27311.16 KG surplus."
+      }
+    ]
+  },
+  {
+    "month": "2026-06",
+    "orders_now": [
+      {
+        "item_code": "MCA090005",
+        "item_name": "SUSPENSION CLAMP",
+        "lead_time_days": 90,
+        "current_stock": 17871.0,
+        "monthly_burn": 5940.5,
+        "months_of_supply": 3.0,
+        "suggested_order_qty": 11881.0,
+        "urgency": "HIGH",
+        "reason": "Only 3.0 months supply remaining. Lead time is 90 days (3 months)."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "lead_time_days": 30,
+        "current_stock": 15356.0,
+        "monthly_burn": 12915.0,
+        "months_of_supply": 1.2,
+        "suggested_order_qty": 25830.0,
+        "urgency": "HIGH",
+        "reason": "Only 1.2 months supply remaining. Lead time is 30 days (1 months)."
+      },
+      {
+        "item_code": "MPO010014",
+        "item_name": "PCC POLE 8.5 MTR 180 KG",
+        "lead_time_days": 150,
+        "current_stock": 10924.0,
+        "monthly_burn": 2165.0,
+        "months_of_supply": 5.0,
+        "suggested_order_qty": 4330.0,
+        "urgency": "HIGH",
+        "reason": "Only 5.0 months supply remaining. Lead time is 150 days (5 months)."
+      },
+      {
+        "item_code": "MRP070022",
+        "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+        "lead_time_days": 60,
+        "current_stock": 61908.3,
+        "monthly_burn": 24316.3,
+        "months_of_supply": 2.5,
+        "suggested_order_qty": 48632.6,
+        "urgency": "HIGH",
+        "reason": "Only 2.5 months supply remaining. Lead time is 60 days (2 months)."
+      },
+      {
+        "item_code": "MRP070059",
+        "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+        "lead_time_days": 120,
+        "current_stock": 33626.0,
+        "monthly_burn": 12549.7,
+        "months_of_supply": 2.7,
+        "suggested_order_qty": 25099.5,
+        "urgency": "CRITICAL",
+        "reason": "Only 2.7 months supply remaining. Lead time is 120 days (4 months)."
+      }
+    ],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 8003.8,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 8003.8,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 6897.8,
+        "from_stock": 22200.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22200.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 3285.0,
+        "from_stock": 11296.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 11296.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 15090.1,
+        "from_stock": 110477.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 110477.0 NOS surplus."
+      },
+      {
+        "item_code": "MNB010007",
+        "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 7132.7,
+        "from_stock": 27311.2,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 KG (site burn risk), while KANPUR NAGAR has 27311.16 KG surplus."
+      }
+    ]
+  },
+  {
+    "month": "2026-07",
+    "orders_now": [],
+    "holds": [
+      {
+        "item_code": "MCA020009",
+        "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+        "current_stock": 107.8,
+        "monthly_burn": 6.1,
+        "months_of_supply": 17.6,
+        "incoming_grn_qty": 2.5,
+        "directive": "HOLD / DELAY NEXT DISPATCH",
+        "reason": "Sitting on 17.6 months of stock with 2.5 KM arriving this month. Hold next supplier dispatch."
+      }
+    ],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 875.5,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 875.5,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 1063.5,
+        "from_stock": 22200.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22200.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 525.5,
+        "from_stock": 11293.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 11293.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 2259.0,
+        "from_stock": 110477.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 110477.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 474.8,
+        "from_stock": 1187.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 1187.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2026-08",
+    "orders_now": [],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 70.0,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 70.0,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 117.5,
+        "from_stock": 22200.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22200.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 42.0,
+        "from_stock": 11293.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 11293.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 1068.0,
+        "from_stock": 110477.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 110477.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 121.0,
+        "from_stock": 1187.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 1187.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2026-09",
+    "orders_now": [],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 178.3,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 178.3,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 108.0,
+        "from_stock": 22200.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22200.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 45.3,
+        "from_stock": 11293.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 11293.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 863.7,
+        "from_stock": 110477.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 110477.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 197.3,
+        "from_stock": 1187.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 1187.0 NOS surplus."
+      }
+    ]
+  },
+  {
+    "month": "2026-10",
+    "orders_now": [],
+    "holds": [],
+    "transfers": [
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 330.0,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MCO010007",
+        "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR ETAWAH",
+        "transfer_qty": 330.0,
+        "from_stock": 22752.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR ETAWAH has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22752.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050071",
+        "item_name": "EYE HOOK",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 163.7,
+        "from_stock": 22200.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 22200.0 NOS surplus."
+      },
+      {
+        "item_code": "MEH050075",
+        "item_name": "DEAD END CLAMP",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR AURAIYA",
+        "transfer_qty": 61.0,
+        "from_stock": 11293.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR AURAIYA has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 11293.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020008",
+        "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR FARRUKHABAD",
+        "transfer_qty": 530.3,
+        "from_stock": 110477.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR FARRUKHABAD has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 110477.0 NOS surplus."
+      },
+      {
+        "item_code": "MLU020013",
+        "item_name": "25 SQMM ALUMINIUM LUGS",
+        "from_godown": "KANPUR NAGAR",
+        "to_godown": "KANPUR DEHAT",
+        "transfer_qty": 141.7,
+        "from_stock": 1187.0,
+        "to_stock": 0.0,
+        "reason": "KANPUR DEHAT has only 0.0 NOS (site burn risk), while KANPUR NAGAR has 1187.0 NOS surplus."
+      }
+    ]
+  }
+]

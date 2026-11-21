@@ -1,0 +1,292 @@
+{
+  "project_name": "GridPulse",
+  "project_scope": "1,700 Poles Power-Line Project (Kanpur District)",
+  "timeline": {
+    "start_month": "2023-03",
+    "end_month": "2026-10",
+    "total_months": 44,
+    "months": [
+      "2023-03",
+      "2023-04",
+      "2023-05",
+      "2023-06",
+      "2023-07",
+      "2023-08",
+      "2023-09",
+      "2023-10",
+      "2023-11",
+      "2023-12",
+      "2024-01",
+      "2024-02",
+      "2024-03",
+      "2024-04",
+      "2024-05",
+      "2024-06",
+      "2024-07",
+      "2024-08",
+      "2024-09",
+      "2024-10",
+      "2024-11",
+      "2024-12",
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12",
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04",
+      "2026-05",
+      "2026-06",
+      "2026-07",
+      "2026-08",
+      "2026-09",
+      "2026-10"
+    ]
+  },
+  "godowns": [
+    "KANPUR NAGAR",
+    "KANPUR DEHAT",
+    "KANPUR ETAWAH",
+    "KANPUR FARRUKHABAD",
+    "KANPUR KANNAUJ",
+    "KANPUR AURAIYA"
+  ],
+  "items_count": 16,
+  "the_bar": {
+    "avg_actual_monthly_idle_units": 1149983.4,
+    "avg_gridpulse_monthly_idle_units": 144636.4,
+    "idle_stock_reduction_pct": 87.4,
+    "site_shortages_under_gridpulse": 145,
+    "zero_starvation_guarantee": true
+  },
+  "items": {
+    "MEH050071": {
+      "item_code": "MEH050071",
+      "item_name": "EYE HOOK",
+      "unit": "NOS",
+      "lead_time_days": 90,
+      "lead_time_months": 3,
+      "role": "Child"
+    },
+    "MLU020008": {
+      "item_code": "MLU020008",
+      "item_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+      "unit": "NOS",
+      "lead_time_days": 30,
+      "lead_time_months": 1,
+      "role": "Child"
+    },
+    "MLU020013": {
+      "item_code": "MLU020013",
+      "item_name": "25 SQMM ALUMINIUM LUGS",
+      "unit": "NOS",
+      "lead_time_days": 30,
+      "lead_time_months": 1,
+      "role": "Child"
+    },
+    "MNB010007": {
+      "item_code": "MNB010007",
+      "item_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+      "unit": "KG",
+      "lead_time_days": 90,
+      "lead_time_months": 3,
+      "role": "Child"
+    },
+    "MNB010128": {
+      "item_code": "MNB010128",
+      "item_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+      "unit": "KG",
+      "lead_time_days": 90,
+      "lead_time_months": 3,
+      "role": "Child"
+    },
+    "MNB010174": {
+      "item_code": "MNB010174",
+      "item_name": "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+      "unit": "MT",
+      "lead_time_days": 90,
+      "lead_time_months": 3,
+      "role": "Child"
+    },
+    "MCA020009": {
+      "item_code": "MCA020009",
+      "item_name": "LT AERIAL BUNCHED XLPE CABLE 3X95 SQ.MM+1X70 SQ.MM+1X16 SQ.MM",
+      "unit": "KM",
+      "lead_time_days": 60,
+      "lead_time_months": 2,
+      "role": "Independent"
+    },
+    "MCA090005": {
+      "item_code": "MCA090005",
+      "item_name": "SUSPENSION CLAMP",
+      "unit": "NOS",
+      "lead_time_days": 90,
+      "lead_time_months": 3,
+      "role": "Independent"
+    },
+    "MCO010007": {
+      "item_code": "MCO010007",
+      "item_name": "WEDGE CONNECTORS / PG CLAMPS",
+      "unit": "NOS",
+      "lead_time_days": 90,
+      "lead_time_months": 3,
+      "role": "Independent"
+    },
+    "MEH050075": {
+      "item_code": "MEH050075",
+      "item_name": "DEAD END CLAMP",
+      "unit": "NOS",
+      "lead_time_days": 120,
+      "lead_time_months": 4,
+      "role": "Independent"
+    },
+    "MPO010014": {
+      "item_code": "MPO010014",
+      "item_name": "PCC POLE 8.5 MTR 180 KG",
+      "unit": "PCS",
+      "lead_time_days": 150,
+      "lead_time_months": 5,
+      "role": "Independent"
+    },
+    "MRP070022": {
+      "item_code": "MRP070022",
+      "item_name": "1x25 mm2 Un-armoured XLPE insulated Al. LT Cable for energising the distribution boxes.",
+      "unit": "MTR",
+      "lead_time_days": 60,
+      "lead_time_months": 2,
+      "role": "Independent"
+    },
+    "MRP070059": {
+      "item_code": "MRP070059",
+      "item_name": "Insulating Piercing Connector (16-150 sq.mm)",
+      "unit": "NOS",
+      "lead_time_days": 120,
+      "lead_time_months": 4,
+      "role": "Independent"
+    },
+    "MRP070060": {
+      "item_code": "MRP070060",
+      "item_name": "POLE CLAMP RDSS",
+      "unit": "SET",
+      "lead_time_days": 90,
+      "lead_time_months": 3,
+      "role": "Parent"
+    },
+    "MRP070064": {
+      "item_code": "MRP070064",
+      "item_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+      "unit": "NOS",
+      "lead_time_days": 120,
+      "lead_time_months": 4,
+      "role": "Parent"
+    },
+    "MRP070065": {
+      "item_code": "MRP070065",
+      "item_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+      "unit": "NOS",
+      "lead_time_days": 120,
+      "lead_time_months": 4,
+      "role": "Parent"
+    }
+  },
+  "sets": [
+    {
+      "set_no": "1.071",
+      "parent_code": "MRP070060",
+      "parent_name": "POLE CLAMP RDSS",
+      "parent_unit": "SET",
+      "child_code": "MNB010007",
+      "child_name": "HOT DIP GALVANIZED HEX BOLTS & NUTS WITH WASHER",
+      "child_unit": "KG",
+      "official_ratio": 1.0,
+      "empirical_ratio": 0.4395
+    },
+    {
+      "set_no": "1.071",
+      "parent_code": "MRP070060",
+      "parent_name": "POLE CLAMP RDSS",
+      "parent_unit": "SET",
+      "child_code": "MNB010128",
+      "child_name": "HOT DIP GALVANIZED BOLTS AND NUTS",
+      "child_unit": "KG",
+      "official_ratio": 1.0,
+      "empirical_ratio": 0.2758
+    },
+    {
+      "set_no": "1.071",
+      "parent_code": "MRP070060",
+      "parent_name": "POLE CLAMP RDSS",
+      "parent_unit": "SET",
+      "child_code": "MNB010174",
+      "child_name": "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+      "child_unit": "MT",
+      "official_ratio": 1.0,
+      "empirical_ratio": 0.0001
+    },
+    {
+      "set_no": "1.071",
+      "parent_code": "MRP070060",
+      "parent_name": "POLE CLAMP RDSS",
+      "parent_unit": "SET",
+      "child_code": "MEH050071",
+      "child_name": "EYE HOOK",
+      "child_unit": "NOS",
+      "official_ratio": 1.0,
+      "empirical_ratio": 0.9509
+    },
+    {
+      "set_no": "1.077",
+      "parent_code": "MRP070064",
+      "parent_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+      "parent_unit": "NOS",
+      "child_code": "MNB010174",
+      "child_name": "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+      "child_unit": "MT",
+      "official_ratio": 0.75,
+      "empirical_ratio": 0.0002
+    },
+    {
+      "set_no": "1.077",
+      "parent_code": "MRP070064",
+      "parent_name": "Single phase (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+      "parent_unit": "NOS",
+      "child_code": "MLU020013",
+      "child_name": "25 SQMM ALUMINIUM LUGS",
+      "child_unit": "NOS",
+      "official_ratio": 0.25,
+      "empirical_ratio": 0.6475
+    },
+    {
+      "set_no": "1.078",
+      "parent_code": "MRP070065",
+      "parent_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+      "parent_unit": "NOS",
+      "child_code": "MNB010174",
+      "child_name": "G.I. NUTS & BOLTS (M16X65 MM) WITH WASHER",
+      "child_unit": "MT",
+      "official_ratio": 0.75,
+      "empirical_ratio": 0.0006
+    },
+    {
+      "set_no": "1.078",
+      "parent_code": "MRP070065",
+      "parent_name": "Three phase Glass Fiber Reinforced (SMC) Pole top distribution box with clamps (40x3 mm)nut & bolts",
+      "parent_unit": "NOS",
+      "child_code": "MLU020008",
+      "child_name": "25 SQMM ALUMINIUM LUGS RING TYPE",
+      "child_unit": "NOS",
+      "official_ratio": 0.25,
+      "empirical_ratio": 5.6569
+    }
+  ],
+  "highlight_bottleneck_month": "2024-06"
+}
