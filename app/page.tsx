@@ -141,6 +141,17 @@ export default function GridPulseDashboard() {
   const [newSiteModalOpen, setNewSiteModalOpen] = useState<boolean>(false);
   const [inspectedCustomSite, setInspectedCustomSite] = useState<CustomSite | null>(null);
 
+  // Deduplicate custom sites by name to prevent duplicate tiles
+  const uniqueCustomSites = useMemo(() => {
+    const seen = new Set<string>();
+    return customSites.filter((s) => {
+      const key = s.name.trim().toUpperCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }, [customSites]);
+
   // New Site Onboarding Form State
   const [siteFormName, setSiteFormName] = useState<string>("KANPUR BILHAUR FEEDER-04");
   const [siteFormScope, setSiteFormScope] = useState<string>("11kV Overhead Line — 180 Poles, 45 1-Phase Boxes");
@@ -227,10 +238,25 @@ export default function GridPulseDashboard() {
         localStorage.setItem("gridpulse_live_txs", JSON.stringify(seedOrders));
       }
 
-      // Hydrate custom sites
+      // Hydrate custom sites with strict deduplication by site name
       const savedSites = localStorage.getItem("gridpulse_custom_sites");
       if (savedSites) {
-        setCustomSites(JSON.parse(savedSites));
+        try {
+          const parsed: CustomSite[] = JSON.parse(savedSites);
+          const seen = new Set<string>();
+          const deduped: CustomSite[] = [];
+          for (const s of parsed) {
+            const key = s.name.trim().toUpperCase();
+            if (!seen.has(key)) {
+              seen.add(key);
+              deduped.push(s);
+            }
+          }
+          setCustomSites(deduped);
+          localStorage.setItem("gridpulse_custom_sites", JSON.stringify(deduped));
+        } catch (e) {
+          console.error("Failed to parse custom sites", e);
+        }
       } else {
         // Pre-seed realistic custom site KANPUR BILHAUR FEEDER-04
         const today = new Date();
@@ -406,6 +432,21 @@ export default function GridPulseDashboard() {
         statusText = `🚨 Stock Depleted (${bufferPct}% of Buffer — Starvation Risk)`;
       }
 
+      // Compute clean in-transit display (handling mixed units like MT cleanly)
+      const godownLiveOrders = liveOrders.filter((o) => o.godown === g);
+      const totalInTransit = totalTransfersIn + liveInTransit;
+      let inTransitDisplay = "-";
+      if (totalInTransit > 0) {
+        const mtOrder = godownLiveOrders.find((o) => o.unit === "MT");
+        if (mtOrder && totalTransfersIn === 0) {
+          inTransitDisplay = `+${mtOrder.qty} MT`;
+        } else if (totalInTransit % 1 !== 0) {
+          inTransitDisplay = `+${Math.round(totalInTransit * 10) / 10} MT`;
+        } else {
+          inTransitDisplay = `+${formatNumber(totalInTransit)}`;
+        }
+      }
+
       return {
         godown: g,
         status,
@@ -415,7 +456,8 @@ export default function GridPulseDashboard() {
         bufferPct,
         bufferRatio,
         totalIssues,
-        totalTransfersIn: totalTransfersIn + liveInTransit,
+        totalTransfersIn: totalInTransit,
+        inTransitDisplay,
         strandedSetsCount,
         criticalBottlenecks,
       };
@@ -1121,7 +1163,7 @@ export default function GridPulseDashboard() {
                           </div>
                           <div>
                             <div className="text-[10px] text-slate-500">In Transit</div>
-                            <div className="font-bold text-cyan-400">+{formatNumber(ds.totalTransfersIn)}</div>
+                            <div className="font-bold text-cyan-400">{ds.inTransitDisplay}</div>
                           </div>
                         </div>
                       </div>
@@ -1137,7 +1179,7 @@ export default function GridPulseDashboard() {
                 })}
 
                 {/* Onboarded Project Sites with Deterministic Lead-Time Back-Scheduler */}
-                {customSites.map((cs) => {
+                {uniqueCustomSites.map((cs) => {
                   const isCritical = cs.status === "critical";
                   const isWarning = cs.status === "warning";
 
@@ -1714,14 +1756,32 @@ export default function GridPulseDashboard() {
                       ))}
                     </div>
 
+                    {/* 6-District Godown Stranded Breakdown */}
+                    {s.godowns && (
+                      <div className="space-y-1.5 pt-2 border-t border-slate-800 text-xs font-mono">
+                        <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">
+                          District Godown Stranded Impact (6 Stores):
+                        </span>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 text-[10px]">
+                          {Object.entries(s.godowns).map(([gd, gData]: [string, any]) => (
+                            <div key={gd} className="bg-slate-950/80 p-1.5 rounded border border-slate-800/80 flex flex-col justify-between">
+                              <span className="text-slate-400 truncate">{gd.replace("KANPUR ", "")}</span>
+                              <span className="text-rose-400 font-bold">
+                                {formatNumber(gData.stranded_parents)} stranded
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {isBottlenecked && (
                       <div className="pt-3 border-t border-slate-800">
                         <button
                           onClick={() => handleOrderMissingChildKit(s)}
-                          className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition shadow flex items-center justify-center gap-1.5"
+                          className="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-lg shadow-emerald-950/50 flex items-center justify-center gap-1.5 border border-emerald-500/30"
                         >
-                          <Package className="w-3.5 h-3.5" />
-                          Order Missing Child Kit ({formatNumber(stranded)} sets)
+                          📦 Order Missing Child Kit ({formatNumber(stranded)} sets)
                         </button>
                       </div>
                     )}
@@ -1950,7 +2010,11 @@ export default function GridPulseDashboard() {
                               {formatNumber(bufferTarget)}
                             </td>
                             <td className="py-2.5 px-2 text-right font-mono text-cyan-400">
-                              {inTransitOrders > 0 ? `+${formatNumber(inTransitOrders)}` : "-"}
+                              {inTransitOrders > 0
+                                ? meta?.unit === "MT"
+                                  ? `+${inTransitOrders} MT`
+                                  : `+${formatNumber(inTransitOrders)}`
+                                : "-"}
                             </td>
                             <td className="py-2.5 px-2 text-center">
                               <button
@@ -1996,11 +2060,15 @@ export default function GridPulseDashboard() {
                     Active In-Transit Pipeline:
                   </span>
                   <div className="text-base font-bold text-cyan-400">
-                    +{formatNumber(
-                      liveOrders
-                        .filter((o) => o.godown === inspectedSite)
-                        .reduce((sum, o) => sum + o.qty, 0)
-                    )} units
+                    {(() => {
+                      const siteLive = liveOrders.filter((o) => o.godown === inspectedSite);
+                      const hasMt = siteLive.some((o) => o.unit === "MT");
+                      const sumQty = siteLive.reduce((sum, o) => sum + o.qty, 0);
+                      if (sumQty === 0) return "-";
+                      return hasMt && sumQty < 10
+                        ? `+${sumQty} MT (Hardware Kit)`
+                        : `+${formatNumber(sumQty)} units`;
+                    })()}
                   </div>
                 </div>
               </div>
@@ -2665,7 +2733,12 @@ export default function GridPulseDashboard() {
                     total_required_units: refreshedItems.reduce((acc, curr) => acc + curr.qty, 0),
                   };
 
-                  const updatedSites = [newSite, ...customSites];
+                  const updatedSites = [
+                    newSite,
+                    ...customSites.filter(
+                      (s) => s.name.trim().toUpperCase() !== newSite.name.trim().toUpperCase()
+                    ),
+                  ];
                   setCustomSites(updatedSites);
                   localStorage.setItem("gridpulse_custom_sites", JSON.stringify(updatedSites));
                   setNewSiteModalOpen(false);
