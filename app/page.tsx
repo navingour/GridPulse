@@ -70,6 +70,41 @@ import recommendationsData from "@/public/data/recommendations.json";
 import ledgerMonthlyData from "@/public/data/ledger_monthly.json";
 import movementsData from "@/public/data/movements.json";
 
+// Canonical item units strictly from items.csv (NOS, KG, MT — never PCS)
+const CANONICAL_UNITS: Record<string, string> = {
+  MEH050071: "NOS",
+  MLU020008: "NOS",
+  MLU020013: "NOS",
+  MNB010007: "KG",
+  MNB010128: "KG",
+  MNB010174: "MT",
+  MCA020009: "KM",
+  MCA090005: "NOS",
+  MCO010007: "NOS",
+  MEH050075: "NOS",
+  MPO010014: "NOS",
+  MRP070022: "MTR",
+  MRP070059: "NOS",
+  MRP070060: "SET",
+  MRP070064: "NOS",
+  MRP070065: "NOS",
+};
+
+const getCanonicalUnit = (itemCode: string, fallback?: string): string => {
+  const u = CANONICAL_UNITS[itemCode] || (summaryData.items as any)?.[itemCode]?.unit || fallback || "NOS";
+  return u === "PCS" ? "NOS" : u;
+};
+
+// Compute BOM child quantity: when child canonical unit is MT (e.g. MNB010174),
+// ratio in sets.csv is in KG per set -> convert KG / 1000 to MT rounded to 2 decimal places
+const computeChildBOMQty = (parentQty: number, ratio: number, childCode: string, fallbackUnit?: string): number => {
+  const unit = getCanonicalUnit(childCode, fallbackUnit);
+  if (unit === "MT") {
+    return Math.max(0.01, Math.round(((parentQty * ratio) / 1000) * 100) / 100);
+  }
+  return Math.max(1, Math.round(parentQty * ratio));
+};
+
 interface LiveOrder {
   id: string;
   po_number: string;
@@ -149,6 +184,11 @@ export default function GridPulseDashboard() {
   const [orderSubmitting, setOrderSubmitting] = useState<boolean>(false);
   const [orderToast, setOrderToast] = useState<{ message: string; po: string; eta: string } | null>(null);
 
+  // Tab 4 Kit Order Confirmation Modal & Dispatched PO Lock
+  const [kitConfirmModalSet, setKitConfirmModalSet] = useState<any | null>(null);
+  const [kitSubmitting, setKitSubmitting] = useState<boolean>(false);
+  const [dispatchedKitPos, setDispatchedKitPos] = useState<Record<string, string>>({});
+
   // Custom Project Sites & Lead-Time Back-Scheduler State
   const [customSites, setCustomSites] = useState<CustomSite[]>([]);
   const [newSiteModalOpen, setNewSiteModalOpen] = useState<boolean>(false);
@@ -211,7 +251,7 @@ export default function GridPulseDashboard() {
             godown: "KANPUR NAGAR",
             item_code: "MPO010014",
             item_name: "PCC POLE 8.5 MTR 180 KG",
-            unit: "PCS",
+            unit: "NOS",
             qty: 82,
             lead_time_days: 150,
             expected_delivery_date: "2027-04-19",
@@ -324,6 +364,16 @@ export default function GridPulseDashboard() {
 
         setCustomSites([initialSite]);
         localStorage.setItem("gridpulse_custom_sites", JSON.stringify([initialSite]));
+      }
+
+      // Hydrate dispatched kit PO locks
+      const savedKits = localStorage.getItem("gridpulse_dispatched_kits");
+      if (savedKits) {
+        try {
+          setDispatchedKitPos(JSON.parse(savedKits));
+        } catch (e) {
+          console.warn("Failed to parse dispatched kits", e);
+        }
       }
     } catch (e) {
       console.warn("localStorage unavailable", e);
@@ -477,6 +527,7 @@ export default function GridPulseDashboard() {
     const trId = `TR-LUM-2026-${Math.floor(100 + Math.random() * 900)}`;
     const todayStr = new Date().toISOString().split("T")[0];
 
+    const canonicalUnit = getCanonicalUnit(rec.item_code, rec.unit);
     const outTx: LiveOrder = {
       id: `tx-out-${Date.now()}`,
       po_number: trId,
@@ -484,7 +535,7 @@ export default function GridPulseDashboard() {
       godown: rec.from_godown,
       item_code: rec.item_code,
       item_name: rec.item_name,
-      unit: rec.unit,
+      unit: canonicalUnit,
       qty: qty,
       lead_time_days: 1,
       expected_delivery_date: todayStr,
@@ -499,7 +550,7 @@ export default function GridPulseDashboard() {
       godown: rec.to_godown,
       item_code: rec.item_code,
       item_name: rec.item_name,
-      unit: rec.unit,
+      unit: canonicalUnit,
       qty: qty,
       lead_time_days: 1,
       expected_delivery_date: todayStr,
@@ -539,6 +590,7 @@ export default function GridPulseDashboard() {
     const trId = `TR-LUM-2026-${Math.floor(100 + Math.random() * 900)}`;
     const todayStr = new Date().toISOString().split("T")[0];
 
+    const canonicalUnit = getCanonicalUnit(rec.item_code, rec.unit);
     const outTx: LiveOrder = {
       id: `tx-out-${Date.now()}`,
       po_number: trId,
@@ -546,7 +598,7 @@ export default function GridPulseDashboard() {
       godown: donor,
       item_code: rec.item_code,
       item_name: rec.item_name,
-      unit: rec.unit,
+      unit: canonicalUnit,
       qty: qty,
       lead_time_days: 1,
       expected_delivery_date: todayStr,
@@ -561,7 +613,7 @@ export default function GridPulseDashboard() {
       godown: rec.to_godown,
       item_code: rec.item_code,
       item_name: rec.item_name,
-      unit: rec.unit,
+      unit: canonicalUnit,
       qty: qty,
       lead_time_days: 1,
       expected_delivery_date: todayStr,
@@ -848,20 +900,24 @@ export default function GridPulseDashboard() {
             godown: inspectedSite,
             item_code: orderModalItem.item_code,
             item_name: orderModalItem.item_name,
-            unit: orderModalItem.unit,
+            unit: getCanonicalUnit(orderModalItem.item_code, orderModalItem.unit),
             qty: orderQtyInput,
             lead_time_days: orderModalItem.lead_time_days,
             urgency: "HIGH (Parent Component)",
           },
-          ...parentChildren.map((ch: any) => ({
-            godown: inspectedSite,
-            item_code: ch.child_code,
-            item_name: ch.child_name,
-            unit: ch.child_unit,
-            qty: Math.max(0.1, Math.round(orderQtyInput * ch.official_ratio * 10) / 10),
-            lead_time_days: (summaryData.items as any)[ch.child_code]?.lead_time_days || 60,
-            urgency: "HIGH (Synchronized BOM Kit Line)",
-          })),
+          ...parentChildren.map((ch: any) => {
+            const canonicalUnit = getCanonicalUnit(ch.child_code, ch.child_unit);
+            const computedQty = computeChildBOMQty(orderQtyInput, ch.official_ratio, ch.child_code, canonicalUnit);
+            return {
+              godown: inspectedSite,
+              item_code: ch.child_code,
+              item_name: ch.child_name,
+              unit: canonicalUnit,
+              qty: computedQty,
+              lead_time_days: (summaryData.items as any)[ch.child_code]?.lead_time_days || 60,
+              urgency: "HIGH (Synchronized BOM Kit Line)",
+            };
+          }),
         ];
 
         payload = {
@@ -874,7 +930,7 @@ export default function GridPulseDashboard() {
           godown: inspectedSite,
           item_code: orderModalItem.item_code,
           item_name: orderModalItem.item_name,
-          unit: orderModalItem.unit,
+          unit: getCanonicalUnit(orderModalItem.item_code, orderModalItem.unit),
           qty: orderQtyInput,
           lead_time_days: orderModalItem.lead_time_days,
           urgency: "HIGH (Site JIT Trigger)",
@@ -908,53 +964,9 @@ export default function GridPulseDashboard() {
     }
   };
 
-  // 1-Click Order Missing Child Kit from Stranded Set Card
-  const handleOrderMissingChildKit = async (s: any) => {
-    const strandedQty = ratioMode === "official" ? s.stranded_official : s.stranded_empirical;
-    if (strandedQty <= 0) return;
-
-    const kitPo = `PO-KIT-2026-${Math.floor(100 + Math.random() * 900)}`;
-    const kitItems = s.children.map((ch: any) => {
-      const ratio = ratioMode === "official" ? ch.official_ratio : ch.empirical_ratio;
-      const neededQty = Math.max(0.5, Math.round(strandedQty * ratio * 10) / 10);
-      return {
-        godown: "KANPUR DEHAT",
-        item_code: ch.child_code,
-        item_name: ch.child_name,
-        unit: ch.child_unit,
-        qty: neededQty,
-        lead_time_days: (summaryData.items as any)[ch.child_code]?.lead_time_days || 60,
-        urgency: "CRITICAL (Unfreeze Stranded Parent Set)",
-      };
-    });
-
-    try {
-      const res = await fetch("/api/orders", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          godown: "KANPUR DEHAT",
-          po_number: kitPo,
-          items: kitItems,
-        }),
-      });
-
-      const data = await res.json();
-      if (data.success && data.orders) {
-        const updated = [...data.orders, ...liveOrders];
-        setLiveOrders(updated);
-        localStorage.setItem("gridpulse_live_txs", JSON.stringify(updated));
-
-        setOrderToast({
-          message: `Synchronized Child Kit ${kitPo} Placed for ${s.parent_name}`,
-          po: kitPo,
-          eta: data.orders[0]?.expected_delivery_date || "2027-02-19",
-        });
-        setTimeout(() => setOrderToast(null), 6000);
-      }
-    } catch (e) {
-      console.error("Kit order failed", e);
-    }
+  // Open Kit Order Confirmation Modal from Stranded Set Card (Tab 4)
+  const handleOpenKitConfirmModal = (s: any) => {
+    setKitConfirmModalSet(s);
   };
 
   // Auto-detected alerts for selected month
@@ -2194,12 +2206,20 @@ export default function GridPulseDashboard() {
 
                     {isBottlenecked && (
                       <div className="pt-3 border-t border-slate-800">
-                        <button
-                          onClick={() => handleOrderMissingChildKit(s)}
-                          className="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-lg shadow-emerald-950/50 flex items-center justify-center gap-1.5 border border-emerald-500/30"
-                        >
-                          📦 Order Missing Child Kit ({formatNumber(stranded)} sets)
-                        </button>
+                        {dispatchedKitPos[`${selectedMonth}_${s.parent_code}`] ? (
+                          <div className="w-full py-2.5 rounded-lg bg-emerald-950/70 border border-emerald-500/50 text-emerald-300 font-mono text-xs flex items-center justify-center gap-2 font-bold shadow-sm">
+                            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                            ✓ Kit PO Dispatched ({dispatchedKitPos[`${selectedMonth}_${s.parent_code}`]})
+                          </div>
+                        ) : (
+                          <button
+                            onClick={() => handleOpenKitConfirmModal(s)}
+                            disabled={kitSubmitting}
+                            className="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-white font-bold text-xs transition shadow-lg shadow-emerald-950/50 flex items-center justify-center gap-1.5 border border-emerald-500/30"
+                          >
+                            📦 Order Missing Child Kit ({formatNumber(stranded)} sets)
+                          </button>
+                        )}
                       </div>
                     )}
                   </div>
@@ -2737,11 +2757,12 @@ export default function GridPulseDashboard() {
                         </p>
                         <div className="space-y-1 text-[11px] font-mono">
                           {parentChildren.map((ch: any) => {
+                            const canonicalUnit = getCanonicalUnit(ch.child_code, ch.child_unit);
                             const childOnHand = (currentLedger.items as any)?.[ch.child_code]?.godowns?.[inspectedSite]?.closing_yard_stock || 0;
                             const childInTransit = liveOrders
                               .filter((o) => o.godown === inspectedSite && o.item_code === ch.child_code)
                               .reduce((sum, o) => sum + o.qty, 0);
-                            const reqQty = Math.max(0.1, Math.round(orderQtyInput * ch.official_ratio * 10) / 10);
+                            const reqQty = computeChildBOMQty(orderQtyInput, ch.official_ratio, ch.child_code, canonicalUnit);
                             const isShort = childOnHand + childInTransit < reqQty;
 
                             return (
@@ -2750,7 +2771,7 @@ export default function GridPulseDashboard() {
                                   {ch.child_name} ({ch.child_code})
                                 </span>
                                 <span className={isShort ? "text-rose-400 font-bold" : "text-emerald-400 font-bold"}>
-                                  +{reqQty} {ch.child_unit} {isShort ? "(Deficit Bundled)" : "(Matched)"}
+                                  +{reqQty} {canonicalUnit} {isShort ? "(Deficit Bundled)" : "(Matched)"}
                                 </span>
                               </div>
                             );
@@ -3127,6 +3148,149 @@ export default function GridPulseDashboard() {
       )}
 
       {/* ========================================================= */}
+      {/* MODAL: KIT ORDER CONFIRMATION & BOM CONVERSION (TAB 4)   */}
+      {/* ========================================================= */}
+      {kitConfirmModalSet && (() => {
+        const s = kitConfirmModalSet;
+        const strandedQty = ratioMode === "official" ? s.stranded_official : s.stranded_empirical;
+        const kitPo = `PO-KIT-2026-${Math.floor(100 + Math.random() * 900)}`;
+
+        const lines = s.children.map((ch: any) => {
+          const rawRatio = ratioMode === "official" ? ch.official_ratio : ch.empirical_ratio;
+          const canonicalUnit = getCanonicalUnit(ch.child_code, ch.child_unit);
+          const computedQty = computeChildBOMQty(strandedQty, rawRatio, ch.child_code, canonicalUnit);
+
+          return {
+            godown: "KANPUR DEHAT",
+            item_code: ch.child_code,
+            item_name: ch.child_name,
+            unit: canonicalUnit,
+            qty: computedQty,
+            raw_ratio: rawRatio,
+            lead_time_days: (summaryData.items as any)[ch.child_code]?.lead_time_days || 60,
+            urgency: "CRITICAL (Unfreeze Stranded Parent Set)",
+          };
+        });
+
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 overflow-y-auto">
+            <div className="w-full max-w-xl bg-[#0e1424] border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-5">
+              <div className="flex items-start justify-between border-b border-slate-800 pb-4">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-1">
+                    <Package className="w-3.5 h-3.5" /> Synchronized BOM Kit Order
+                  </div>
+                  <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                    Confirm Kit Purchase Order
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Unfreezes <strong>{formatNumber(strandedQty)} stranded {s.parent_name}</strong> sets ({ratioMode === "official" ? "Official sets.csv" : "Empirical Site"} Ratio).
+                  </p>
+                </div>
+                <button
+                  onClick={() => setKitConfirmModalSet(null)}
+                  disabled={kitSubmitting}
+                  className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Kit Details Breakdown */}
+              <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-3">
+                <div className="flex justify-between items-center text-xs font-mono border-b border-slate-800/80 pb-2">
+                  <span className="text-slate-400">Target Hub Store: <strong className="text-white">KANPUR DEHAT</strong></span>
+                  <span className="text-emerald-400 font-bold">PO #{kitPo}</span>
+                </div>
+
+                <div className="space-y-2">
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
+                    Calculated Child Components ({lines.length} Line Items):
+                  </span>
+                  {lines.map((it: any) => (
+                    <div key={it.item_code} className="flex justify-between items-center bg-slate-900/90 p-2.5 rounded-lg border border-slate-800/80 text-xs font-mono">
+                      <div>
+                        <div className="text-white font-bold">{it.item_code}</div>
+                        <div className="text-slate-400 text-[11px] truncate max-w-[240px]">{it.item_name}</div>
+                        <div className="text-[10px] text-slate-500">Ratio: {it.raw_ratio} / set • Lead Time: {it.lead_time_days}d</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-sm font-black text-emerald-300">
+                          +{formatNumber(it.qty)} <span className="text-xs text-slate-400">{it.unit}</span>
+                        </div>
+                        {it.unit === "MT" && (
+                          <div className="text-[10px] text-cyan-400 font-sans">
+                            {formatNumber(Math.round(it.qty * 1000))} KG converted
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setKitConfirmModalSet(null)}
+                  disabled={kitSubmitting}
+                  className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  disabled={kitSubmitting}
+                  onClick={async () => {
+                    setKitSubmitting(true);
+                    try {
+                      const res = await fetch("/api/orders", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          godown: "KANPUR DEHAT",
+                          po_number: kitPo,
+                          items: lines,
+                        }),
+                      });
+                      const data = await res.json();
+                      if (data.success && data.orders) {
+                        const updated = [...data.orders, ...liveOrders];
+                        setLiveOrders(updated);
+                        localStorage.setItem("gridpulse_live_txs", JSON.stringify(updated));
+
+                        const lockKey = `${selectedMonth}_${s.parent_code}`;
+                        const nextDispatched = { ...dispatchedKitPos, [lockKey]: kitPo };
+                        setDispatchedKitPos(nextDispatched);
+                        localStorage.setItem("gridpulse_dispatched_kits", JSON.stringify(nextDispatched));
+
+                        setOrderToast({
+                          message: `Synchronized Child Kit ${kitPo} Placed for ${s.parent_name}`,
+                          po: kitPo,
+                          eta: data.orders[0]?.expected_delivery_date || "2027-02-19",
+                        });
+                        setTimeout(() => setOrderToast(null), 6000);
+                      }
+                    } catch (e) {
+                      console.error("Kit order failed", e);
+                    } finally {
+                      setKitSubmitting(false);
+                      setKitConfirmModalSet(null);
+                    }
+                  }}
+                  className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-white font-bold text-xs transition shadow-lg shadow-emerald-950/50 flex items-center gap-2 border border-emerald-500/30"
+                >
+                  {kitSubmitting ? <RefreshCw className="w-4 h-4 animate-spin" /> : <ShoppingCart className="w-4 h-4" />}
+                  Confirm Kit PO ({lines.length} Line Items)
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* ========================================================= */}
       {/* MODAL: + NEW PROJECT SITE ONBOARDING & BACK-SCHEDULER     */}
       {/* ========================================================= */}
       {newSiteModalOpen && (
@@ -3346,7 +3510,7 @@ export default function GridPulseDashboard() {
                         const newItem: CustomSiteItem = {
                           item_code: formItemCode,
                           item_name: meta?.item_name || formItemCode,
-                          unit: meta?.unit || "UNITS",
+                          unit: getCanonicalUnit(formItemCode, meta?.unit),
                           qty: Number(formItemQty),
                           lead_time_days: meta?.lead_time_days || 30,
                           must_order_by: sched.must_order_by,
@@ -3358,15 +3522,16 @@ export default function GridPulseDashboard() {
 
                         if (isParent) {
                           parentChildren.forEach((ch: any) => {
+                            const childUnit = getCanonicalUnit(ch.child_code, ch.child_unit);
                             const childMeta = (summaryData.items as any)[ch.child_code];
                             const childLead = childMeta?.lead_time_days || 60;
                             const childSched = calculateItemSlack(childLead, siteFormReqDate);
-                            const childQty = Math.max(0.1, Math.round(Number(formItemQty) * ch.official_ratio * 10) / 10);
+                            const childQty = computeChildBOMQty(Number(formItemQty), ch.official_ratio, ch.child_code, childUnit);
                             if (!nextStaged.some((i) => i.item_code === ch.child_code)) {
                               nextStaged.push({
                                 item_code: ch.child_code,
                                 item_name: ch.child_name,
-                                unit: ch.child_unit,
+                                unit: childUnit,
                                 qty: childQty,
                                 lead_time_days: childLead,
                                 must_order_by: childSched.must_order_by,
@@ -3400,14 +3565,18 @@ export default function GridPulseDashboard() {
                         </span>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 font-mono text-[10px]">
-                        {parentChildren.map((ch: any) => (
-                          <div key={ch.child_code} className="bg-slate-950 p-1.5 rounded flex justify-between items-center text-slate-300">
-                            <span className="truncate max-w-[180px]">{ch.child_name} ({ch.child_code})</span>
-                            <span className="text-amber-400 font-bold">
-                              +{Math.max(0.1, Math.round(formItemQty * ch.official_ratio * 10) / 10)} {ch.child_unit}
-                            </span>
-                          </div>
-                        ))}
+                        {parentChildren.map((ch: any) => {
+                          const childUnit = getCanonicalUnit(ch.child_code, ch.child_unit);
+                          const childQty = computeChildBOMQty(Number(formItemQty), ch.official_ratio, ch.child_code, childUnit);
+                          return (
+                            <div key={ch.child_code} className="bg-slate-950 p-1.5 rounded flex justify-between items-center text-slate-300">
+                              <span className="truncate max-w-[180px]">{ch.child_name} ({ch.child_code})</span>
+                              <span className="text-amber-400 font-bold">
+                                +{childQty} {childUnit}
+                              </span>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   );

@@ -1,5 +1,29 @@
 import { NextResponse } from "next/server";
 
+const CANONICAL_UNITS: Record<string, string> = {
+  MEH050071: "NOS",
+  MLU020008: "NOS",
+  MLU020013: "NOS",
+  MNB010007: "KG",
+  MNB010128: "KG",
+  MNB010174: "MT",
+  MCA020009: "KM",
+  MCA090005: "NOS",
+  MCO010007: "NOS",
+  MEH050075: "NOS",
+  MPO010014: "NOS",
+  MRP070022: "MTR",
+  MRP070059: "NOS",
+  MRP070060: "SET",
+  MRP070064: "NOS",
+  MRP070065: "NOS",
+};
+
+function getCanonicalUnit(itemCode: string, fallback?: string): string {
+  const u = CANONICAL_UNITS[itemCode] || fallback || "NOS";
+  return u === "PCS" ? "NOS" : u;
+}
+
 // In-memory orders storage for the server session
 let activeOrders: any[] = [
   {
@@ -9,7 +33,7 @@ let activeOrders: any[] = [
     godown: "KANPUR NAGAR",
     item_code: "MPO010014",
     item_name: "PCC POLE 8.5 MTR 180 KG",
-    unit: "PCS",
+    unit: "NOS",
     qty: 82,
     lead_time_days: 150,
     expected_delivery_date: "2027-04-19",
@@ -75,7 +99,7 @@ export async function POST(req: Request) {
           godown: (it.godown || kitGodown).toUpperCase(),
           item_code: it.item_code,
           item_name: it.item_name || it.item_code,
-          unit: it.unit || "UNITS",
+          unit: getCanonicalUnit(it.item_code, it.unit),
           qty: Number(it.qty),
           lead_time_days: ltDays,
           expected_delivery_date: deliveryDate.toISOString().split("T")[0],
@@ -119,7 +143,7 @@ export async function POST(req: Request) {
       godown: godown.toUpperCase(),
       item_code,
       item_name: item_name || item_code,
-      unit: unit || "UNITS",
+      unit: getCanonicalUnit(item_code, unit),
       qty: Number(qty),
       lead_time_days: ltDays,
       expected_delivery_date: deliveryDate.toISOString().split("T")[0],
